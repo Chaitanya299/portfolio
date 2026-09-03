@@ -40,3 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .gstack/
+
+# local agent tooling (not part of the app)
+.rtk/
+.agents/
+.claudeignore
+.claude/skills/
+.claude/hooks/
+.claude/launch.json

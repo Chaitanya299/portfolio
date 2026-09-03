@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 import { ProjectCard } from "./ProjectCard";
 import { PORTFOLIO } from "@/lib/portfolio-data";
 
+const SPAN_PATTERN = ["md:col-span-2", "md:col-span-1", "md:col-span-1", "md:col-span-2"];
+
 export function Projects() {
-  const [p1, p2, p3] = PORTFOLIO.projects;
 
   return (
     <section id="projects" className="relative scroll-mt-24 px-4 py-24">
@@ -19,7 +20,7 @@ export function Projects() {
             / 02 : Selected Work
           </div>
           <h2 className="max-w-2xl text-balance text-3xl font-bold tracking-tight sm:text-5xl font-display">
-            Three systems. Each <span className="text-primary">architected & instrumented.</span>
+            Selected systems. Each <span className="text-primary">architected & instrumented.</span>
           </h2>
         </motion.div>
 
@@ -31,9 +32,14 @@ export function Projects() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="grid grid-cols-1 gap-4 md:grid-cols-3 md:auto-rows-fr"
         >
-          <ProjectCard project={p1} index={1} className="md:col-span-2" />
-          <ProjectCard project={p2} index={2} className="md:col-span-1 md:row-span-2" />
-          <ProjectCard project={p3} index={3} className="md:col-span-2" />
+          {PORTFOLIO.projects.map((project, i) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={i + 1}
+              className={SPAN_PATTERN[i % SPAN_PATTERN.length]}
+            />
+          ))}
         </motion.div>
       </div>
     </section>

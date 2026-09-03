@@ -1,23 +1,6 @@
-import { mutation, query } from "./_generated/server";
+import { mutation } from "./_generated/server";
 import { v } from "convex/values";
 import { api } from "./_generated/api";
-
-export const listDocuments = query({
-  handler: async (ctx) => {
-    return await ctx.db.query("documents").collect();
-  },
-});
-
-export const addDocument = mutation({
-  args: {
-    title: v.string(),
-    content: v.string(),
-    type: v.string(),
-  },
-  handler: async (ctx, args) => {
-    await ctx.db.insert("documents", args);
-  },
-});
 
 export const submitInquiry = mutation({
   args: {
@@ -78,25 +61,5 @@ export const submitInquiry = mutation({
     });
 
     return { success: true, id };
-  },
-});
-
-export const getResponse = query({
-  args: { message: v.string() },
-  handler: async (ctx, args) => {
-    const docs = await ctx.db.query("documents").collect();
-
-    // Simple RAG logic - searching for keywords in documents
-    const queryStr = args.message.toLowerCase();
-    const relevantDocs = docs.filter(doc =>
-      doc.content.toLowerCase().includes(queryStr) ||
-      doc.title.toLowerCase().includes(queryStr)
-    );
-
-    if (relevantDocs.length > 0) {
-      return relevantDocs[0].content;
-    }
-
-    return "I'm your system assistant. I can answer questions about Sai's projects like Livekit_voiceAgent, RAG-LLM, or his experience in AI and DevOps.";
   },
 });

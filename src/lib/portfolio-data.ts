@@ -50,91 +50,118 @@ export const PORTFOLIO = {
   name: "Sai Chaitanya Parasana",
   short: "Sai Chaitanya",
   role: "Full Stack & AI Engineer",
-  bio: "I design and deploy AI-native systems with a focus on real-time inference, high-throughput RAG architectures, and automated DevOps infrastructure.",
+  bio: "I build real-time, AI-native systems, from voice agents on WebRTC to retrieval-augmented LLMs and containerized DevOps pipelines.",
   location: "Available for high-impact technical roles & freelance",
   email: "chaitanya.sai311@gmail.com",
   socials: [
     { label: "GitHub", url: "https://github.com/Chaitanya299" },
     { label: "LinkedIn", url: "https://www.linkedin.com/in/saichaitanyaparasana" },
-
     { label: "Email", url: "mailto:chaitanya.sai311@gmail.com" },
   ] satisfies Social[],
   projects: [
     {
-      id: "livekit-voice-agent",
-      title: "Livekit_voiceAgent",
-      tagline: "Real-time voice AI on WebRTC",
+      id: "k8s-gitops-lab",
+      title: "AI Platform: Kubernetes GitOps",
+      tagline: "GitOps deploys to Kubernetes, no kubectl after setup",
       description:
-        "Sub-300ms voice agent built on LiveKit + WebRTC with streaming STT, LLM reasoning, and TTS pipelined for natural turn-taking.",
-      stack: ["Python", "LiveKit", "WebRTC", "Mistral AI", "Deepgram", "FastAPI"],
-      github: "https://github.com/Chaitanya299/Livekit_voiceAgent.git",
+        "A Next.js dashboard + FastAPI control plane that ships the AI agent you've built. Helm values are committed to Gitea, ArgoCD reconciles a local kind cluster, and Prometheus + Grafana handle observability.",
+      stack: ["Kubernetes", "ArgoCD", "FastAPI", "Next.js", "Helm", "Gitea", "Prometheus"],
+      github: "https://github.com/Chaitanya299/k8s-gitops-lab",
       span: "wide",
       deepDive: {
         architecture:
-          "WebRTC (LiveKit) → VAD + turn detection → streaming STT → streaming LLM → streaming TTS → audio response. Orchestrated via LiveKit Agents with stateless workers and session-based context.",
+          "Dashboard → FastAPI control plane → Gitea (git is the source of truth) → ArgoCD → Kubernetes. The backend holds read-only k8s RBAC, so the cluster can never drift from what's committed.",
         performance:
-          "~300–500ms end-to-end latency via fully streaming pipeline (overlapping STT, LLM, TTS instead of sequential execution).",
+          "The whole platform boots on a laptop with `make up` (kind cluster, local registry, ArgoCD, Gitea and kube-prometheus-stack), with no cloud account required.",
         challenge:
-          "Real-time interruption (barge-in): detecting intent mid-speech and cancelling in-flight generation without breaking audio continuity.",
+          "The deploy assistant reads workload-controlled data (pod logs print anything), so guardrails are structural: no write tools, server-side re-validation, secret redaction at the boundary, and a human clicks Deploy. A prompt-injected log line cannot become a commit.",
       },
     },
     {
-      id: "rag-llm",
-      title: "RAG-LLM",
-      tagline: "Custom RAG with LlamaIndex + Google Gemini",
+      id: "vellum",
+      title: "Vellum",
+      tagline: "macOS menu-bar paper-texture screen filter",
       description:
-        "A focused Retrieval-Augmented Generation system using LlamaIndex to process and index PDF documents for grounded, intelligent Q&A powered by Google's Generative AI.",
-      stack: ["Python", "LlamaIndex", "Google Gemini", "PyPDF"],
-      github: "https://github.com/Chaitanya299/RAG-LLM/tree/master",
+        "A menu-bar app that draws a procedural paper-grain overlay across every screen for eye protection: 12 textures, a circadian day/night schedule, and per-app exclusions.",
+      stack: ["Objective-C", "AppKit", "Core Graphics", "macOS"],
+      github: "https://github.com/Chaitanya299/Vellum",
       span: "tall",
       deepDive: {
         architecture:
-          "Document ingestion via PyPDF → Semantic indexing via LlamaIndex → Query engine integration with Google Gemini Pro for grounded response synthesis.",
+          "Singletons + hand-built AppKit (no Storyboards, no Auto Layout). OverlayManager creates one borderless window per NSScreen; TextureOverlayView runs a tint pass plus a tiled soft-light grain pass over procedurally generated, cached textures.",
         performance:
-          "Optimized retrieval precision by utilizing LlamaIndex's vector store index. Minimalist pipeline designed for high-fidelity extraction from complex PDF structures.",
+          "Cached texture images and explicit-frame views keep redraws cheap across multi-monitor setups and Space changes.",
         challenge:
-          "Managing context window efficiency when querying multiple long-form documents while maintaining response latency within production-grade thresholds.",
+          "Surviving other apps' fullscreen Spaces: accessory activation policy + CanJoinAllSpaces + screen-saver window level, while deliberately avoiding FullScreenAuxiliary, which would tie the overlay to our own fullscreen window.",
       },
     },
     {
-      id: "devops-calci",
-      title: "Devops-Calci",
-      tagline: "Hands-on DevOps learning platform with Node.js",
+      id: "scoreday",
+      title: "ScoreDay",
+      tagline: "Personal daily scoreboard with a deterministic recurrence engine",
       description:
-        "A Node.js calculator engineered for DevOps mastery, featuring a 6-phase implementation journey from local development to production-grade GitOps orchestration.",
-      stack: ["Node.js", "Docker", "GitHub Actions", "Kubernetes", "Argo CD", "KinD"],
-      github: "https://github.com/Chaitanya299/DevOps-calci.git",
+        "A Next.js 15 habit and goal tracker with seven recurrence types, occurrence-based completions, XP levelling and streaks, local-first on SQLite + Prisma.",
+      stack: ["Next.js 15", "TypeScript", "Prisma", "SQLite", "Tailwind", "Vitest"],
+      github: "https://github.com/Chaitanya299/ScoreDay",
+      span: "wide",
+      deepDive: {
+        architecture:
+          "recurrence.ts computes occurrences and a central status engine (NOT_DUE / DUE / COMPLETED / MISSED / UPCOMING / OVERDUE); scoring.ts derives scores from real occurrences and levels.ts maps XP to levels.",
+        performance:
+          "A unique (taskId, occurrenceDate) constraint makes double-completion impossible at the DB layer; weekly tasks key off their week's Monday, so one-per-week is enforced automatically.",
+        challenge:
+          "Scoring must never be 'points × 7': points are frozen snapshots at completion time so editing a task never rewrites history, all covered by a vitest suite.",
+      },
+    },
+    {
+      id: "orient",
+      title: "orient",
+      tagline: "A living map of what you're building: the why never scrolls away",
+      description:
+        "A Claude Code plugin (plus opencode commands and Codex skills) that keeps an always-current STATE.md, an append-only decision log of ADRs, and on-demand request tracing alongside your code. No network, no telemetry, runs entirely on your machine, drafts every write, and ships nothing until you approve.",
+      stack: ["Claude Code Plugin", "opencode", "Codex Skills", "TypeScript", "Node", "ADR"],
+      github: "https://github.com/Chaitanya299/Orient",
       span: "square",
       deepDive: {
         architecture:
-          "Node.js runtime → Multi-stage Dockerization → GitHub Actions CI (parallel matrix testing) → Kubernetes (KinD) manifests → Argo CD GitOps synchronization.",
+          "Six commands map to a docs/ tree: STATE.md (where am I?), architecture.md (entry points + module boundaries), and decisions/ (one append-only ADR per real call). init surveys the repo in a read-only subagent and can mine git history into candidate ADRs. status reads STATE.md alone; trace follows one path with file:line refs; decide writes an ADR and updates architecture.md to match; sync rewrites STATE.md from what actually changed.",
         performance:
-          "Achieved ~75% reduction in artifact size (50MB vs 200MB) via multi-stage builds. CI pipeline optimized for sub-minute execution across Node.js 18.x/20.x environments.",
+          "Always-on footprint is ~14 lines of pointers between ORIENT markers in your instructions file. Everything substantial (state, decisions, architecture) lives in files that only load when read, so it holds up on repos alive for years without degrading instruction-following.",
         challenge:
-          "Bridging the gap between manual K8s deployments and automated GitOps: configuring Argo CD for self-healing and automatic drift correction from the Git source.",
+          "It's built safe by design: no network, no telemetry, read-only survey agents, secret-blind (never opens .env or copies a key), a pre-commit nudge (not block) when a build manifest changes with no ADR, and commit refuses to ship a .env or detected key. Every write is a proposal the human reviews; the ADRs are AI-drafted drafts, not gospel.",
       },
     },
   ] satisfies Project[],
   upcoming: [
     {
-      id: "industrial-deploy",
-      title: "Industrial-Grade Deploy Pipeline",
-      tagline: "AWS · GitHub Actions · Scalable Infrastructure : industrial-grade rollout",
+      id: "monflow",
+      title: "MonFlow",
+      tagline: "Privacy-first UPI expense tracker: your bank data never leaves the phone",
       description:
-        "Migrating this Portfolio OS to industrial-grade infrastructure using AWS to demonstrate production-level engineering. Implementing a GitHub-triggered automated project sync system and advanced cinematic animations for a high-end, scalable user experience.",
-      stack: ["AWS", "GitHub Actions", "Docker", "Kubernetes", "Terraform", "ArgoCD"],
+        "A React Native app that turns UPI/bank SMS and notification alerts into a clean ledger. A Kotlin NotificationListenerService captures alerts into an encrypted SQLCipher (AES-256) vault; an on-device regex parser with a promotional filter extracts transactions; and a CRDT (Automerge) + Waku P2P engine handles bill splitting with zero servers.",
+      stack: ["React Native", "Kotlin", "SQLCipher", "Automerge CRDT", "Waku", "TypeScript"],
       status: "In Progress",
-      eta: "Q2 2026",
+      eta: "Q4 2026",
     },
     {
-      id: "domain-rag-builder",
-      title: "Domain-Aware RAG Builder",
-      tagline: "Enterprise RAG builder + domain-specific AI templates",
+      id: "jobautomator",
+      title: "JobAutomator",
+      tagline: "AI agent that fills job applications for you, human approves every submit",
       description:
-        "A comprehensive RAG Chatbot Builder that empowers SMEs to deploy domain-specific AI agents in under an hour. Features pre-built templates for hospitality, healthcare, and software sectors, engineered with industry-level security and data privacy protocols.",
-      stack: ["Convex", "Next.js", "OpenAI", "Vector DB", "TypeScript", "Tailwind"],
+        "A Chrome extension + FastAPI control plane that reads application forms, maps each field to your profile with an LLM, and autofills paginated multi-step flows. Resume parsing (PDF/DOCX), structured field-action schemas via Pydantic, and a side-panel review UI so nothing is submitted without your click.",
+      stack: ["FastAPI", "Chrome Extension", "LLM Agents", "Pydantic", "Python", "JavaScript"],
       status: "Beta",
-      eta: "Q1 2026",
+      eta: "Q3 2026",
+    },
+    {
+      id: "edge-slm-agent",
+      title: "Edge SLM Agent",
+      tagline: "Small language model + tool-use agent that runs fully on-device",
+      description:
+        "A quantized 1-3B SLM fine-tuned for tool calling, orchestrated by a local agent runtime with planning, memory, and retrieval over personal files. Targets laptop-class hardware: GGUF inference via llama.cpp, function-calling evals, and a sandboxed executor: private AI assistance with no API keys and no cloud round-trips.",
+      stack: ["SLM", "llama.cpp", "GGUF", "LoRA Fine-tuning", "Tool Use", "Python"],
+      status: "Planning",
+      eta: "Q1 2027",
     },
   ] satisfies UpcomingProject[],
   certificates: [
