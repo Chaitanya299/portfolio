@@ -536,37 +536,54 @@ function ContactForm() {
     const email = String(fd.get("email") || "").trim();
     const message = String(fd.get("message") || "").trim();
 
-    // Light guard only — the server is the source of truth and returns clear errors.
-    if (!name || !email.includes("@") || !message) {
-      setStatus({ text: "Please add your name, email, and a message.", tone: "error" });
+    // Field-specific checks so the visitor knows exactly what to fix.
+    if (!name) {
+      setStatus({ text: "Please add your name.", tone: "error" });
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus({ text: "That email does not look right. Please check it.", tone: "error" });
+      return;
+    }
+    if (!message) {
+      setStatus({ text: "Please add a short message about what you need.", tone: "error" });
       return;
     }
 
     setPhase("sending");
-    setStatus({ text: "On its way", tone: "" });
+    setStatus({ text: "Sending your message", tone: "" });
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, message, needs, budget: fd.get("budget"), timeline: fd.get("timeline") }),
       });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) {
-        setPhase("idle");
-        setStatus({ text: data?.error || "Something went wrong. Please try again.", tone: "error" });
+
+      if (res.ok) {
+        setPhase("done");
+        setStatus({ text: "Thanks. I will reply to that address soon.", tone: "ok" });
+        formRef.current?.reset();
+        setNeeds([]);
+        setTimeout(() => {
+          setPhase("idle");
+          setStatus({ text: "", tone: "" });
+        }, 4200);
         return;
       }
-      setPhase("done");
-      setStatus({ text: "Thanks. I will reply to that address.", tone: "ok" });
-      formRef.current?.reset();
-      setNeeds([]);
-      setTimeout(() => {
-        setPhase("idle");
-        setStatus({ text: "", tone: "" });
-      }, 4200);
+
+      // Map the failure to a message the visitor can act on.
+      const data = await res.json().catch(() => ({}));
+      setPhase("idle");
+      if (res.status === 429) {
+        setStatus({ text: "You have sent a few already. Please try again in a few minutes.", tone: "error" });
+      } else if (res.status >= 500) {
+        setStatus({ text: "Something went wrong on my end. Please email me directly instead.", tone: "error" });
+      } else {
+        setStatus({ text: data?.error || "Please check the form and try again.", tone: "error" });
+      }
     } catch {
       setPhase("idle");
-      setStatus({ text: "Network error. Please try again, or email me directly.", tone: "error" });
+      setStatus({ text: "Could not reach the server. Please try again, or email me directly.", tone: "error" });
     }
   };
 
