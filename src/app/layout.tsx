@@ -1,73 +1,93 @@
-import { ThemeProvider } from "@/components/theme-provider";
-import { ConvexClientProvider } from "@/components/ConvexClientProvider";
-import { Toaster } from "sonner";
 import "./globals.css";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import type { Metadata } from "next";
+import { Archivo, JetBrains_Mono } from "next/font/google";
+import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION, SOCIALS } from "@/lib/site";
 
-const inter = Inter({
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: '--font-inter',
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: '--font-space',
+  variable: "--font-archivo",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: '--font-mono',
+  variable: "--font-mono",
+  weight: ["400"],
+  display: "swap",
 });
 
-export const metadata = {
-  title: "Sai Chaitanya Parasana | Full Stack & AI Engineer",
-  description: "Portfolio of Sai Chaitanya Parasana: Building real-time AI agents, RAG systems, and DevOps automation.",
-  keywords: ["AI Engineer", "Full Stack Developer", "DevOps", "WebRTC", "RAG", "Next.js", "Sai Chaitanya"],
-  authors: [{ name: "Sai Chaitanya Parasana" }],
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  keywords: [
+    "Chaitanya Parasana",
+    "Sai Chaitanya Parasana",
+    "Full-stack engineer",
+    "AI engineer",
+    "AI agents",
+    "voice agents",
+    "Next.js developer",
+    "freelance developer",
+    "Hyderabad",
+  ],
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
   openGraph: {
-    title: "Sai Chaitanya Parasana | Full Stack & AI Engineer",
-    description: "Building real-time AI agents, RAG systems, and DevOps automation.",
-    url: process.env.NEXT_PUBLIC_APP_URL || "https://saichaitanyadev.vercel.app",
-    siteName: "Sai's Portfolio",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Sai Chaitanya Parasana Portfolio",
-      },
-    ],
-    locale: "en_US",
     type: "website",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sai Chaitanya Parasana | Full Stack & AI Engineer",
-    description: "Building real-time AI agents, RAG systems, and DevOps automation.",
-    creator: "@chaitanya_dev",
-    images: ["/og-image.png"],
+    title: SITE_TITLE,
+    description: "AI products that keep working after the demo is over.",
   },
+  category: "technology",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+// JSON-LD: describe the site owner as a Person so search engines resolve the entity.
+const personLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: SITE_NAME,
+  alternateName: "Sai Chaitanya Parasana",
+  url: SITE_URL,
+  jobTitle: "Full-Stack & AI Engineer",
+  description: SITE_DESCRIPTION,
+  address: { "@type": "PostalAddress", addressLocality: "Hyderabad", addressCountry: "IN" },
+  knowsAbout: [
+    "AI agents",
+    "Voice assistants",
+    "Small language models",
+    "Full-stack web development",
+    "Next.js",
+    "Kubernetes",
+    "macOS and mobile apps",
+  ],
+  sameAs: [SOCIALS.github, SOCIALS.linkedin],
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <ConvexClientProvider>
-            {children}
-            <Toaster position="top-right" expand={false} richColors theme="dark" />
-          </ConvexClientProvider>
-        </ThemeProvider>
+    <html lang="en" className={`${archivo.variable} ${jetbrainsMono.variable}`}>
+      <body>
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
+        />
       </body>
     </html>
   );

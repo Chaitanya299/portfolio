@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sai Chaitanya Parasana — Full-stack &amp; AI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: oklch(0.145 0.009 252); }
+  body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  a { color: oklch(0.945 0.006 95); text-decoration: none; }
+  a:hover { color: oklch(0.80 0.125 208); }
+  button { font: inherit; color: inherit; background: none; border: 0; padding: 0; }
+  input, textarea { font: inherit; }
+  ::selection { background: oklch(0.80 0.125 208 / 0.28); color: oklch(0.97 0 0); }
+  :focus-visible { outline: 1px solid oklch(0.80 0.125 208); outline-offset: 3px; }
+  @keyframes fldPulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.72); } }
+  @keyframes fldRipple { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(3.4); opacity: 0; } }
+  @keyframes fldShimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+  @keyframes fldSpin { to { transform: rotate(360deg); } }
+  @keyframes fldBlink { 0%,45% { opacity: 1; } 50%,95% { opacity: 0.12; } }
+  @keyframes fldScrollCue { 0% { transform: scaleY(0); transform-origin: top; } 45% { transform: scaleY(1); transform-origin: top; } 55% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+</style>
+</helmet>
+
+<div data-fld="viewport" style="position:fixed;inset:0;overflow:hidden;background:oklch(0.145 0.009 252);color:oklch(0.945 0.006 95);font-family:Archivo,'Helvetica Neue',Helvetica,sans-serif;font-size:16px;line-height:1.5;">
+
+  <canvas data-fld="canvas" style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:0;"></canvas>
+
+  <div aria-hidden="true" style="position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 85% at 50% 0%, transparent 25%, oklch(0.09 0.008 252 / 0.55) 100%);"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0;z-index:6;pointer-events:none;opacity:0.032;background-image:url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
+
+  <!-- ══ scrolling content ══ -->
+  <div data-fld="content" style="position:absolute;top:0;left:0;width:100%;z-index:2;will-change:transform;backface-visibility:hidden;">
+
+    <!-- ═════════ 00 OPENING ═════════ -->
+    <section data-fld="section" data-screen-label="00 Opening" data-title="Opening" style="position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(96px,15vh,170px) clamp(20px,5vw,88px) clamp(80px,11vh,110px);">
+      <div style="display:flex;flex-direction:column;gap:clamp(20px,3.4vh,40px);max-width:1600px;width:100%;margin:0 auto;">
+        <div data-reveal="1" style="display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(0.63 0.012 252);">
+          <span style="width:26px;height:1px;background:oklch(0.80 0.125 208);"></span>
+          <span>Full-stack &amp; AI Engineer</span>
+          <span style="color:oklch(0.42 0.012 252);">/</span>
+          <span>Hyderabad, IN</span>
+        </div>
+
+        <h1 data-reveal="1" data-split="chars" style="margin:0;font-size:clamp(3.1rem,11.4vw,11.5rem);font-weight:600;letter-spacing:-0.045em;line-height:0.85;text-transform:uppercase;color:oklch(0.945 0.006 95);">Sai Chaitanya<br />Parasana</h1>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,4vw,72px);align-items:end;border-top:1px solid oklch(0.285 0.012 252);padding-top:clamp(18px,2.6vh,30px);">
+          <p data-reveal="1" data-split="words" style="margin:0;max-width:44ch;font-size:clamp(1rem,1.32vw,1.28rem);line-height:1.55;color:oklch(0.72 0.012 252);text-wrap:pretty;">I build real-time, AI-native systems — voice agents on WebRTC, retrieval-augmented LLMs, and containerised delivery that holds up once real traffic arrives.</p>
+
+          <div data-reveal="1" style="display:flex;flex-direction:column;gap:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.63 0.012 252);">
+            <div style="display:flex;gap:10px;"><span style="color:oklch(0.66 0.012 252);">01</span><span>Real-time &amp; streaming</span></div>
+            <div style="display:flex;gap:10px;"><span style="color:oklch(0.66 0.012 252);">02</span><span>Retrieval &amp; agents</span></div>
+            <div style="display:flex;gap:10px;"><span style="color:oklch(0.66 0.012 252);">03</span><span>Platform &amp; delivery</span></div>
+          </div>
+
+          <div data-reveal="1" style="display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
+            <a href="#chapter-05" data-cursor="explore" data-cursor-label="Open&#10;channel" data-fld="cta" style="display:inline-flex;align-items:center;gap:16px;padding:13px 22px;border:1px solid oklch(0.285 0.012 252);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;white-space:nowrap;transition:border-color 0.5s cubic-bezier(0.16,1,0.3,1), background-color 0.5s cubic-bezier(0.16,1,0.3,1);">
+              <span>Start a project</span>
+              <span style="width:5px;height:5px;border-radius:50%;background:oklch(0.80 0.125 208);animation:fldPulse 2.4s ease-in-out infinite;"></span>
+            </a>
+            <div style="display:flex;align-items:center;gap:9px;white-space:nowrap;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(0.66 0.012 252);">
+              <span style="position:relative;display:inline-flex;width:6px;height:6px;">
+                <span style="position:absolute;inset:0;border-radius:50%;background:oklch(0.80 0.125 208);"></span>
+                <span style="position:absolute;inset:0;border-radius:50%;background:oklch(0.80 0.125 208);animation:fldRipple 2.6s ease-out infinite;"></span>
+              </span>
+              <span>Available — replies in 24h</span>
+            </div>
+          </div>
+        </div>
+
+        <div data-reveal="1" style="display:flex;align-items:center;gap:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(0.66 0.012 252);padding-top:6px;">
+          <span style="display:block;width:1px;height:34px;background:oklch(0.80 0.125 208);animation:fldScrollCue 2.8s cubic-bezier(0.65,0,0.35,1) infinite;"></span>
+          <span>Scroll to enter the field — six chapters</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ 01 ABOUT ═════════ -->
+    <section id="chapter-01" data-fld="section" data-screen-label="01 About" data-title="About" style="position:relative;min-height:100vh;padding:clamp(80px,14vh,180px) clamp(20px,5vw,88px);">
+      <div style="max-width:1600px;margin:0 auto;">
+        <div data-fld="chapter-head" style="position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;border-top:1px solid oklch(0.285 0.012 252);padding-top:18px;margin-bottom:clamp(48px,9vh,120px);">
+          <div style="display:flex;align-items:baseline;gap:clamp(16px,3vw,40px);">
+            <span data-fld="chapter-num" style="font-size:clamp(3.4rem,9vw,8rem);font-weight:700;line-height:0.8;letter-spacing:-0.05em;color:transparent;-webkit-text-stroke:1px oklch(0.40 0.012 252);">01</span>
+            <span data-reveal="1" data-split="chars" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:clamp(11px,1.1vw,13px);letter-spacing:0.3em;text-transform:uppercase;color:oklch(0.945 0.006 95);">About</span>
+          </div>
+          <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.66 0.012 252);">Strata</span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,110px);">
+          <div>
+            <h2 data-reveal="1" data-split="words" style="margin:0;font-size:clamp(1.9rem,4.6vw,4rem);font-weight:600;line-height:1.02;letter-spacing:-0.032em;max-width:19ch;text-wrap:pretty;">The gap between prototype and <span style="color:oklch(0.80 0.125 208);">production</span> is where I work.</h2>
+            <p data-reveal="1" data-split="words" style="margin:clamp(28px,4vh,48px) 0 0;max-width:48ch;font-size:clamp(1rem,1.2vw,1.16rem);line-height:1.62;color:oklch(0.70 0.012 252);text-wrap:pretty;">Most AI demos never survive contact with real traffic. I build the parts that do: the streaming pipeline, the retrieval layer, the deploy story, and the guardrails that keep them safe once real users arrive.</p>
+            <div data-reveal="1" style="margin-top:clamp(32px,5vh,56px);display:flex;flex-wrap:wrap;gap:10px;">
+              <span style="border:1px solid oklch(0.285 0.012 252);padding:7px 13px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.63 0.012 252);">WebRTC</span>
+              <span style="border:1px solid oklch(0.285 0.012 252);padding:7px 13px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.63 0.012 252);">RAG</span>
+              <span style="border:1px solid oklch(0.285 0.012 252);padding:7px 13px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.63 0.012 252);">Kubernetes</span>
+              <span style="border:1px solid oklch(0.285 0.012 252);padding:7px 13px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.63 0.012 252);">Next.js</span>
+              <span style="border:1px solid oklch(0.285 0.012 252);padding:7px 13px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.63 0.012 252);">FastAPI</span>
+              <span style="border:1px solid oklch(0.285 0.012 252);padding:7px 13px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(0.63 0.012 252);">TypeScript</span>
+            </div>
+          </div>
+
+          <div>
+            <div data-reveal="1" style="display:grid;grid-template-columns:clamp(38px,4vw,64px) 1fr;gap:0 clamp(16px,2.4vw,32px);border-top:1px solid oklch(0.285 0.012 252);padding:clamp(22px,3.4vh,34px) 0;">
+              <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:oklch(0.80 0.125 208);padding-top:6px;">01</span>
+              <div>
+                <h3 style="margin:0;font-size:clamp(1.15rem,1.7vw,1.5rem);font-weight:500;letter-spacing:-0.018em;">AI Engineering</h3>
+                <p style="margin:9px 0 0;max-width:46ch;font-size:0.97rem;line-height:1.58;color:oklch(0.66 0.012 252);">RAG, agents, fine-tuning and inference optimisation for production workloads.</p>
+              </div>
+            </div>
+            <div data-reveal="1" style="display:grid;grid-template-columns:clamp(38px,4vw,64px) 1fr;gap:0 clamp(16px,2.4vw,32px);border-top:1px solid oklch(0.285 0.012 252);padding:clamp(22px,3.4vh,34px) 0;">
+              <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:oklch(0.80 0.125 208);padding-top:6px;">02</span>
+              <div>
+                <h3 style="margin:0;font-size:clamp(1.15rem,1.7vw,1.5rem);font-weight:500;letter-spacing:-0.018em;">Realtime Systems</h3>
+                <p style="margin:9px 0 0;max-width:46ch;font-size:0.97rem;line-height:1.58;color:oklch(0.66 0.012 252);">Streaming pipelines, WebRTC, and low-latency audio/video for natural real-time AI interaction.</p>
+              </div>
+            </div>
+            <div data-reveal="1" style="display:grid;grid-template-columns:clamp(38px,4vw,64px) 1fr;gap:0 clamp(16px,2.4vw,32px);border-top:1px solid oklch(0.285 0.012 252);border-bottom:1px solid oklch(0.285 0.012 252);padding:clamp(22px,3.4vh,34px) 0;">
+              <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:oklch(0.80 0.125 208);padding-top:6px;">03</span>
+              <div>
+                <h3 style="margin:0;font-size:clamp(1.15rem,1.7vw,1.5rem);font-weight:500;letter-spacing:-0.018em;">Platform &amp; Infra</h3>
+                <p style="margin:9px 0 0;max-width:46ch;font-size:0.97rem;line-height:1.58;color:oklch(0.66 0.012 252);">Infrastructure-as-code, container orchestration and CI/CD for secure, scalable delivery.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ 02 SELECTED WORK ═════════ -->
+    <section id="chapter-02" data-fld="section" data-screen-label="02 Selected Work" data-title="Selected Work" style="position:relative;min-height:100vh;padding:clamp(80px,14vh,180px) clamp(20px,5vw,88px);">
+      <div style="max-width:1600px;margin:0 auto;">
+        <div data-fld="chapter-head" style="position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;border-top:1px solid oklch(0.285 0.012 252);padding-top:18px;margin-bottom:clamp(40px,7vh,90px);">
+          <div style="display:flex;align-items:baseline;gap:clamp(16px,3vw,40px);">
+            <span data-fld="chapter-num" style="font-size:clamp(3.4rem,9vw,8rem);font-weight:700;line-height:0.8;letter-spacing:-0.05em;color:transparent;-webkit-text-stroke:1px oklch(0.40 0.012 252);">02</span>
+            <span data-reveal="1" data-split="chars" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:clamp(11px,1.1vw,13px);letter-spacing:0.3em;text-transform:uppercase;color:oklch(0.945 0.006 95);">Selected Work</span>
+          </div>
+          <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.66 0.012 252);">Lattice — 04 systems</span>
+        </div>
+
+        <div data-fld="work-list" style="border-top:1px solid oklch(0.285 0.012 252);">
+
+          <article data-fld="work-row" data-preview="AI Platform — GitOps dashboard" style="position:relative;border-bottom:1px solid oklch(0.285 0.012 252);">
+            <button data-fld="work-toggle" data-cursor="project" data-cursor-label="View&#10;build" aria-expanded="false" style="display:grid;grid-template-columns:clamp(38px,4vw,64px) 1fr auto;gap:clamp(14px,2.4vw,32px);width:100%;text-align:left;padding:clamp(24px,4vh,44px) 0;cursor:pointer;">
+              <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:oklch(0.80 0.125 208);padding-top:12px;">01</span>
+              <span style="display:block;">
+                <span data-fld="work-title" style="display:block;font-size:clamp(1.55rem,4.1vw,3.3rem);font-weight:600;line-height:1.02;letter-spacing:-0.035em;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1),color 0.4s ease;">AI Platform: Kubernetes GitOps</span>
+                <span style="display:block;margin-top:12px;max-width:52ch;font-size:0.99rem;line-height:1.55;color:oklch(0.66 0.012 252);">GitOps deploys to Kubernetes — no kubectl after setup.</span>
+                <span style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(0.66 0.012 252);">
+                  <span>Kubernetes</span><span style="color:oklch(0.34 0.012 252);">·</span><span>ArgoCD</span><span style="color:oklch(0.34 0.012 252);">·</span><span>FastAPI</span><span style="color:oklch(0.34 0.012 252);">·</span><span>Next.js</span><span style="color:oklch(0.34 0.012 252);">·</span><span>Helm</span><span style="color:oklch(0.34 0.012 252);">·</span><span>Prometheus</span>
+                </span>
+              </span>
+              <span data-fld="work-plus" style="align-self:center;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid oklch(0.285 0.012 252);border-radius:50%;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1),border-color 0.4s ease;">
+                <span style="position:relative;display:block;width:11px;height:11px;">
+                  <span style="position:absolute;top:5px;left:0;width:11px;height:1px;background:oklch(0.75 0.012 252);"></span>
+                  <span data-fld="plus-v" style="position:absolute;top:0;left:5px;width:1px;height:11px;background:oklch(0.75 0.012 252);transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);"></span>
+                </span>
+              </span>
+            </button>
+            <div data-fld="work-panel" style="overflow:hidden;height:0;transition:height 0.62s cubic-bezier(0.16,1,0.3,1);">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,3vw,56px);padding:0 0 clamp(30px,4vh,50px);">
+                <div style="grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,2.6vw,44px);border-top:1px solid oklch(0.24 0.012 252);padding-top:clamp(20px,3vh,32px);">
+                  <div>
+                    <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.80 0.125 208);margin-bottom:10px;">Architecture</div>
+                    <p style="margin:0;font-size:0.93rem;line-height:1.6;color:oklch(0.68 0.012 252);">Dashboard → FastAPI control plane → Gitea (git is the source of truth) → ArgoCD → Kubernetes. The backend holds read-only k8s RBAC, so the cluster can never drift from what's committed.</p>
+                  </div>
+                  <div>
+                    <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.80 0.125 208);margin-bottom:10px;">What it wins</div>
+                    <p style="margin:0;font-size:0.93rem;line-height:1.6;color:oklch(0.68 0.012 252);">The whole platform boots on a laptop with <code style="font-family:'JetBrains Mono',monospace;font-size:0.86em;color:oklch(0.86 0.006 95);">make up</code> — kind cluster, local registry, ArgoCD, Gitea, kube-prometheus-stack. No cloud account required.</p>
+                  </div>
+                  <div>
+                    <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.80 0.125 208);margin-bottom:10px;">The hard part</div>
+                    <p style="margin:0;font-size:0.93rem;line-height:1.6;color:oklch(0.68 0.012 252);">The deploy assistant reads workload-controlled data, so guardrails are structural: no write tools, server-side re-validation, secret redaction at the boundary, and a human clicks Deploy. A prompt-injected log line cannot become a commit.</p>
+                  </div>
+                </div>
+                <div style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+                  <a href="https://github.com/Chaitanya299/k8s-gitops-lab" target="_blank" rel="noopener noreferrer" data-cursor="link" data-cursor-label="Open&#10;repo" style="display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid oklch(0.34 0.012 252);padding-bottom:4px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Repository <span style="font-size:12px;">&#8599;</span></a>
+                  <div data-fld="shot" style="flex:1 1 260px;min-width:220px;height:120px;border:1px solid oklch(0.24 0.012 252);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.64 0.012 252);background-image:repeating-linear-gradient(115deg, oklch(0.20 0.01 252) 0 1px, transparent 1px 9px);">Dashboard shot — drop image</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article data-fld="work-row" data-preview="Vellum — macOS menu-bar filter" style="position:relative;border-bottom:1px solid oklch(0.285 0.012 252);">
+            <button data-fld="work-toggle" data-cursor="project" data-cursor-label="View&#10;build" aria-expanded="false" style="display:grid;grid-template-columns:clamp(38px,4vw,64px) 1fr auto;gap:clamp(14px,2.4vw,32px);width:100%;text-align:left;padding:clamp(24px,4vh,44px) 0;cursor:pointer;">
+              <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:oklch(0.80 0.125 208);padding-top:12px;">02</span>
+              <span style="display:block;">
+                <span data-fld="work-title" style="display:block;font-size:clamp(1.55rem,4.1vw,3.3rem);font-weight:600;line-height:1.02;letter-spacing:-0.035em;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1),color 0.4s ease;">Vellum</span>
+                <span style="display:block;margin-top:12px;max-width:52ch;font-size:0.99rem;line-height:1.55;color:oklch(0.66 0.012 252);">A macOS menu-bar app that draws procedural paper grain over every screen.</span>
+                <span style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(0.66 0.012 252);">
+                  <span>Objective-C</span><span style="color:oklch(0.34 0.012 252);">·</span><span>AppKit</span><span style="color:oklch(0.34 0.012 252);">·</span><span>Core Graphics</span><span style="color:oklch(0.34 0.012 252);">·</span><span>macOS</span>
+                </span>
+              </span>
+              <span data-fld="work-plus" style="align-self:center;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid oklch(0.285 0.012 252);border-radius:50%;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1),border-color 0.4s ease;">
+                <span style="position:relative;display:block;width:11px;height:11px;">
+                  <span style="position:absolute;top:5px;left:0;width:11px;height:1px;background:oklch(0.75 0.012 252);"></span>
+                  <span data-fld="plus-v" style="position:absolute;top:0;left:5px;width:1px;height:11px;background:oklch(0.75 0.012 252);transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);"></span>
+                </span>
+              </span>
+            </button>
+            <div data-fld="work-panel" style="overflow:hidden;height:0;transition:height 0.62s cubic-bezier(0.16,1,0.3,1);">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,3vw,56px);padding:0 0 clamp(30px,4vh,50px);">
+                <div style="grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,2.6vw,44px);border-top:1px solid oklch(0.24 0.012 252);padding-top:clamp(20px,3vh,32px);">
+                  <div>
+                    <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.80 0.125 208);margin-bottom:10px;">Architecture</div>
+                    <p style="margin:0;font-size:0.93rem;line-height:1.6;color:oklch(0.68 0.012 252);">Singletons and hand-built AppKit — no Storyboards, no Auto Layout. OverlayManager creates one borderless window per NSScreen; TextureOverlayView runs a tint pass plus a tiled soft-light grain pass over cached procedural textures.</p>
+                  </div>
+                  <div>
+                    <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.80 0.125 208);margin-bottom:10px;">What it wins</div>
+                    <p style="margin:0;font-size:0.93rem;line-height:1.6;color:oklch(0.68 0.012 252);">Cached texture images and explicit-frame views keep redraws cheap across multi-monitor setups and Space changes. 12 textures, a circadian schedule, per-app exclusions.</p>
+                  </div>
+                  <div>
+                    <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.80 0.125 208);margin-bottom:10px;">The hard part</div>
+                    <p style="margin:0;font-size:0.93rem;line-height:1.6;color:oklch(0.68 0.012 252);">Surviving other apps' fullscreen Spaces: accessory activation policy + CanJoinAllSpaces + screen-saver window level, while deliberately avoiding FullScreenAuxiliary, which would tie the overlay to our own fullscreen window.</p>
+                  </div>
+                </div>
+                <div style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+                  <a href="https://github.com/Chaitanya299/Vellum" target="_blank" rel="noopener noreferrer" data-cursor="link" data-cursor-label="Open&#10;repo" style="display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid oklch(0.34 0.012 252);padding-bottom:4px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Repository <span style="font-size:12px;">&#8599;</span></a>
+                  <div data-fld="shot" style="flex:1 1 260px;min-width:220px;height:120px;border:1px solid oklch(0.24 0.012 252);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.64 0.012 252);background-image:repeating-linear-gradient(115deg, oklch(0.20 0.01 252) 0 1px, transparent 1px 9px);">Menu-bar shot — drop image</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article data-fld="work-row" data-preview="ScoreDay — daily scoreboard" style="position:relative;border-bottom:1px solid oklch(0.285 0.012 252);">
+            <button data-fld="work-toggle" data-cursor="project" data-cursor-label="View&#10;build" aria-expanded="false" style="display:grid;grid-template-columns:clamp(38px,4vw,64px) 1fr auto;gap:clamp(14px,2.4vw,32px);width:100%;text-align:left;padding:clamp(24px,4vh,44px) 0;cursor:pointer;">
+              <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:oklch(0.80 0.125 208);padding-top:12px;">03</span>
+              <span style="display:block;">
+                <span data-fld="work-title" style="display:block;font-size:clamp(1.55rem,4.1vw,3.3rem);font-weight:600;line-height:1.02;letter-spacing:-0.035em;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1),color 0.4s ease;">ScoreDay</span>
+                <span style="display:block;margin-top:12px;max-width:52ch;font-size:0.99rem;line-height:1.55;color:oklch(0.66 0.012 252);">A personal daily scoreboard with a deterministic recurrence engine.</span>
+                <span style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(0.66 0.012 252);">
+                  <span>Next.js 15</span><span style="color:oklch(0.34 0.012 252);">·</span><span>TypeScript</span><span style="color:oklch(0.34 0.012 252);">·</span><span>Prisma</span><span style="color:oklch(0.34 0.012 252);">·</span><span>SQLite</span><span style="color:oklch(0.34 0.012 252);">·</span><span>Vitest</span>
+                </span>
+              </span>
+              <span data-fld="work-plus" style="align-self:center;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid oklch(0.285 0.012 252);border-radius:50%;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1),border-color 0.4s ease;">
+                <span style="position:relative;display:block;width:11px;height:11px;">
+                  <span style="position:absolute;top:5px;left:0;width:11px;height:1px;background:oklch(0.75 0.012 252);"></span>
+                  <span data-fld="plus-v" style="position:absolute;top:0;left:5px;width:1px;height:11px;background:oklch(0.75 0.012 252);transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);"></span>
+                </span>
+              </span>
+            </button>
+            <div data-fld="work-panel" style="overflow:hidden;height:0;transition:height 0.62s cubic-bezier(0.16,1,0.3,1);">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,3vw,56px);padding:0 0 clamp(30px,4vh,50px);">
+                <div style="grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,2.6vw,44px);border-top:1px solid oklch(0.24 0.012 252);padding-top:clamp(20px,3vh,32px);">
+                  <div>
+                    <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.80 0.125 208);margin-bottom:10px;">Architecture</div>
+                    <p style="margin:0;font-size:0.93rem;line-height:1.6;color:oklch(0.68 0.012 252);">recurrence.ts computes occurrences; a central status engine resolves NOT_DUE / DUE / COMPLETED / MISSED / UPCOMING / OVERDUE; scoring.ts derives scores from real occurrences and levels.ts maps XP to levels.</p>
+                  </div>
+                  <div>
+                    <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.80 0.125 208);margin-bottom:10px;">What it wins</div>
+                    <p style="margin:0;font-size:0.93rem;line-height:1.6;color:oklch(0.68 0.012 252);">A unique (taskId, occurrenceDate) constraint makes double-completion impossible at the DB layer; weekly tasks key off their week's Monday, so one-per-week is enforced automatically.</p>
+                  </div>
+                  <div>
+                    <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.80 0.125 208);margin-bottom:10px;">The hard part</div>
+                    <p style="margin:0;font-size:0.93rem;line-height:1.6;color:oklch(0.68 0.012 252);">Scoring must never be "points × 7": points are frozen snapshots at completion time, so editing a task never rewrites history — all covered by a vitest suite.</p>
+                  </div>
+                </div>
+                <div style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+                  <a href="https://github.com/Chaitanya299/ScoreDay" target="_blank" rel="noopener noreferrer" data-cursor="link" data-cursor-label="Open&#10;repo" style="display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid oklch(0.34 0.012 252);padding-bottom:4px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Repository <span style="font-size:12px;">&#8599;</span></a>
+                  <div data-fld="shot" style="flex:1 1 260px;min-width:220px;height:120px;border:1px solid oklch(0.24 0.012 252);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.64 0.012 252);background-image:repeating-linear-gradient(115deg, oklch(0.20 0.01 252) 0 1px, transparent 1px 9px);">Scoreboard shot — drop image</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article data-fld="work-row" data-preview="orient — a living map of your build" style="position:relative;border-bottom:1px solid oklch(0.285 0.012 252);">
+            <button data-fld="work-toggle" data-cursor="project" data-cursor-label="View&#10;build" aria-expanded="false" style="display:grid;grid-template-columns:clamp(38px,4vw,64px) 1fr auto;gap:clamp(14px,2.4vw,32px);width:100%;text-align:left;padding:clamp(24px,4vh,44px) 0;cursor:pointer;">
+              <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:oklch(0.80 0.125 208);padding-top:12px;">04</span>
+              <span style="display:block;">
+                <span data-fld="work-title" style="display:block;font-size:clamp(1.55rem,4.1vw,3.3rem);font-weight:600;line-height:1.02;letter-spacing:-0.035em;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1),color 0.4s ease;">orient</span>
+                <span style="display:block;margin-top:12px;max-width:52ch;font-size:0.99rem;line-height:1.55;color:oklch(0.66 0.012 252);">A living map of what you're building — the why never scrolls away.</span>
+                <span style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(0.66 0.012 252);">
+                  <span>Claude Code Plugin</span><span style="color:oklch(0.34 0.012 252);">·</span><span>opencode</span><span style="color:oklch(0.34 0.012 252);">·</span><span>TypeScript</span><span style="color:oklch(0.34 0.012 252);">·</span><span>Node</span><span style="color:oklch(0.34 0.012 252);">·</span><span>ADR</span>
+                </span>
+              </span>
+              <span data-fld="work-plus" style="align-self:center;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid oklch(0.285 0.012 252);border-radius:50%;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1),border-color 0.4s ease;">
+                <span style="position:relative;display:block;width:11px;height:11px;">
+                  <span style="position:absolute;top:5px;left:0;width:11px;height:1px;background:oklch(0.75 0.012 252);"></span>
+                  <span data-fld="plus-v" style="position:absolute;top:0;left:5px;width:1px;height:11px;background:oklch(0.75 0.012 252);transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);"></span>
+                </span>
+              </span>
+            </button>
+            <div data-fld="work-panel" style="overflow:hidden;height:0;transition:height 0.62s cubic-bezier(0.16,1,0.3,1);">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,3vw,56px);padding:0 0 clamp(30px,4vh,50px);">
+                <div style="grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,2.6vw,44px);border-top:1px solid oklch(0.24 0.012 252);padding-top:clamp(20px,3vh,32px);">
+                  <div>
+                    <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.80 0.125 208);margin-bottom:10px;">Architecture</div>
+                    <p style="margin:0;font-size:0.93rem;line-height:1.6;color:oklch(0.68 0.012 252);">Six commands map to a docs/ tree: STATE.md (where am I?), architecture.md (entry points + module boundaries), and decisions/ (one append-only ADR per real call). init surveys the repo in a read-only subagent and can mine git history into candidate ADRs.</p>
+                  </div>
+                  <div>
+                    <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.80 0.125 208);margin-bottom:10px;">What it wins</div>
+                    <p style="margin:0;font-size:0.93rem;line-height:1.6;color:oklch(0.68 0.012 252);">Always-on footprint is ~14 lines of pointers. Everything substantial lives in files that only load when read, so it holds up on repos alive for years without degrading instruction-following.</p>
+                  </div>
+                  <div>
+                    <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.80 0.125 208);margin-bottom:10px;">The hard part</div>
+                    <p style="margin:0;font-size:0.93rem;line-height:1.6;color:oklch(0.68 0.012 252);">Safe by design: no network, no telemetry, read-only survey agents, secret-blind, a pre-commit nudge rather than a block, and every write is a proposal the human reviews.</p>
+                  </div>
+                </div>
+                <div style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+                  <a href="https://github.com/Chaitanya299/Orient" target="_blank" rel="noopener noreferrer" data-cursor="link" data-cursor-label="Open&#10;repo" style="display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid oklch(0.34 0.012 252);padding-bottom:4px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;">Repository <span style="font-size:12px;">&#8599;</span></a>
+                  <div data-fld="shot" style="flex:1 1 260px;min-width:220px;height:120px;border:1px solid oklch(0.24 0.012 252);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.64 0.012 252);background-image:repeating-linear-gradient(115deg, oklch(0.20 0.01 252) 0 1px, transparent 1px 9px);">Terminal shot — drop image</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ 03 ON THE ROADMAP ═════════ -->
+    <section id="chapter-03" data-fld="section" data-screen-label="03 On the Roadmap" data-title="Roadmap" style="position:relative;min-height:100vh;padding:clamp(80px,14vh,180px) clamp(20px,5vw,88px);">
+      <div style="max-width:1600px;margin:0 auto;">
+        <div data-fld="chapter-head" style="position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;border-top:1px solid oklch(0.285 0.012 252);padding-top:18px;margin-bottom:clamp(40px,7vh,90px);">
+          <div style="display:flex;align-items:baseline;gap:clamp(16px,3vw,40px);">
+            <span data-fld="chapter-num" style="font-size:clamp(3.4rem,9vw,8rem);font-weight:700;line-height:0.8;letter-spacing:-0.05em;color:transparent;-webkit-text-stroke:1px oklch(0.40 0.012 252);">03</span>
+            <span data-reveal="1" data-split="chars" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:clamp(11px,1.1vw,13px);letter-spacing:0.3em;text-transform:uppercase;color:oklch(0.945 0.006 95);">On the Roadmap</span>
+          </div>
+          <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.66 0.012 252);">Branch — 03 in flight</span>
+        </div>
+
+        <h2 data-reveal="1" data-split="words" style="margin:0 0 clamp(40px,7vh,80px);font-size:clamp(1.7rem,3.9vw,3.2rem);font-weight:600;line-height:1.04;letter-spacing:-0.03em;max-width:24ch;text-wrap:pretty;">Three systems currently branching off the <span style="color:oklch(0.80 0.125 208);">main line</span>.</h2>
+
+        <div style="position:relative;">
+          <svg data-fld="branch-svg" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;">
+            <path data-fld="branch-path" d="M8 292 L8 200 C8 160 40 150 90 150 L992 150" fill="none" stroke="oklch(0.34 0.012 252)" stroke-width="1" vector-effect="non-scaling-stroke"></path>
+            <path data-fld="branch-path" d="M170 150 C230 150 250 130 250 86 L250 8" fill="none" stroke="oklch(0.34 0.012 252)" stroke-width="1" vector-effect="non-scaling-stroke"></path>
+            <path data-fld="branch-path" d="M520 150 C580 150 600 170 600 214 L600 292" fill="none" stroke="oklch(0.34 0.012 252)" stroke-width="1" vector-effect="non-scaling-stroke"></path>
+            <path data-fld="branch-path" d="M860 150 C920 150 940 130 940 86 L940 8" fill="none" stroke="oklch(0.34 0.012 252)" stroke-width="1" vector-effect="non-scaling-stroke"></path>
+          </svg>
+
+          <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,3.4vw,56px);">
+            <article data-reveal="1" data-fld="node" style="border-top:1px solid oklch(0.285 0.012 252);padding-top:clamp(18px,2.6vh,26px);">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;">
+                <span style="display:inline-flex;align-items:center;gap:8px;color:oklch(0.80 0.125 208);"><span style="width:7px;height:7px;border-radius:50%;background:oklch(0.80 0.125 208);animation:fldPulse 2.2s ease-in-out infinite;"></span>In progress</span>
+                <span style="color:oklch(0.66 0.012 252);">Q4 2026</span>
+              </div>
+              <h3 style="margin:clamp(16px,2.4vh,24px) 0 0;font-size:clamp(1.4rem,2.4vw,2rem);font-weight:600;letter-spacing:-0.028em;">MonFlow</h3>
+              <p style="margin:10px 0 0;font-size:0.95rem;line-height:1.5;color:oklch(0.80 0.125 208 / 0.85);">Privacy-first UPI expense tracker — your bank data never leaves the phone.</p>
+              <p style="margin:16px 0 0;font-size:0.93rem;line-height:1.62;color:oklch(0.66 0.012 252);">A React Native app that turns UPI and bank alerts into a clean ledger. A Kotlin NotificationListenerService captures alerts into an encrypted SQLCipher vault; an on-device regex parser extracts transactions; and a CRDT + Waku P2P engine handles bill splitting with zero servers.</p>
+              <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(0.66 0.012 252);">
+                <span>React Native</span><span style="color:oklch(0.34 0.012 252);">·</span><span>Kotlin</span><span style="color:oklch(0.34 0.012 252);">·</span><span>SQLCipher</span><span style="color:oklch(0.34 0.012 252);">·</span><span>Automerge</span><span style="color:oklch(0.34 0.012 252);">·</span><span>Waku</span>
+              </div>
+            </article>
+
+            <article data-reveal="1" data-fld="node" style="border-top:1px solid oklch(0.285 0.012 252);padding-top:clamp(18px,2.6vh,26px);">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;">
+                <span style="display:inline-flex;align-items:center;gap:8px;color:oklch(0.80 0.125 208);"><span style="width:7px;height:7px;border-radius:50%;background:oklch(0.80 0.125 208);animation:fldPulse 2.2s ease-in-out 0.4s infinite;"></span>Beta</span>
+                <span style="color:oklch(0.66 0.012 252);">Q3 2026</span>
+              </div>
+              <h3 style="margin:clamp(16px,2.4vh,24px) 0 0;font-size:clamp(1.4rem,2.4vw,2rem);font-weight:600;letter-spacing:-0.028em;">JobAutomator</h3>
+              <p style="margin:10px 0 0;font-size:0.95rem;line-height:1.5;color:oklch(0.80 0.125 208 / 0.85);">An AI agent that fills job applications — a human approves every submit.</p>
+              <p style="margin:16px 0 0;font-size:0.93rem;line-height:1.62;color:oklch(0.66 0.012 252);">A Chrome extension plus FastAPI control plane that reads application forms, maps each field to your profile with an LLM, and autofills paginated multi-step flows. Resume parsing, structured field-action schemas via Pydantic, and a side-panel review UI so nothing is submitted without your click.</p>
+              <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(0.66 0.012 252);">
+                <span>FastAPI</span><span style="color:oklch(0.34 0.012 252);">·</span><span>Chrome Extension</span><span style="color:oklch(0.34 0.012 252);">·</span><span>LLM Agents</span><span style="color:oklch(0.34 0.012 252);">·</span><span>Pydantic</span>
+              </div>
+            </article>
+
+            <article data-reveal="1" data-fld="node" style="border-top:1px solid oklch(0.285 0.012 252);padding-top:clamp(18px,2.6vh,26px);">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;">
+                <span style="display:inline-flex;align-items:center;gap:8px;color:oklch(0.68 0.012 252);"><span style="width:7px;height:7px;border-radius:50%;border:1px solid oklch(0.48 0.012 252);"></span>Planning</span>
+                <span style="color:oklch(0.66 0.012 252);">Q1 2027</span>
+              </div>
+              <h3 style="margin:clamp(16px,2.4vh,24px) 0 0;font-size:clamp(1.4rem,2.4vw,2rem);font-weight:600;letter-spacing:-0.028em;">Edge SLM Agent</h3>
+              <p style="margin:10px 0 0;font-size:0.95rem;line-height:1.5;color:oklch(0.80 0.125 208 / 0.85);">A small language model with tool use, running fully on-device.</p>
+              <p style="margin:16px 0 0;font-size:0.93rem;line-height:1.62;color:oklch(0.66 0.012 252);">A quantized 1–3B SLM fine-tuned for tool calling, orchestrated by a local agent runtime with planning, memory and retrieval over personal files. Targets laptop-class hardware: GGUF inference via llama.cpp, function-calling evals, and a sandboxed executor — private AI with no API keys and no cloud round-trips.</p>
+              <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:8px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(0.66 0.012 252);">
+                <span>SLM</span><span style="color:oklch(0.34 0.012 252);">·</span><span>llama.cpp</span><span style="color:oklch(0.34 0.012 252);">·</span><span>GGUF</span><span style="color:oklch(0.34 0.012 252);">·</span><span>LoRA</span><span style="color:oklch(0.34 0.012 252);">·</span><span>Tool use</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ 04 RECOGNITION ═════════ -->
+    <section id="chapter-04" data-fld="section" data-screen-label="04 Recognition" data-title="Recognition" style="position:relative;min-height:100vh;padding:clamp(80px,14vh,180px) clamp(20px,5vw,88px);">
+      <div style="max-width:1600px;margin:0 auto;">
+        <div data-fld="chapter-head" style="position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;border-top:1px solid oklch(0.285 0.012 252);padding-top:18px;margin-bottom:clamp(40px,7vh,90px);">
+          <div style="display:flex;align-items:baseline;gap:clamp(16px,3vw,40px);">
+            <span data-fld="chapter-num" style="font-size:clamp(3.4rem,9vw,8rem);font-weight:700;line-height:0.8;letter-spacing:-0.05em;color:transparent;-webkit-text-stroke:1px oklch(0.40 0.012 252);">04</span>
+            <span data-reveal="1" data-split="chars" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:clamp(11px,1.1vw,13px);letter-spacing:0.3em;text-transform:uppercase;color:oklch(0.945 0.006 95);">Recognition</span>
+          </div>
+          <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.66 0.012 252);">Rings</span>
+        </div>
+
+        <div data-reveal="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:clamp(20px,3vw,48px);border-top:1px solid oklch(0.285 0.012 252);border-bottom:1px solid oklch(0.285 0.012 252);padding:clamp(26px,4vh,44px) 0;margin-bottom:clamp(40px,6vh,72px);">
+          <div>
+            <div data-fld="count" data-to="4" style="font-size:clamp(2.4rem,5vw,4.2rem);font-weight:600;line-height:0.9;letter-spacing:-0.04em;font-variant-numeric:tabular-nums;">0</div>
+            <div style="margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.66 0.012 252);">Certifications</div>
+          </div>
+          <div>
+            <div data-fld="count" data-to="4" style="font-size:clamp(2.4rem,5vw,4.2rem);font-weight:600;line-height:0.9;letter-spacing:-0.04em;font-variant-numeric:tabular-nums;">0</div>
+            <div style="margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.66 0.012 252);">Systems shipped</div>
+          </div>
+          <div>
+            <div data-fld="count" data-to="3" style="font-size:clamp(2.4rem,5vw,4.2rem);font-weight:600;line-height:0.9;letter-spacing:-0.04em;font-variant-numeric:tabular-nums;">0</div>
+            <div style="margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.66 0.012 252);">In flight</div>
+          </div>
+          <div>
+            <div style="font-size:clamp(2.4rem,5vw,4.2rem);font-weight:600;line-height:0.9;letter-spacing:-0.04em;color:oklch(0.80 0.125 208);">&#9679;</div>
+            <div style="margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.66 0.012 252);">Brown belt — intl. martial arts</div>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid oklch(0.285 0.012 252);">
+          <a href="https://drive.google.com/file/d/1QvxkMBhskNkW-y7IkX7a-S5FKO_5VwdQ/view" target="_blank" rel="noopener noreferrer" data-reveal="1" data-cursor="link" data-cursor-label="Open&#10;cert" data-fld="cert-row" style="display:grid;grid-template-columns:clamp(38px,4vw,64px) 1fr auto;gap:clamp(14px,2.4vw,32px);align-items:center;border-bottom:1px solid oklch(0.285 0.012 252);padding:clamp(20px,3.4vh,34px) 0;">
+            <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:oklch(0.80 0.125 208);">01</span>
+            <span>
+              <span data-fld="cert-title" style="display:block;font-size:clamp(1.2rem,2.4vw,1.9rem);font-weight:500;letter-spacing:-0.026em;transition:transform 0.55s cubic-bezier(0.16,1,0.3,1);">AWS Cloud Practitioner</span>
+              <span style="display:block;margin-top:8px;font-size:0.93rem;line-height:1.55;color:oklch(0.62 0.012 252);max-width:62ch;">Cloud concepts and global infrastructure, the shared responsibility model, and core service and billing structures.</span>
+            </span>
+            <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(0.66 0.012 252);text-align:right;">Amazon Web Services <span style="display:inline-block;margin-left:8px;">&#8599;</span></span>
+          </a>
+          <a href="https://drive.google.com/file/d/1XSeJ27istaznc6wHCDkI-vkB5yw9XGTR/view" target="_blank" rel="noopener noreferrer" data-reveal="1" data-cursor="link" data-cursor-label="Open&#10;cert" data-fld="cert-row" style="display:grid;grid-template-columns:clamp(38px,4vw,64px) 1fr auto;gap:clamp(14px,2.4vw,32px);align-items:center;border-bottom:1px solid oklch(0.285 0.012 252);padding:clamp(20px,3.4vh,34px) 0;">
+            <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:oklch(0.80 0.125 208);">02</span>
+            <span>
+              <span data-fld="cert-title" style="display:block;font-size:clamp(1.2rem,2.4vw,1.9rem);font-weight:500;letter-spacing:-0.026em;transition:transform 0.55s cubic-bezier(0.16,1,0.3,1);">Azure AI Fundamentals</span>
+              <span style="display:block;margin-top:8px;font-size:0.93rem;line-height:1.55;color:oklch(0.62 0.012 252);max-width:62ch;">AI workloads and ML principles on Azure, computer vision and NLP, and responsible-AI practice in cloud solution design.</span>
+            </span>
+            <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(0.66 0.012 252);text-align:right;">Microsoft <span style="display:inline-block;margin-left:8px;">&#8599;</span></span>
+          </a>
+          <a href="https://drive.google.com/file/d/10_Y8CUsY8J6t8ABM_AxVL5df1rZ3wcRa/view" target="_blank" rel="noopener noreferrer" data-reveal="1" data-cursor="link" data-cursor-label="Open&#10;cert" data-fld="cert-row" style="display:grid;grid-template-columns:clamp(38px,4vw,64px) 1fr auto;gap:clamp(14px,2.4vw,32px);align-items:center;border-bottom:1px solid oklch(0.285 0.012 252);padding:clamp(20px,3.4vh,34px) 0;">
+            <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:oklch(0.80 0.125 208);">03</span>
+            <span>
+              <span data-fld="cert-title" style="display:block;font-size:clamp(1.2rem,2.4vw,1.9rem);font-weight:500;letter-spacing:-0.026em;transition:transform 0.55s cubic-bezier(0.16,1,0.3,1);">Generative AI Foundations</span>
+              <span style="display:block;margin-top:8px;font-size:0.93rem;line-height:1.55;color:oklch(0.62 0.012 252);max-width:62ch;">Prompt engineering for high-fidelity LLM output, transformer architectures and fine-tuning, plus safety and mitigation patterns.</span>
+            </span>
+            <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(0.66 0.012 252);text-align:right;">Microsoft / upGrad <span style="display:inline-block;margin-left:8px;">&#8599;</span></span>
+          </a>
+          <a href="https://drive.google.com/file/d/1tLHtUUc0AuF4MBiPEFOtXAuEtBbmDvou/view" target="_blank" rel="noopener noreferrer" data-reveal="1" data-cursor="link" data-cursor-label="Open&#10;cert" data-fld="cert-row" style="display:grid;grid-template-columns:clamp(38px,4vw,64px) 1fr auto;gap:clamp(14px,2.4vw,32px);align-items:center;border-bottom:1px solid oklch(0.285 0.012 252);padding:clamp(20px,3.4vh,34px) 0;">
+            <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:oklch(0.80 0.125 208);">04</span>
+            <span>
+              <span data-fld="cert-title" style="display:block;font-size:clamp(1.2rem,2.4vw,1.9rem);font-weight:500;letter-spacing:-0.026em;transition:transform 0.55s cubic-bezier(0.16,1,0.3,1);">Mastering Django</span>
+              <span style="display:block;margin-top:8px;font-size:0.93rem;line-height:1.55;color:oklch(0.62 0.012 252);max-width:62ch;">Scalable, secure web applications: clean architectural patterns, ORM, authentication and high-performance server-side rendering.</span>
+            </span>
+            <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(0.66 0.012 252);text-align:right;">Certificate <span style="display:inline-block;margin-left:8px;">&#8599;</span></span>
+          </a>
+        </div>
+
+        <div data-reveal="1" style="margin-top:clamp(40px,6vh,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(24px,3.4vw,56px);">
+          <div style="border-top:1px solid oklch(0.285 0.012 252);padding-top:18px;">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.80 0.125 208);">Financial engineering</div>
+            <p style="margin:12px 0 0;font-size:0.93rem;line-height:1.6;color:oklch(0.66 0.012 252);">A standing interest in financial literacy, accounting and analysis — the same systems thinking, different domain.</p>
+          </div>
+          <div style="border-top:1px solid oklch(0.285 0.012 252);padding-top:18px;">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.80 0.125 208);">International martial arts</div>
+            <p style="margin:12px 0 0;font-size:0.93rem;line-height:1.6;color:oklch(0.66 0.012 252);">International winner and brown belt holder. Precision and focus, practised rather than claimed.</p>
+          </div>
+          <div style="border-top:1px solid oklch(0.285 0.012 252);padding-top:18px;">
+            <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.80 0.125 208);">Off the clock</div>
+            <p style="margin:12px 0 0;font-size:0.93rem;line-height:1.6;color:oklch(0.66 0.012 252);">Actively up-skilling in modern stacks. Books, horse riding and swimming fill the rest.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ 05 CONTACT ═════════ -->
+    <section id="chapter-05" data-fld="section" data-screen-label="05 Contact" data-title="Contact" style="position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:clamp(80px,12vh,150px) clamp(20px,5vw,88px) clamp(20px,4vh,40px);">
+      <div style="max-width:1600px;margin:0 auto;width:100%;">
+        <div data-fld="chapter-head" style="position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;border-top:1px solid oklch(0.285 0.012 252);padding-top:18px;margin-bottom:clamp(36px,6vh,72px);">
+          <div style="display:flex;align-items:baseline;gap:clamp(16px,3vw,40px);">
+            <span data-fld="chapter-num" style="font-size:clamp(3.4rem,9vw,8rem);font-weight:700;line-height:0.8;letter-spacing:-0.05em;color:transparent;-webkit-text-stroke:1px oklch(0.40 0.012 252);">05</span>
+            <span data-reveal="1" data-split="chars" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:clamp(11px,1.1vw,13px);letter-spacing:0.3em;text-transform:uppercase;color:oklch(0.945 0.006 95);">Contact</span>
+          </div>
+          <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.66 0.012 252);">Converge</span>
+        </div>
+
+        <h2 data-reveal="1" data-split="chars" style="margin:0;font-size:clamp(2.6rem,10vw,9.5rem);font-weight:600;line-height:0.86;letter-spacing:-0.045em;text-transform:uppercase;">Open a<br />channel</h2>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,5vw,90px);margin-top:clamp(36px,6vh,72px);border-top:1px solid oklch(0.285 0.012 252);padding-top:clamp(24px,3.6vh,40px);">
+          <div>
+            <p data-reveal="1" data-split="words" style="margin:0;max-width:40ch;font-size:clamp(1rem,1.2vw,1.14rem);line-height:1.6;color:oklch(0.70 0.012 252);text-wrap:pretty;">Available for freelance and contract work, and open to high-impact technical roles. I usually reply within 24 hours.</p>
+
+            <div data-reveal="1" style="margin-top:clamp(26px,4vh,40px);display:flex;flex-direction:column;gap:0;">
+              <button data-fld="copy-email" data-cursor="explore" data-cursor-label="Copy" style="display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;border-top:1px solid oklch(0.285 0.012 252);padding:16px 0;cursor:pointer;">
+                <span style="font-size:clamp(0.95rem,1.5vw,1.24rem);letter-spacing:-0.01em;">chaitanya.sai311@gmail.com</span>
+                <span data-fld="copy-label" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.66 0.012 252);">Copy</span>
+              </button>
+              <a href="https://github.com/Chaitanya299" target="_blank" rel="noopener noreferrer" data-cursor="link" data-cursor-label="Open&#10;GitHub" style="display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid oklch(0.285 0.012 252);padding:16px 0;">
+                <span style="font-size:clamp(0.95rem,1.5vw,1.24rem);letter-spacing:-0.01em;">GitHub</span>
+                <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.66 0.012 252);">@Chaitanya299 &#8599;</span>
+              </a>
+              <a href="https://www.linkedin.com/in/saichaitanyaparasana" target="_blank" rel="noopener noreferrer" data-cursor="link" data-cursor-label="Open&#10;LinkedIn" style="display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid oklch(0.285 0.012 252);padding:16px 0;">
+                <span style="font-size:clamp(0.95rem,1.5vw,1.24rem);letter-spacing:-0.01em;">LinkedIn</span>
+                <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.66 0.012 252);">saichaitanyaparasana &#8599;</span>
+              </a>
+              <button data-fld="copy-curl" data-cursor="explore" data-cursor-label="Copy" style="display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;border-top:1px solid oklch(0.285 0.012 252);border-bottom:1px solid oklch(0.285 0.012 252);padding:16px 0;cursor:pointer;">
+                <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:clamp(0.8rem,1.1vw,0.95rem);color:oklch(0.80 0.125 208);">curl /api/me.json</span>
+                <span data-fld="curl-label" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.66 0.012 252);">For engineers</span>
+              </button>
+            </div>
+          </div>
+
+          <form data-fld="form" data-reveal="1" style="display:flex;flex-direction:column;gap:clamp(16px,2.4vh,22px);">
+            <label style="display:flex;flex-direction:column;gap:9px;">
+              <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.66 0.012 252);">Name</span>
+              <input name="name" type="text" autocomplete="name" placeholder="Ada Lovelace" data-fld="input" style="width:100%;background:oklch(0.185 0.009 252);border:1px solid oklch(0.285 0.012 252);color:oklch(0.945 0.006 95);padding:13px 15px;font-size:0.95rem;outline:none;transition:border-color 0.4s ease,background-color 0.4s ease;" />
+            </label>
+            <label style="display:flex;flex-direction:column;gap:9px;">
+              <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.66 0.012 252);">Email</span>
+              <input name="email" type="email" autocomplete="email" placeholder="ada@example.com" data-fld="input" style="width:100%;background:oklch(0.185 0.009 252);border:1px solid oklch(0.285 0.012 252);color:oklch(0.945 0.006 95);padding:13px 15px;font-size:0.95rem;outline:none;transition:border-color 0.4s ease,background-color 0.4s ease;" />
+            </label>
+            <label style="display:flex;flex-direction:column;gap:9px;">
+              <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.66 0.012 252);">Message</span>
+              <textarea name="message" rows="4" placeholder="Scope, timeline, and the hard part." data-fld="input" style="width:100%;background:oklch(0.185 0.009 252);border:1px solid oklch(0.285 0.012 252);color:oklch(0.945 0.006 95);padding:13px 15px;font-size:0.95rem;outline:none;resize:vertical;transition:border-color 0.4s ease,background-color 0.4s ease;"></textarea>
+            </label>
+            <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+              <button type="submit" data-fld="submit" data-cursor="explore" data-cursor-label="Send" style="display:inline-flex;align-items:center;gap:14px;border:1px solid oklch(0.80 0.125 208 / 0.5);background:oklch(0.80 0.125 208 / 0.08);padding:14px 24px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.945 0.006 95);cursor:pointer;transition:background-color 0.45s ease,border-color 0.45s ease;">
+                <span data-fld="submit-label">Send inquiry</span>
+                <span data-fld="submit-glyph" style="display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;">&#8599;</span>
+              </button>
+              <span data-fld="form-status" role="status" aria-live="polite" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(0.66 0.012 252);"></span>
+            </div>
+          </form>
+        </div>
+
+        <div style="margin-top:clamp(40px,7vh,90px);margin-bottom:clamp(46px,7vh,70px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid oklch(0.285 0.012 252);padding-top:18px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.66 0.012 252);">
+          <span>&copy; 2026 Sai Chaitanya Parasana</span>
+          <span>Field — one continuous composition</span>
+          <button data-fld="to-top" data-cursor="explore" data-cursor-label="Top" style="cursor:pointer;letter-spacing:0.2em;text-transform:uppercase;">Back to opening &#8593;</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ══ fixed chrome ══ -->
+  <div aria-hidden="true" style="position:absolute;top:0;left:0;right:0;height:clamp(80px,13vh,130px);z-index:4;pointer-events:none;background:linear-gradient(oklch(0.145 0.009 252) 12%, oklch(0.145 0.009 252 / 0.72) 46%, transparent 100%);"></div>
+
+  <header style="position:absolute;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:clamp(18px,2.6vh,30px) clamp(20px,5vw,88px);pointer-events:none;">
+    <a href="#chapter-00" data-fld="logo" data-cursor="explore" data-cursor-label="Top" style="display:inline-flex;align-items:center;gap:13px;pointer-events:auto;">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" style="display:block;overflow:visible;">
+        <rect x="0.5" y="0.5" width="25" height="25" fill="none" stroke="oklch(0.40 0.012 252)"></rect>
+        <rect data-fld="logo-diamond" x="6.5" y="6.5" width="13" height="13" fill="none" stroke="oklch(0.90 0.006 95)" transform="rotate(45 13 13)"></rect>
+        <circle cx="13" cy="13" r="2" fill="oklch(0.80 0.125 208)"></circle>
+      </svg>
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(0.72 0.012 252);">S.C. Parasana</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.66 0.012 252);pointer-events:auto;">
+      <span data-fld="ticker" style="color:oklch(0.80 0.125 208);">Field online</span>
+      <span style="width:5px;height:5px;border-radius:50%;background:oklch(0.80 0.125 208);animation:fldBlink 2.6s steps(1,end) infinite;"></span>
+    </div>
+  </header>
+
+  <nav aria-label="Chapters" style="position:absolute;left:50%;bottom:clamp(14px,2.6vh,28px);transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:1px;padding:5px;border:1px solid oklch(0.285 0.012 252);background:oklch(0.155 0.009 252 / 0.74);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);">
+    <a href="#chapter-00" data-fld="nav-link" data-cursor="explore" data-cursor-label="Go" style="display:flex;align-items:center;padding:9px 11px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(0.66 0.012 252);transition:color 0.45s ease;">
+      <span data-fld="nav-tick" style="display:block;width:5px;height:5px;border-radius:50%;background:oklch(0.34 0.012 252);transition:background-color 0.45s ease,transform 0.45s cubic-bezier(0.16,1,0.3,1);"></span>
+      <span data-fld="nav-label" style="display:block;max-width:0;margin-left:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width 0.6s cubic-bezier(0.16,1,0.3,1),opacity 0.4s ease,margin-left 0.6s cubic-bezier(0.16,1,0.3,1);">Opening</span>
+    </a>
+    <a href="#chapter-01" data-fld="nav-link" data-cursor="explore" data-cursor-label="Go" style="display:flex;align-items:center;padding:9px 11px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(0.66 0.012 252);transition:color 0.45s ease;">
+      <span data-fld="nav-tick" style="display:block;width:5px;height:5px;border-radius:50%;background:oklch(0.34 0.012 252);transition:background-color 0.45s ease,transform 0.45s cubic-bezier(0.16,1,0.3,1);"></span>
+      <span data-fld="nav-label" style="display:block;max-width:0;margin-left:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width 0.6s cubic-bezier(0.16,1,0.3,1),opacity 0.4s ease,margin-left 0.6s cubic-bezier(0.16,1,0.3,1);">About</span>
+    </a>
+    <a href="#chapter-02" data-fld="nav-link" data-cursor="explore" data-cursor-label="Go" style="display:flex;align-items:center;padding:9px 11px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(0.66 0.012 252);transition:color 0.45s ease;">
+      <span data-fld="nav-tick" style="display:block;width:5px;height:5px;border-radius:50%;background:oklch(0.34 0.012 252);transition:background-color 0.45s ease,transform 0.45s cubic-bezier(0.16,1,0.3,1);"></span>
+      <span data-fld="nav-label" style="display:block;max-width:0;margin-left:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width 0.6s cubic-bezier(0.16,1,0.3,1),opacity 0.4s ease,margin-left 0.6s cubic-bezier(0.16,1,0.3,1);">Selected work</span>
+    </a>
+    <a href="#chapter-03" data-fld="nav-link" data-cursor="explore" data-cursor-label="Go" style="display:flex;align-items:center;padding:9px 11px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(0.66 0.012 252);transition:color 0.45s ease;">
+      <span data-fld="nav-tick" style="display:block;width:5px;height:5px;border-radius:50%;background:oklch(0.34 0.012 252);transition:background-color 0.45s ease,transform 0.45s cubic-bezier(0.16,1,0.3,1);"></span>
+      <span data-fld="nav-label" style="display:block;max-width:0;margin-left:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width 0.6s cubic-bezier(0.16,1,0.3,1),opacity 0.4s ease,margin-left 0.6s cubic-bezier(0.16,1,0.3,1);">Roadmap</span>
+    </a>
+    <a href="#chapter-04" data-fld="nav-link" data-cursor="explore" data-cursor-label="Go" style="display:flex;align-items:center;padding:9px 11px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(0.66 0.012 252);transition:color 0.45s ease;">
+      <span data-fld="nav-tick" style="display:block;width:5px;height:5px;border-radius:50%;background:oklch(0.34 0.012 252);transition:background-color 0.45s ease,transform 0.45s cubic-bezier(0.16,1,0.3,1);"></span>
+      <span data-fld="nav-label" style="display:block;max-width:0;margin-left:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width 0.6s cubic-bezier(0.16,1,0.3,1),opacity 0.4s ease,margin-left 0.6s cubic-bezier(0.16,1,0.3,1);">Recognition</span>
+    </a>
+    <a href="#chapter-05" data-fld="nav-link" data-cursor="explore" data-cursor-label="Go" style="display:flex;align-items:center;padding:9px 11px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(0.66 0.012 252);transition:color 0.45s ease;">
+      <span data-fld="nav-tick" style="display:block;width:5px;height:5px;border-radius:50%;background:oklch(0.34 0.012 252);transition:background-color 0.45s ease,transform 0.45s cubic-bezier(0.16,1,0.3,1);"></span>
+      <span data-fld="nav-label" style="display:block;max-width:0;margin-left:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width 0.6s cubic-bezier(0.16,1,0.3,1),opacity 0.4s ease,margin-left 0.6s cubic-bezier(0.16,1,0.3,1);">Contact</span>
+    </a>
+  </nav>
+
+  <div aria-hidden="true" style="position:absolute;right:clamp(10px,1.6vw,22px);top:22%;bottom:22%;z-index:5;width:1px;background:oklch(0.26 0.012 252);">
+    <div data-fld="progress" style="position:absolute;left:0;top:0;width:1px;height:0;background:oklch(0.80 0.125 208);"></div>
+  </div>
+
+  <div data-fld="preview" aria-hidden="true" style="position:absolute;left:0;top:0;z-index:4;width:270px;height:170px;pointer-events:none;opacity:0;transform:translate3d(0,0,0) scale(0.94);transition:opacity 0.45s cubic-bezier(0.16,1,0.3,1),transform 0.45s cubic-bezier(0.16,1,0.3,1);border:1px solid oklch(0.34 0.012 252);background:oklch(0.175 0.009 252);overflow:hidden;">
+    <div data-fld="preview-skel" style="position:absolute;inset:0;background:linear-gradient(100deg, transparent 20%, oklch(1 0 0 / 0.055) 40%, oklch(1 0 0 / 0.055) 60%, transparent 80%);background-size:200% 100%;animation:fldShimmer 1.4s linear infinite;"></div>
+    <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(115deg, oklch(0.215 0.01 252) 0 1px, transparent 1px 10px);"></div>
+    <div data-fld="preview-body" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;padding:14px;opacity:0;transition:opacity 0.4s ease;">
+      <div data-fld="preview-label" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(0.88 0.006 95);"></div>
+      <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:8.5px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(0.66 0.012 252);">Project shot — drop image</div>
+    </div>
+  </div>
+
+  <div data-fld="cursor" aria-hidden="true" style="position:absolute;left:0;top:0;z-index:8;pointer-events:none;opacity:0;transition:opacity 0.3s ease;">
+    <div data-fld="cursor-ring" style="position:absolute;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid oklch(0.80 0.125 208 / 0.55);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:width 0.42s cubic-bezier(0.16,1,0.3,1),height 0.42s cubic-bezier(0.16,1,0.3,1),margin 0.42s cubic-bezier(0.16,1,0.3,1),background-color 0.42s ease,border-color 0.42s ease;">
+      <span data-fld="cursor-label" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:8.5px;line-height:1.25;letter-spacing:0.16em;text-transform:uppercase;text-align:center;color:oklch(0.97 0 0);opacity:0;transition:opacity 0.3s ease;white-space:pre;"></span>
+    </div>
+    <div data-fld="cursor-dot" style="position:absolute;left:0;top:0;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%;background:oklch(0.80 0.125 208);transition:opacity 0.3s ease;"></div>
+  </div>
+
+  <div data-fld="preloader" style="position:absolute;inset:0;z-index:20;background:oklch(0.115 0.008 252);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(20px,5vw,88px);will-change:clip-path;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <svg width="34" height="34" viewBox="0 0 26 26" aria-hidden="true" style="display:block;overflow:visible;">
+          <rect x="0.5" y="0.5" width="25" height="25" fill="none" stroke="oklch(0.34 0.012 252)"></rect>
+          <rect data-fld="pre-diamond" x="6.5" y="6.5" width="13" height="13" fill="none" stroke="oklch(0.90 0.006 95)" transform="rotate(45 13 13)"></rect>
+          <circle cx="13" cy="13" r="2" fill="oklch(0.80 0.125 208)"></circle>
+        </svg>
+        <div>
+          <div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(0.72 0.012 252);">Sai Chaitanya Parasana</div>
+          <div data-fld="pre-status" style="margin-top:7px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(0.66 0.012 252);">Establishing field</div>
+        </div>
+      </div>
+      <div data-fld="pre-count" style="font-size:clamp(2.6rem,7vw,5.5rem);font-weight:600;line-height:0.85;letter-spacing:-0.045em;font-variant-numeric:tabular-nums;color:oklch(0.945 0.006 95);">000</div>
+    </div>
+    <div style="margin-top:clamp(18px,2.6vh,28px);height:1px;background:oklch(0.26 0.012 252);">
+      <div data-fld="pre-bar" style="height:1px;width:0%;background:oklch(0.80 0.125 208);"></div>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;fieldDensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.3,&quot;max&quot;:1.6,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Field&quot;},&quot;signalColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#5ad1e8&quot;,&quot;options&quot;:[&quot;#5ad1e8&quot;,&quot;#8f9bff&quot;,&quot;#d8dee6&quot;,&quot;#e8c25a&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Field&quot;},&quot;motionLevel&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;full&quot;,&quot;calm&quot;,&quot;still&quot;],&quot;default&quot;:&quot;full&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;cursorMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;full&quot;,&quot;minimal&quot;,&quot;native&quot;],&quot;default&quot;:&quot;full&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;showPreloader&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+const EASE = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
+const lerp = (a, b, t) => a + (b - a) * t;
+
+/* ── formations: normalised [0..1] point sets, one per chapter ── */
+function nucleus(n) {
+  const p = [], GA = Math.PI * (3 - Math.sqrt(5));
+  for (let i = 0; i < n; i++) {
+    const r = Math.sqrt((i + 0.5) / n) * 0.34, a = i * GA;
+    p.push([0.5 + Math.cos(a) * r * 0.62, 0.5 + Math.sin(a) * r]);
+  }
+  return p;
+}
+function strata(n) {
+  const p = [], bands = 9, per = Math.ceil(n / bands);
+  for (let i = 0; i < n; i++) {
+    const b = Math.floor(i / per), k = i - b * per;
+    p.push([0.03 + (k / per) * 0.94, 0.1 + (Math.min(b, bands - 1) / (bands - 1)) * 0.8 + (((i * 37) % 11) - 5) * 0.0016]);
+  }
+  return p;
+}
+function lattice(n) {
+  const p = [], cols = Math.ceil(Math.sqrt(n * 1.7)), rows = Math.ceil(n / cols);
+  for (let i = 0; i < n; i++) {
+    const c = i % cols, r = Math.floor(i / cols);
+    p.push([0.04 + (c / (cols - 1)) * 0.92, 0.08 + (r / Math.max(1, rows - 1)) * 0.84]);
+  }
+  return p;
+}
+function branch(n) {
+  const p = [], trunkY = 0.5;
+  const limbs = [[0.24, 0.12], [0.56, 0.88], [0.87, 0.12]];
+  const trunkN = Math.max(1, Math.floor(n * 0.46));
+  const limbN = Math.max(1, Math.floor((n - trunkN) / 3));
+  for (let i = 0; i < n; i++) {
+    if (i < trunkN) { const t = i / trunkN; p.push([0.03 + t * 0.94, trunkY + (((i * 53) % 7) - 3) * 0.0013]); }
+    else {
+      const j = i - trunkN, li = Math.min(2, Math.floor(j / limbN)), t = clamp((j - li * limbN) / limbN, 0, 1);
+      const L = limbs[li], bend = EASE(t);
+      p.push([L[0] + t * 0.05, lerp(trunkY, L[1], bend) + (((i * 29) % 9) - 4) * 0.0014]);
+    }
+  }
+  return p;
+}
+function rings(n) {
+  const p = [], R = 4, per = Math.ceil(n / R);
+  for (let i = 0; i < n; i++) {
+    const ri = Math.min(R - 1, Math.floor(i / per)), k = i - ri * per;
+    const rad = 0.11 + (ri / (R - 1)) * 0.29, a = (k / per) * Math.PI * 2 + ri * 0.55;
+    p.push([0.5 + Math.cos(a) * rad * 0.6, 0.5 + Math.sin(a) * rad]);
+  }
+  return p;
+}
+function converge(n) {
+  const p = [];
+  for (let i = 0; i < n; i++) {
+    const s = i / n;
+    if (s < 0.7) { const t = s / 0.7, a = t * Math.PI * 14, r = (1 - t) * 0.3; p.push([0.5 + Math.cos(a) * r * 0.5, 0.5 + Math.sin(a) * r * 0.8]); }
+    else { const t = (s - 0.7) / 0.3; p.push([0.5 + (((i * 41) % 13) - 6) * 0.0022, 0.5 + (t - 0.5) * 0.9]); }
+  }
+  return p;
+}
+const FORMS = [nucleus, strata, lattice, branch, rings, converge];
+
+class Component extends DCLogic {
+  componentDidMount() {
+    this.dead = false;
+    this.off = [];
+    const P = this.props || {};
+    this.reducedOS = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.motion = P.motionLevel ?? (this.reducedOS ? 'still' : 'full');
+    if (this.reducedOS && !P.motionLevel) this.motion = 'still';
+    this.signal = P.signalColor ?? '#5ad1e8';
+    this.density = P.fieldDensity ?? 1;
+    this.cursorMode = P.cursorMode ?? 'full';
+    this.preloaderOn = P.showPreloader !== false;
+    this.touch = window.matchMedia('(hover: none)').matches;
+    this.boot(0);
+  }
+
+  /* the template streams, so the nodes may not exist on the first commit — retry until they do */
+  boot(tries) {
+    if (this.dead || this.booted) return;
+    const q = s => document.querySelector('[data-fld="' + s + '"]');
+    const qa = s => Array.from(document.querySelectorAll('[data-fld="' + s + '"]'));
+    this.q = q; this.qa = qa;
+    this.el = {
+      viewport: q('viewport'), content: q('content'), canvas: q('canvas'),
+      progress: q('progress'), cursor: q('cursor'), ring: q('cursor-ring'),
+      dot: q('cursor-dot'), cLabel: q('cursor-label'), preview: q('preview'),
+      pvBody: q('preview-body'), pvLabel: q('preview-label'), pvSkel: q('preview-skel'),
+      pre: q('preloader'), preCount: q('pre-count'), preBar: q('pre-bar'), preStatus: q('pre-status'),
+      ticker: q('ticker')
+    };
+    if (!this.el.content || !this.el.canvas || !this.el.cursor) {
+      if (tries < 90) requestAnimationFrame(() => this.boot(tries + 1));
+      return;
+    }
+    this.booted = true;
+
+    this.scroll = { target: 0, current: 0, prev: 0, vel: 0, max: 0 };
+    this.mouse = { x: -9999, y: -9999, sx: -9999, sy: -9999 };
+    this.cf = 0;
+
+    this.splitText();
+    this.collect();
+    this.measure();
+    this.initField();
+    this.bind();
+    this.preload();
+
+    this.tick = this.tick.bind(this);
+    this.rafId = requestAnimationFrame(this.tick);
+
+    // rAF is starved while the page is backgrounded, and a frame queued then can stay queued.
+    // Timers keep running, so re-arm the loop whenever it has stalled.
+    this.pump = setInterval(() => {
+      if (this.dead) return;
+      if (!this.lastTick || performance.now() - this.lastTick > 900) {
+        cancelAnimationFrame(this.rafId);
+        this.rafId = requestAnimationFrame(this.tick);
+      }
+    }, 1000);
+    this.off.push(() => clearInterval(this.pump));
+  }
+
+  componentWillUnmount() {
+    this.dead = true;
+    cancelAnimationFrame(this.rafId);
+    this.off.forEach(f => { try { f(); } catch (e) {} });
+  }
+
+  on(t, e, h, o) { t.addEventListener(e, h, o); this.off.push(() => t.removeEventListener(e, h, o)); }
+
+  /* ── split display text into masked word/char spans ── */
+  splitText() {
+    document.querySelectorAll('[data-split]').forEach(el => {
+      if (el.dataset.splitDone) return;
+      const mode = el.dataset.split;
+      const walk = node => {
+        Array.from(node.childNodes).forEach(child => {
+          if (child.nodeType === 3) {
+            const text = child.textContent;
+            if (!text.trim()) return;
+            const frag = document.createDocumentFragment();
+            const units = mode === 'chars' ? text.split('') : text.split(/(\s+)/);
+            units.forEach(u => {
+              if (!u.trim()) { frag.appendChild(document.createTextNode(u)); return; }
+              const outer = document.createElement('span');
+              outer.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:top;';
+              const inner = document.createElement('span');
+              inner.style.cssText = 'display:inline-block;will-change:transform,opacity;';
+              inner.textContent = u;
+              outer.appendChild(inner);
+              frag.appendChild(outer);
+            });
+            node.replaceChild(frag, child);
+          } else if (child.nodeType === 1) walk(child);
+        });
+      };
+      walk(el);
+      el.dataset.splitDone = '1';
+    });
+  }
+
+  collect() {
+    this.sections = this.qa('section');
+    this.reveals = Array.from(document.querySelectorAll('[data-reveal]')).map(el => ({
+      el, units: Array.from(el.querySelectorAll('span > span[style*="will-change"]')), p: -1, top: 0
+    }));
+    this.navLinks = this.qa('nav-link');
+    this.navTicks = this.qa('nav-tick');
+    this.navLabels = this.qa('nav-label');
+    this.chapterNums = this.qa('chapter-num');
+    this.counters = this.qa('count').map(el => ({ el, to: +el.dataset.to, done: false, top: 0 }));
+    this.branchPaths = this.qa('branch-path').map(el => {
+      const len = el.getTotalLength();
+      el.style.strokeDasharray = len; el.style.strokeDashoffset = len;
+      return { el, len, top: 0 };
+    });
+  }
+
+  measure() {
+    this.vh = window.innerHeight;
+    this.vw = window.innerWidth;
+    this.scroll.max = Math.max(0, this.el.content.offsetHeight - this.vh);
+    this.sTops = this.sections.map(s => s.getBoundingClientRect().top + this.scroll.current);
+    let io = 0;
+    this.reveals.forEach(r => {
+      r.top = r.el.getBoundingClientRect().top + this.scroll.current;
+      r.intro = r.top < this.vh * 0.99;
+      if (r.intro) r.iOrder = io++;
+    });
+    this.counters.forEach(c => { c.top = c.el.getBoundingClientRect().top + this.scroll.current; });
+    this.branchPaths.forEach(b => { b.top = b.el.getBoundingClientRect().top + this.scroll.current; });
+    this.chapterNums.forEach(n => { n._top = n.getBoundingClientRect().top + this.scroll.current; });
+    this.resizeCanvas();
+  }
+
+  /* ── generative field ── */
+  initField() {
+    const c = this.el.canvas;
+    this.ctx = c.getContext('2d', { alpha: true });
+    const wide = window.innerWidth;
+    let n = wide > 1400 ? 900 : wide > 900 ? 680 : 300;
+    this.N = Math.max(90, Math.round(n * this.density));
+    this.forms = FORMS.map(f => f(this.N));
+    this.parts = new Array(this.N).fill(0).map((_, i) => ({
+      x: 0.5, y: 0.5, ox: 0, oy: 0,
+      z: 0.35 + ((i * 71) % 100) / 100 * 0.65,
+      ph: ((i * 131) % 628) / 100,
+      sig: i % 13 === 0
+    }));
+    this.resizeCanvas();
+  }
+
+  resizeCanvas() {
+    const c = this.el.canvas; if (!c) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+    this.cw = c.clientWidth; this.ch = c.clientHeight;
+    c.width = Math.round(this.cw * dpr); c.height = Math.round(this.ch * dpr);
+    this._bw = c.width; this._bh = c.height;
+    if (this.ctx) this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  drawField(t) {
+    const ctx = this.ctx, c = this.el.canvas; if (!ctx || !c) return;
+    // the backing store is sized from the client box, which may not have resolved at mount —
+    // and container resizes (preview drags, orientation) never fire a window 'resize'.
+    // Re-sync here so the render path can never run against a stale or 0x0 store.
+    if (this.cw !== c.clientWidth || this.ch !== c.clientHeight || c.width !== this._bw || c.height !== this._bh) this.resizeCanvas();
+    const w = this.cw, h = this.ch;
+    if (w < 2 || h < 2) return;
+    ctx.clearRect(0, 0, w, h);
+    const cf = clamp(this.cf, 0, FORMS.length - 1);
+    const i0 = Math.floor(cf), i1 = Math.min(FORMS.length - 1, i0 + 1);
+    const mt = EASE(cf - i0);
+    const A = this.forms[i0], B = this.forms[i1];
+    const drift = this.motion === 'still' ? 0 : this.motion === 'calm' ? 0.4 : 1;
+    const vel = clamp(this.scroll.vel, -70, 70);
+    const stretch = clamp((Math.abs(vel) - 3) * 0.14, 0, 7);
+    const mx = this.mouse.sx, my = this.mouse.sy;
+    const R = 170, R2 = R * R;
+
+    for (let i = 0; i < this.N; i++) {
+      const p = this.parts[i];
+      const nx = lerp(A[i][0], B[i][0], mt), ny = lerp(A[i][1], B[i][1], mt);
+      let px = nx * w, py = ny * h;
+      if (drift) {
+        px += Math.sin(t * 0.00028 + p.ph) * 11 * drift * p.z;
+        py += Math.cos(t * 0.00023 + p.ph * 1.7) * 9 * drift * p.z;
+      }
+      if (!this.touch && mx > -9000) {
+        const dx = px - mx, dy = py - my, d2 = dx * dx + dy * dy;
+        if (d2 < R2 && d2 > 0.01) {
+          const d = Math.sqrt(d2), f = (1 - d / R) * 46;
+          px += (dx / d) * f; py += (dy / d) * f;
+        }
+      }
+      p.x = px; p.y = py;
+    }
+
+    /* structure lines — chains of 14, hidden when the formation stretches them */
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(150,175,200,0.075)';
+    ctx.beginPath();
+    const maxLen = Math.min(w, h) * 0.14;
+    for (let i = 0; i < this.N - 1; i++) {
+      if ((i + 1) % 14 === 0) continue;
+      const a = this.parts[i], b = this.parts[i + 1];
+      const dx = b.x - a.x, dy = b.y - a.y;
+      if (dx * dx + dy * dy > maxLen * maxLen) continue;
+      ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+    }
+    ctx.stroke();
+
+    for (let i = 0; i < this.N; i++) {
+      const p = this.parts[i];
+      const s = 0.7 + p.z * 1.5;
+      if (p.sig) { ctx.fillStyle = this.signal; ctx.globalAlpha = 0.5 + p.z * 0.4; }
+      else { ctx.fillStyle = '#c8d4e0'; ctx.globalAlpha = 0.12 + p.z * 0.3; }
+      if (stretch > 0.6) ctx.fillRect(p.x - s / 2, p.y - stretch * 0.5 * p.z, s, stretch * p.z + s);
+      else ctx.fillRect(p.x - s / 2, p.y - s / 2, s, s);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  /* ── virtual smooth scroll ── */
+  bind() {
+    const vp = this.el.viewport;
+    this.on(window, 'resize', () => { this.measure(); });
+
+    if (!this.touch) {
+      this.on(vp, 'wheel', e => {
+        if (this.locked) return;
+        e.preventDefault();
+        const d = e.deltaMode === 1 ? e.deltaY * 18 : e.deltaMode === 2 ? e.deltaY * this.vh : e.deltaY;
+        this.scroll.target = clamp(this.scroll.target + d, 0, this.scroll.max);
+      }, { passive: false });
+    }
+
+    let ty = 0;
+    this.on(vp, 'touchstart', e => { ty = e.touches[0].clientY; }, { passive: true });
+    this.on(vp, 'touchmove', e => {
+      const y = e.touches[0].clientY;
+      this.scroll.target = clamp(this.scroll.target + (ty - y) * 1.7, 0, this.scroll.max);
+      ty = y;
+    }, { passive: true });
+
+    this.on(window, 'keydown', e => {
+      const tag = (e.target.tagName || '').toLowerCase();
+      if (tag === 'input' || tag === 'textarea') return;
+      const K = { ArrowDown: 90, ArrowUp: -90, PageDown: this.vh * 0.9, PageUp: -this.vh * 0.9, Home: -1e7, End: 1e7, ' ': this.vh * 0.9 };
+      if (K[e.key] === undefined) return;
+      e.preventDefault();
+      this.scroll.target = clamp(this.scroll.target + K[e.key], 0, this.scroll.max);
+    });
+
+    this.on(document, 'focusin', e => {
+      const el = e.target; if (!el.getBoundingClientRect) return;
+      const r = el.getBoundingClientRect();
+      if (r.top < 60 || r.bottom > this.vh - 60) {
+        this.scroll.target = clamp(this.scroll.target + r.top - this.vh * 0.35, 0, this.scroll.max);
+      }
+    });
+
+    this.qa('nav-link').concat(this.qa('logo'), this.qa('cta')).forEach(a => {
+      this.on(a, 'click', e => {
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const idx = id === 'chapter-00' ? 0 : this.sections.findIndex(s => s.id === id);
+        this.scroll.target = clamp(this.sTops[Math.max(0, idx)] || 0, 0, this.scroll.max);
+      });
+    });
+    const top = this.q('to-top');
+    if (top) this.on(top, 'click', () => { this.scroll.target = 0; });
+
+    this.setupCursor();
+    this.setupWork();
+    this.setupForm();
+  }
+
+  /* ── cursor system ── */
+  setupCursor() {
+    if (this.cursorMode === 'native' || this.touch) { if (this.el.cursor) this.el.cursor.style.display = 'none'; return; }
+    this.el.viewport.style.cursor = 'none';
+    const styleEls = document.createElement('style');
+    styleEls.textContent = '[data-fld="viewport"] a,[data-fld="viewport"] button{cursor:none!important}[data-fld="viewport"] input,[data-fld="viewport"] textarea{cursor:text!important}';
+    document.head.appendChild(styleEls);
+    this.off.push(() => styleEls.remove());
+
+    this.on(window, 'mousemove', e => {
+      this.mouse.x = e.clientX; this.mouse.y = e.clientY;
+      if (this.el.cursor.style.opacity !== '1') this.el.cursor.style.opacity = '1';
+    });
+    this.on(document, 'mouseleave', () => { this.el.cursor.style.opacity = '0'; this.mouse.x = -9999; this.mouse.y = -9999; });
+
+    const setState = (state, label) => {
+      if (this.cState === state && this.cLabelTxt === label) return;
+      this.cState = state; this.cLabelTxt = label;
+      const ring = this.el.ring, lab = this.el.cLabel, dot = this.el.dot;
+      const big = state === 'project';
+      const mid = state === 'link' || state === 'explore';
+      const size = big ? 84 : mid ? 54 : 34;
+      ring.style.width = size + 'px'; ring.style.height = size + 'px';
+      ring.style.margin = (-size / 2) + 'px 0 0 ' + (-size / 2) + 'px';
+      ring.style.background = state === 'default' ? 'transparent' : 'oklch(0.80 0.125 208 / 0.13)';
+      ring.style.borderColor = state === 'default' ? 'oklch(0.80 0.125 208 / 0.55)' : 'oklch(0.80 0.125 208 / 0.85)';
+      lab.textContent = label || '';
+      lab.style.opacity = label && this.cursorMode === 'full' ? '1' : '0';
+      dot.style.opacity = state === 'default' ? '1' : '0';
+    };
+    this.setCursorState = setState;
+    setState('default', '');
+
+    this.on(document, 'mouseover', e => {
+      const t = e.target.closest ? e.target.closest('[data-cursor]') : null;
+      if (t) setState(t.dataset.cursor, this.cursorMode === 'full' ? (t.dataset.cursorLabel || '') : '');
+      else if (e.target.closest && e.target.closest('a,button')) setState('link', '');
+      else setState('default', '');
+    });
+  }
+
+  /* ── selected work: expand + cursor-following preview ── */
+  setupWork() {
+    this.qa('work-row').forEach(row => {
+      const btn = row.querySelector('[data-fld="work-toggle"]');
+      const panel = row.querySelector('[data-fld="work-panel"]');
+      const inner = panel.firstElementChild;
+      const title = row.querySelector('[data-fld="work-title"]');
+      const plus = row.querySelector('[data-fld="work-plus"]');
+      const pv = row.querySelector('[data-fld="plus-v"]');
+      let open = false;
+
+      this.on(btn, 'click', () => {
+        open = !open;
+        btn.setAttribute('aria-expanded', String(open));
+        panel.style.height = open ? inner.offsetHeight + 'px' : '0px';
+        pv.style.transform = open ? 'scaleY(0)' : 'scaleY(1)';
+        plus.style.borderColor = open ? 'oklch(0.80 0.125 208 / 0.7)' : 'oklch(0.285 0.012 252)';
+        if (open) this.hidePreview();
+        setTimeout(() => { if (open) panel.style.height = inner.offsetHeight + 'px'; this.measure(); }, 660);
+      });
+
+      this.on(row, 'mouseenter', () => {
+        title.style.transform = 'translateX(14px)';
+        title.style.color = 'oklch(0.99 0 0)';
+        plus.style.borderColor = 'oklch(0.80 0.125 208 / 0.7)';
+        if (!open && !this.touch) this.showPreview(row.dataset.preview);
+      });
+      this.on(row, 'mouseleave', () => {
+        title.style.transform = 'translateX(0)';
+        title.style.color = '';
+        if (!open) plus.style.borderColor = 'oklch(0.285 0.012 252)';
+        this.hidePreview();
+      });
+    });
+
+    this.qa('cert-row').forEach(row => {
+      const t = row.querySelector('[data-fld="cert-title"]');
+      this.on(row, 'mouseenter', () => { t.style.transform = 'translateX(12px)'; });
+      this.on(row, 'mouseleave', () => { t.style.transform = 'translateX(0)'; });
+    });
+
+    const email = this.q('copy-email'), eLabel = this.q('copy-label');
+    if (email) this.on(email, 'click', () => this.copy('chaitanya.sai311@gmail.com', eLabel, 'Copy'));
+    const curl = this.q('copy-curl'), cLabel = this.q('curl-label');
+    if (curl) this.on(curl, 'click', () => this.copy('curl https://saichaitanyadev.vercel.app/api/me.json', cLabel, 'For engineers'));
+  }
+
+  copy(text, label, rest) {
+    if (!label) return;
+    label.textContent = 'Copying';
+    const done = ok => {
+      label.textContent = ok ? 'Copied ✓' : 'Copy failed';
+      label.style.color = ok ? 'oklch(0.80 0.125 208)' : 'oklch(0.65 0.16 25)';
+      setTimeout(() => { label.textContent = rest; label.style.color = 'oklch(0.66 0.012 252)'; }, 1900);
+    };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => done(true), () => done(false));
+    else done(false);
+  }
+
+  showPreview(label) {
+    const pv = this.el.preview;
+    this.el.pvLabel.textContent = label || '';
+    this.el.pvBody.style.opacity = '0';
+    this.el.pvSkel.style.opacity = '1';
+    pv.style.opacity = '1';
+    clearTimeout(this._pvT);
+    this._pvT = setTimeout(() => {
+      this.el.pvSkel.style.opacity = '0';
+      this.el.pvBody.style.opacity = '1';
+    }, 420);
+  }
+  hidePreview() {
+    clearTimeout(this._pvT);
+    this.el.preview.style.opacity = '0';
+  }
+
+  /* ── contact form: waiting signals ── */
+  setupForm() {
+    const form = this.q('form'); if (!form) return;
+    const label = this.q('submit-label'), glyph = this.q('submit-glyph'), status = this.q('form-status'), btn = this.q('submit');
+    this.qa('input').forEach(inp => {
+      this.on(inp, 'focus', () => { inp.style.borderColor = 'oklch(0.80 0.125 208 / 0.7)'; inp.style.background = 'oklch(0.205 0.009 252)'; });
+      this.on(inp, 'blur', () => { inp.style.borderColor = 'oklch(0.285 0.012 252)'; inp.style.background = 'oklch(0.185 0.009 252)'; });
+    });
+    this.on(form, 'submit', e => {
+      e.preventDefault();
+      if (this.sending) return;
+      const fd = new FormData(form);
+      if (!String(fd.get('name') || '').trim() || !String(fd.get('email') || '').includes('@') || String(fd.get('message') || '').trim().length < 10) {
+        status.textContent = 'Check name, email and a message of 10+ characters';
+        status.style.color = 'oklch(0.70 0.14 30)';
+        return;
+      }
+      this.sending = true;
+      label.textContent = 'Transmitting';
+      glyph.innerHTML = '<span style="display:block;width:11px;height:11px;border:1px solid oklch(0.80 0.125 208);border-top-color:transparent;border-radius:50%;animation:fldSpin 0.75s linear infinite;"></span>';
+      status.textContent = 'Opening channel';
+      status.style.color = 'oklch(0.66 0.012 252)';
+      setTimeout(() => {
+        this.sending = false;
+        label.textContent = 'Received';
+        glyph.innerHTML = '✓';
+        status.textContent = 'Prototype — wire to Convex + Resend on ship';
+        status.style.color = 'oklch(0.80 0.125 208)';
+        form.reset();
+        setTimeout(() => { label.textContent = 'Send inquiry'; glyph.innerHTML = '&#8599;'; }, 4200);
+      }, 1500);
+    });
+  }
+
+  /* ── preloader ── */
+  preload() {
+    const pre = this.el.pre;
+    // no preloader node (already played, or turned off) — never leave scroll locked
+    if (!this.preloaderOn || !pre || !this.el.preCount || !this.el.preBar) {
+      if (pre) pre.remove();
+      this.locked = false;
+      this.introPending = true;
+      return;
+    }
+    this.locked = true;
+    const start = performance.now(), dur = this.motion === 'still' ? 500 : 1500;
+
+    // the count animates on rAF, but completion is owned by a timer so a starved
+    // frame loop can never leave the overlay up or the page locked
+    const paint = () => {
+      if (this.dead || this.preDone) return;
+      const p = clamp((performance.now() - start) / dur, 0, 1);
+      const e = EASE(p);
+      this.el.preCount.textContent = String(Math.round(e * 100)).padStart(3, '0');
+      this.el.preBar.style.width = (e * 100) + '%';
+      if (p > 0.55) this.el.preStatus.textContent = 'Resolving chapters';
+      if (p < 1) requestAnimationFrame(paint);
+    };
+    requestAnimationFrame(paint);
+    this.prePaint = setInterval(paint, 120);
+
+    const finish = () => {
+      if (this.preDone) return;
+      this.preDone = true;
+      clearInterval(this.prePaint);
+      this.el.preCount.textContent = '100';
+      this.el.preBar.style.width = '100%';
+      this.el.preStatus.textContent = 'Field online';
+      pre.style.transition = 'clip-path 1s cubic-bezier(0.76,0,0.24,1)';
+      pre.style.clipPath = 'inset(0 0 100% 0)';
+      this.locked = false;
+      this.introPending = true; // armed on the first real frame, so a hidden load doesn't burn the intro
+      setTimeout(() => { if (pre.parentNode) pre.remove(); }, 1100);
+    };
+    this.preFinish = setTimeout(finish, dur);
+    this.off.push(() => { clearInterval(this.prePaint); clearTimeout(this.preFinish); });
+  }
+
+  /* ── frame loop ── */
+  tick(t) {
+    if (this.dead) return;
+    // frames can stall for minutes on a backgrounded tab — arm/rebase the intro on real frames only
+    if (this.introPending || (this.introStart && this.lastTick && t - this.lastTick > 2000)) {
+      this.introStart = t + (this.introPending ? 220 : 0);
+      this.introPending = false;
+    }
+    this.lastTick = t;
+    const s = this.scroll;
+    const ease = this.motion === 'still' ? 1 : 0.085;
+    s.current += (s.target - s.current) * ease;
+    if (Math.abs(s.target - s.current) < 0.05) s.current = s.target;
+    s.vel = s.current - s.prev; s.prev = s.current;
+
+    this.el.content.style.transform = 'translate3d(0,' + (-s.current).toFixed(2) + 'px,0)';
+
+    if (!this.touch) { this.mouse.sx = lerp(this.mouse.sx, this.mouse.x, 0.16); this.mouse.sy = lerp(this.mouse.sy, this.mouse.y, 0.16); }
+
+    /* chapter float */
+    let idx = 0;
+    for (let i = 0; i < this.sTops.length; i++) if (s.current >= this.sTops[i] - this.vh * 0.5) idx = i;
+    const a = this.sTops[idx] || 0, b = this.sTops[idx + 1] !== undefined ? this.sTops[idx + 1] : a + this.vh;
+    const local = clamp((s.current - a) / Math.max(1, b - a), 0, 1);
+    this.cf = lerp(this.cf, idx + local, 0.08);
+
+    if (this.activeIdx !== idx) {
+      this.activeIdx = idx;
+      this.navLinks.forEach((l, i) => {
+        const on = i === idx;
+        l.style.color = on ? 'oklch(0.945 0.006 95)' : 'oklch(0.66 0.012 252)';
+        this.navTicks[i].style.background = on ? this.signal : 'oklch(0.34 0.012 252)';
+        this.navTicks[i].style.transform = on ? 'scale(1.35)' : 'scale(1)';
+        this.navLabels[i].style.maxWidth = on ? '170px' : '0px';
+        this.navLabels[i].style.marginLeft = on ? '10px' : '0px';
+        this.navLabels[i].style.opacity = on ? '1' : '0';
+      });
+      const names = ['Field online', 'Strata', 'Lattice', 'Branch', 'Rings', 'Converge'];
+      if (this.el.ticker) this.el.ticker.textContent = names[idx] || 'Field online';
+    }
+
+    const prog = this.scroll.max ? s.current / this.scroll.max : 0;
+    this.el.progress.style.height = (prog * 100).toFixed(2) + '%';
+
+    /* reveals */
+    for (let i = 0; i < this.reveals.length; i++) {
+      const r = this.reveals[i];
+      let p = clamp((s.current + this.vh * 0.9 - r.top) / (this.vh * 0.42), 0, 1);
+      if (r.intro) {
+        p = this.introStart ? Math.max(p, clamp((t - this.introStart - r.iOrder * 120) / 950, 0, 1)) : 0;
+      }
+      if (Math.abs(p - r.p) < 0.002) continue;
+      r.p = p;
+      const e = EASE(p);
+      if (r.units.length) {
+        const n = r.units.length, span = 0.55;
+        for (let j = 0; j < n; j++) {
+          const d = (j / n) * span;
+          const wp = clamp((p - d) / (1 - span), 0, 1), we = EASE(wp);
+          const u = r.units[j];
+          u.style.transform = 'translateY(' + ((1 - we) * 105).toFixed(2) + '%)';
+          u.style.opacity = (0.15 + we * 0.85).toFixed(3);
+        }
+        r.el.style.opacity = '1';
+      } else {
+        r.el.style.opacity = (0.05 + e * 0.95).toFixed(3);
+        r.el.style.transform = 'translateY(' + ((1 - e) * 26).toFixed(2) + 'px)';
+      }
+    }
+
+    /* chapter numeral: parallax + stroke warm-up */
+    for (let i = 0; i < this.chapterNums.length; i++) {
+      const n = this.chapterNums[i];
+      const d = (s.current - (n._top - this.vh * 0.6)) / this.vh;
+      const k = clamp(d, -1, 1);
+      n.style.transform = 'translate3d(0,' + (-k * 16).toFixed(1) + 'px,0)';
+      n.style.webkitTextStroke = '1px ' + (Math.abs(k) < 0.35 ? this.signal : 'oklch(0.40 0.012 252)');
+      n.style.opacity = (0.35 + (1 - Math.min(1, Math.abs(k))) * 0.65).toFixed(2);
+    }
+
+    /* branch paths draw themselves */
+    for (let i = 0; i < this.branchPaths.length; i++) {
+      const bp = this.branchPaths[i];
+      const p = clamp((s.current + this.vh * 0.8 - bp.top) / (this.vh * 0.55), 0, 1);
+      bp.el.style.strokeDashoffset = (bp.len * (1 - EASE(p))).toFixed(1);
+      if (p > 0.98) bp.el.style.stroke = this.signal + '55';
+    }
+
+    /* counters */
+    for (let i = 0; i < this.counters.length; i++) {
+      const c = this.counters[i]; if (c.done) continue;
+      const p = clamp((s.current + this.vh * 0.75 - c.top) / (this.vh * 0.3), 0, 1);
+      c.el.textContent = String(Math.round(EASE(p) * c.to)).padStart(2, '0');
+      if (p >= 1) c.done = true;
+    }
+
+    /* cursor + preview follow */
+    if (this.el.cursor && !this.touch) {
+      this.el.cursor.style.transform = 'translate3d(' + this.mouse.sx.toFixed(1) + 'px,' + this.mouse.sy.toFixed(1) + 'px,0)';
+      if (this.el.preview.style.opacity === '1') {
+        const px = clamp(this.mouse.sx + 34, 12, this.vw - 282);
+        const py = clamp(this.mouse.sy - 84, 12, this.vh - 182);
+        this.el.preview.style.transform = 'translate3d(' + px.toFixed(1) + 'px,' + py.toFixed(1) + 'px,0) scale(1)';
+      }
+    }
+
+    if (this.motion !== 'still' || !this._drawnOnce) {
+      this.drawField(t);
+      if (this.cw > 1) this._drawnOnce = true; // never latch a still-mode frame drawn against a 0-size store
+    }
+    this.rafId = requestAnimationFrame(this.tick);
+  }
+
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
