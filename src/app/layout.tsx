@@ -55,6 +55,7 @@ export const metadata: Metadata = {
     description: "AI products that keep working after the demo is over.",
   },
   category: "technology",
+  verification: { google: "oJ_EOZdT1d7S5uI54MEOEf2jVUq_yEHzS4B12rlv_58" },
 };
 
 // JSON-LD: describe the site owner as a Person so search engines resolve the entity.
