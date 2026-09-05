@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Archivo, JetBrains_Mono } from "next/font/google";
-import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION, SOCIALS } from "@/lib/site";
+import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION, SITE_OG_DESCRIPTION, SOCIALS } from "@/lib/site";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -46,16 +46,19 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: SITE_NAME,
     title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    description: SITE_OG_DESCRIPTION,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
-    description: "AI products that keep working after the demo is over.",
+    description: SITE_OG_DESCRIPTION,
   },
   category: "technology",
-  verification: { google: "oJ_EOZdT1d7S5uI54MEOEf2jVUq_yEHzS4B12rlv_58" },
+  verification: {
+    google: "oJ_EOZdT1d7S5uI54MEOEf2jVUq_yEHzS4B12rlv_58",
+    other: { "msvalidate.01": "806BB57F36CEEB7A77B7D6EB23F99AA5" },
+  },
 };
 
 // JSON-LD: describe the site owner as a Person so search engines resolve the entity.

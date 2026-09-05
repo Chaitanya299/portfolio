@@ -1,13 +1,12 @@
 import { ImageResponse } from "next/og";
-import { SITE_NAME } from "@/lib/site";
 
-export const alt = "Chaitanya Parasana — Full-Stack & AI Engineer";
+export const alt = "Chaitanya Parasana, Full-Stack & AI Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Bone-paper-&-wine social card. Rendered at build time; system fonts only.
+// Bone-paper-&-wine social card. 1200x630, built at deploy time.
 export default function OgImage() {
-  const bg = "#fdfbf6";
+  const bg = "#fbf8f1";
   const ink = "#241315";
   const accent = "#8c2a35";
   const muted = "#6f5a54";
@@ -21,46 +20,48 @@ export default function OgImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "72px 80px",
-          fontFamily: "Georgia, 'Times New Roman', serif",
+          padding: "70px 84px",
           color: ink,
+          borderTop: `10px solid ${accent}`,
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+        {/* kicker */}
+        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <div
             style={{
-              width: 34,
-              height: 34,
+              width: 40,
+              height: 40,
               borderRadius: "50%",
               border: `2px solid ${ink}`,
               display: "flex",
-            }}
-          />
-          <div
-            style={{
-              fontSize: 22,
-              letterSpacing: 6,
-              textTransform: "uppercase",
-              fontFamily: "monospace",
-              color: muted,
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
+            <div style={{ width: 10, height: 10, borderRadius: "50%", background: accent }} />
+          </div>
+          <div style={{ fontSize: 23, letterSpacing: 7, textTransform: "uppercase", color: muted }}>
             Full-Stack &amp; AI Engineer · Hyderabad
           </div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", fontSize: 128, fontWeight: 700, lineHeight: 1, letterSpacing: -4 }}>
-            {SITE_NAME}
+        {/* name, stacked like the site headline */}
+        <div style={{ display: "flex", flexDirection: "column", marginTop: -10 }}>
+          <div style={{ display: "flex", fontSize: 138, fontWeight: 800, lineHeight: 0.92, letterSpacing: -6 }}>
+            Chaitanya
           </div>
-          <div style={{ display: "flex", marginTop: 28, fontSize: 40, color: muted, maxWidth: 900 }}>
+          <div style={{ display: "flex", fontSize: 138, fontWeight: 800, lineHeight: 0.92, letterSpacing: -6 }}>
+            Parasana
+          </div>
+          <div style={{ display: "flex", marginTop: 30, fontSize: 38, color: muted, maxWidth: 940, lineHeight: 1.25 }}>
             AI products that keep working after the demo is over.
           </div>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div style={{ width: 120, height: 4, background: accent }} />
-          <div style={{ display: "flex", fontSize: 24, fontFamily: "monospace", color: accent, letterSpacing: 2 }}>
+        {/* footer */}
+        <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
+          <div style={{ width: 132, height: 5, background: accent }} />
+          <div style={{ display: "flex", fontSize: 26, color: accent, letterSpacing: 2 }}>
             chaitanyaparasana.com
           </div>
         </div>

@@ -6,8 +6,12 @@ export const SITE_URL = (
 
 export const SITE_NAME = "Chaitanya Parasana";
 export const SITE_TITLE = "Chaitanya Parasana | Full-Stack & AI Engineer";
+// Meta description: kept under ~155 chars so Google does not truncate it.
 export const SITE_DESCRIPTION =
-  "AI products that keep working after the demo is over. Assistants you can talk to, search that understands a plain question, and the quiet machinery that keeps both running in production.";
+  "Full-stack and AI engineer building AI products that keep working after the demo: voice agents, assistants, and the machinery that runs them.";
+// Open Graph / social cards: shorter (~115) so mobile previews do not clip.
+export const SITE_OG_DESCRIPTION =
+  "AI products that keep working after the demo is over. Voice agents, assistants, and the machinery that runs them.";
 
 export const SOCIALS = {
   github: "https://github.com/Chaitanya299",
