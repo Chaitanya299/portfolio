@@ -61,7 +61,7 @@ export default function OgImage() {
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <div style={{ width: 120, height: 4, background: accent }} />
           <div style={{ display: "flex", fontSize: 24, fontFamily: "monospace", color: accent, letterSpacing: 2 }}>
-            saichaitanyadev.vercel.app
+            chaitanyaparasana.com
           </div>
         </div>
       </div>

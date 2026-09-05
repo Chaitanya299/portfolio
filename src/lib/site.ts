@@ -1,7 +1,7 @@
 // Single source of truth for absolute URLs (metadata, robots, sitemap, JSON-LD).
 // Override NEXT_PUBLIC_APP_URL in the deploy env once a custom domain is connected.
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_APP_URL || "https://chaitanyaparasana.com"
+  process.env.NEXT_PUBLIC_APP_URL || "https://www.chaitanyaparasana.com"
 ).replace(/\/$/, "");
 
 export const SITE_NAME = "Chaitanya Parasana";
