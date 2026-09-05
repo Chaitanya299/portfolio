@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { CHAPTERS, type ChapterKey } from "./data";
 import { FieldCanvas, type MotionMode } from "./canvas";
 import { Home, Build, Work, Roadmap, Recognition, Contact } from "./chapters";
@@ -50,6 +50,16 @@ interface ChNum {
 const RING = { default: 34, link: 54, explore: 54, project: 84 } as const;
 type CursorState = keyof typeof RING;
 
+// Touch detection as an external store — render-safe (no ref read in render), no
+// setState-in-effect, and SSR returns false so hydration stays consistent.
+const subscribeTouch = (cb: () => void) => {
+  const m = window.matchMedia("(hover: none)");
+  m.addEventListener("change", cb);
+  return () => m.removeEventListener("change", cb);
+};
+const getTouch = () => window.matchMedia("(hover: none)").matches;
+const getTouchServer = () => false;
+
 export default function Field() {
   const [pageIdx, setPageIdx] = useState(0);
   const pageRef = useRef(0);
@@ -85,7 +95,7 @@ export default function Field() {
   const locked = useRef(true);
   const transitioning = useRef(false);
   const field = useRef<FieldCanvas | null>(null);
-  const touch = useRef(false);
+  const touch = useSyncExternalStore(subscribeTouch, getTouch, getTouchServer);
   const motionMode = useRef<MotionMode>("full");
   const introStart = useRef(0);
   const lastLocal = useRef(-1);
@@ -214,7 +224,6 @@ export default function Field() {
 
   useEffect(() => {
     const isTouch = window.matchMedia("(hover: none)").matches;
-    touch.current = isTouch;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     motionMode.current = reduced ? "still" : "full";
     const finePointer = window.matchMedia("(pointer: fine)").matches;
@@ -413,6 +422,9 @@ export default function Field() {
     if (startIdx > 0) {
       pageRef.current = startIdx;
       cf.current = startIdx;
+      // Intentional: one-time deep-link init. Must run post-hydration — the server
+      // has no location.hash, so it always renders home and we switch on the client.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPageIdx(startIdx);
       if (tickerRef.current) tickerRef.current.textContent = CHAPTERS[startIdx].meta;
     }
@@ -708,7 +720,7 @@ export default function Field() {
           <Build onNavigate={nav} />
         </div>
         <div className="fld-chapter" data-active={pageIdx === 2}>
-          <Work touch={touch.current} track={track} />
+          <Work touch={touch} track={track} />
         </div>
         <div className="fld-chapter" data-active={pageIdx === 3}>
           <Roadmap />

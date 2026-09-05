@@ -49,9 +49,9 @@ export async function POST(req: NextRequest) {
   const budget = String(body.budget ?? "").trim().slice(0, 80);
   const timeline = String(body.timeline ?? "").trim().slice(0, 80);
 
-  if (!name || !emailRe.test(email) || message.length < 10) {
+  if (!name || !emailRe.test(email) || !message) {
     return NextResponse.json(
-      { error: "Please add a name, a valid email, and a line or two." },
+      { error: "Please add a name, a valid email, and a message." },
       { status: 400 },
     );
   }

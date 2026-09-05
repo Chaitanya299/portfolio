@@ -536,23 +536,26 @@ function ContactForm() {
     const email = String(fd.get("email") || "").trim();
     const message = String(fd.get("message") || "").trim();
 
-    if (!name || !email.includes("@") || message.length < 10) {
-      setStatus({ text: "Please add a name, an email, and a line or two", tone: "error" });
+    // Light guard only — the server is the source of truth and returns clear errors.
+    if (!name || !email.includes("@") || !message) {
+      setStatus({ text: "Please add your name, email, and a message.", tone: "error" });
       return;
     }
 
     setPhase("sending");
     setStatus({ text: "On its way", tone: "" });
     try {
-      await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, message, needs, budget: fd.get("budget"), timeline: fd.get("timeline") }),
       });
-    } catch {
-      /* mock lifecycle continues regardless */
-    }
-    setTimeout(() => {
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setPhase("idle");
+        setStatus({ text: data?.error || "Something went wrong. Please try again.", tone: "error" });
+        return;
+      }
       setPhase("done");
       setStatus({ text: "Thanks. I will reply to that address.", tone: "ok" });
       formRef.current?.reset();
@@ -561,7 +564,10 @@ function ContactForm() {
         setPhase("idle");
         setStatus({ text: "", tone: "" });
       }, 4200);
-    }, 1500);
+    } catch {
+      setPhase("idle");
+      setStatus({ text: "Network error. Please try again, or email me directly.", tone: "error" });
+    }
   };
 
   return (
