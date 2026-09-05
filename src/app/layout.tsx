@@ -1,6 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Archivo, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION, SITE_OG_DESCRIPTION, SOCIALS } from "@/lib/site";
 
 const archivo = Archivo({
@@ -92,6 +94,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
         />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
