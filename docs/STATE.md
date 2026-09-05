@@ -45,14 +45,21 @@ flowchart TD
   in DOM); content is static-prerendered semantic HTML, canvas is `aria-hidden`.
   Contact route: IP rate limit (5/10min, in-memory) + newline-stripped name + escaped
   HTML. Verified live: robots/sitemap/OG 200, metadata + JSON-LD present, 6th POST → 429.
+- **Launched on the custom domain:** live at `https://www.chaitanyaparasana.com` (bought
+  at Spaceship; `www` primary, apex 308→www, HTTPS). Canonical/OG/sitemap point to www via
+  `NEXT_PUBLIC_APP_URL` + the `site.ts` default. Google + Bing verified (meta tags),
+  sitemap submitted, indexing requested. Vercel Analytics + Speed Insights on. Branded
+  open-C favicon (`icon.svg` + `apple-icon`, bone bg), OG description trimmed to 141/113
+  chars. Lighthouse: Accessibility 100 / SEO 100.
 - Earlier: CI/CD (Docker, k8s, Actions), `/api/me` + `/api/health`.
+
+## Decisions (docs/decisions/)
+0006 FIELD engine · 0007 remove Convex → direct Resend (supersedes 0002) · 0008 SEO /
+static-HTML rendering strategy. See `docs/ARCHITECTURE.md` for the current shape.
 
 ## Next up
 - Supply real work screenshots (placeholder "…shot, drop image" frames) + hover-card art;
   add `alt` text when real `<img>`s land.
-- Deploy: set `RESEND_API_KEY` in Vercel env; set `NEXT_PUBLIC_APP_URL` once a custom
-  domain is connected (drives canonical/OG/sitemap). Then: Search Console + submit
-  sitemap, request indexing, add analytics, www→apex redirect.
 
 ## Blocked / needs research
 - None open.

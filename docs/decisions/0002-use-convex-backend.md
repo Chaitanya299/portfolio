@@ -1,9 +1,9 @@
 # ADR-0002: Use Convex as the backend for live data and email actions
 
 - Date: 2026-08-28
-- Status: accepted
+- Status: superseded
 - Supersedes: none
-- Superseded by: none
+- Superseded by: ADR-0007
 
 ## Context
 The portfolio needed a data layer for its content that stays live for all visitors
