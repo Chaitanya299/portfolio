@@ -1,0 +1,156 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, 'Inter', 'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="0.55" stop-color="#0d1526"/>
+      <stop offset="1" stop-color="#111a2e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.22" cy="0.12" r="0.9">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.16"/>
+      <stop offset="0.4" stop-color="#22d3ee" stop-opacity="0.04"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.9" cy="0.95" r="0.7">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="term" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141d30"/>
+      <stop offset="1" stop-color="#0f1626"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16223a"/>
+      <stop offset="1" stop-color="#101a2d"/>
+    </linearGradient>
+    <linearGradient id="node" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0e2a34"/>
+      <stop offset="1" stop-color="#0b2129"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="34" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="softshadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <style>
+      .mono { font-family: 'SF Mono','JetBrains Mono','Fira Code',Menlo,Consolas,monospace; }
+      .dim  { fill: #64748b; }
+      .fg   { fill: #cbd5e1; }
+      .cy   { fill: #22d3ee; }
+      .gr   { fill: #4ade80; }
+      .am   { fill: #fbbf24; }
+      .wht  { fill: #f1f5f9; }
+    </style>
+  </defs>
+
+  <!-- background -->
+  <rect width="1440" height="900" fill="url(#bg)"/>
+  <rect width="1440" height="900" fill="url(#glow)"/>
+  <rect width="1440" height="900" fill="url(#glow2)"/>
+
+  <!-- ===== header ===== -->
+  <g transform="translate(80,70)">
+    <!-- compass mark -->
+    <g transform="translate(0,-6)">
+      <circle cx="26" cy="26" r="25" fill="none" stroke="#22d3ee" stroke-width="2.5" opacity="0.9"/>
+      <polygon points="26,9 33,26 26,43 19,26" fill="#22d3ee" opacity="0.95"/>
+      <polygon points="26,9 26,26 19,26" fill="#0b1120" opacity="0.55"/>
+      <circle cx="26" cy="26" r="3" fill="#0b1120"/>
+    </g>
+    <text x="72" y="34" font-size="42" font-weight="700" class="wht" letter-spacing="-1">orient</text>
+    <text x="196" y="34" font-size="19" class="dim" font-weight="500">decision memory for AI-built code</text>
+  </g>
+
+  <text x="80" y="182" font-size="46" font-weight="700" class="wht" letter-spacing="-1.4">Your AI writes the code.</text>
+  <text x="80" y="182" font-size="46" font-weight="700" letter-spacing="-1.4" fill="#22d3ee" transform="translate(560,0)">orient remembers why.</text>
+
+  <!-- ===== terminal window ===== -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="232" width="880" height="540" rx="16" fill="url(#term)" stroke="#243049" stroke-width="1.5"/>
+    <!-- title bar -->
+    <path d="M80 248 a16 16 0 0 1 16 -16 h848 a16 16 0 0 1 16 16 v30 h-880 z" fill="#182236"/>
+    <circle cx="108" cy="263" r="7" fill="#ff5f57"/>
+    <circle cx="132" cy="263" r="7" fill="#febc2e"/>
+    <circle cx="156" cy="263" r="7" fill="#28c840"/>
+    <text x="520" y="268" font-size="15" text-anchor="middle" class="mono dim">~/my-app — orient</text>
+  </g>
+
+  <!-- terminal body -->
+  <g class="mono" font-size="19">
+    <text x="112" y="322"><tspan class="dim">~/my-app</tspan><tspan class="cy">  main</tspan></text>
+    <text x="112" y="356"><tspan class="gr">$</tspan><tspan class="fg"> /orient:init</tspan></text>
+
+    <text x="112" y="404" class="dim">orient · reading the repo…</text>
+    <text x="112" y="440"><tspan class="cy">✓</tspan><tspan class="fg">  docs/STATE.md         </tspan><tspan class="dim">built · in progress · blocked</tspan></text>
+    <text x="112" y="474"><tspan class="cy">✓</tspan><tspan class="fg">  docs/decisions/       </tspan><tspan class="dim">append-only ADRs — what + why</tspan></text>
+    <text x="112" y="508"><tspan class="cy">✓</tspan><tspan class="fg">  docs/architecture.md  </tspan><tspan class="dim">diagram, kept current</tspan></text>
+
+    <text x="112" y="574"><tspan class="am">plan approved</tspan><tspan class="dim">  →  </tspan><tspan class="am">decision captured</tspan></text>
+    <text x="112" y="610"><tspan class="wht">ADR-0007</tspan><tspan class="fg">  Move sessions to Postgres</tspan></text>
+    <text x="112" y="644" class="dim">          why: SQLite locked under concurrent writes</text>
+
+    <text x="112" y="708"><tspan class="gr">$</tspan><tspan class="fg"> </tspan><tspan class="wht">▋</tspan></text>
+  </g>
+
+  <!-- ===== architecture card (right) ===== -->
+  <g filter="url(#softshadow)">
+    <rect x="1000" y="252" width="360" height="440" rx="16" fill="url(#card)" stroke="#243049" stroke-width="1.5"/>
+  </g>
+  <text x="1028" y="296" font-size="15" class="mono dim">architecture.md · auto-generated</text>
+  <line x1="1028" y1="312" x2="1332" y2="312" stroke="#243049" stroke-width="1"/>
+
+  <!-- mini mermaid-style flow -->
+  <g class="mono" font-size="14" text-anchor="middle">
+    <!-- your AI -->
+    <rect x="1110" y="340" width="140" height="42" rx="9" fill="#101a2d" stroke="#334155" stroke-width="1.5"/>
+    <text x="1180" y="366" class="fg">your AI agent</text>
+
+    <!-- arrow -->
+    <line x1="1180" y1="382" x2="1180" y2="418" stroke="#f59e0b" stroke-width="2"/>
+    <polygon points="1180,424 1175,414 1185,414" fill="#f59e0b"/>
+    <text x="1250" y="405" font-size="12" class="am" text-anchor="middle">plan ✓</text>
+
+    <!-- orient -->
+    <rect x="1120" y="424" width="120" height="44" rx="9" fill="url(#node)" stroke="#22d3ee" stroke-width="1.8"/>
+    <text x="1180" y="451" class="cy" font-weight="700">orient</text>
+
+    <!-- three leaves -->
+    <g>
+      <line x1="1180" y1="468" x2="1075" y2="536" stroke="#334155" stroke-width="1.5"/>
+      <line x1="1180" y1="468" x2="1180" y2="536" stroke="#334155" stroke-width="1.5"/>
+      <line x1="1180" y1="468" x2="1285" y2="536" stroke="#334155" stroke-width="1.5"/>
+    </g>
+    <rect x="1028" y="538" width="94" height="40" rx="8" fill="#101a2d" stroke="#334155" stroke-width="1.3"/>
+    <text x="1075" y="562" font-size="12.5" class="fg">STATE.md</text>
+    <rect x="1133" y="538" width="94" height="40" rx="8" fill="#101a2d" stroke="#334155" stroke-width="1.3"/>
+    <text x="1180" y="562" font-size="12.5" class="fg">ADR log</text>
+    <rect x="1238" y="538" width="94" height="40" rx="8" fill="#101a2d" stroke="#334155" stroke-width="1.3"/>
+    <text x="1285" y="562" font-size="12.5" class="fg">diagram</text>
+  </g>
+  <text x="1180" y="638" font-size="13.5" class="dim" text-anchor="middle" font-style="italic">every decision, with the</text>
+  <text x="1180" y="660" font-size="13.5" class="cy" text-anchor="middle" font-weight="600">reason it was made.</text>
+
+  <!-- ===== feature chips ===== -->
+  <g font-size="16" font-weight="600">
+    <g transform="translate(80,812)">
+      <rect x="0" y="0" width="176" height="44" rx="22" fill="#101a2d" stroke="#22d3ee" stroke-opacity="0.4" stroke-width="1.3"/>
+      <text x="88" y="28" text-anchor="middle" class="fg">decision log (ADRs)</text>
+    </g>
+    <g transform="translate(272,812)">
+      <rect x="0" y="0" width="202" height="44" rx="22" fill="#101a2d" stroke="#22d3ee" stroke-opacity="0.4" stroke-width="1.3"/>
+      <text x="101" y="28" text-anchor="middle" class="fg">self-updating diagram</text>
+    </g>
+    <g transform="translate(490,812)">
+      <rect x="0" y="0" width="214" height="44" rx="22" fill="#101a2d" stroke="#22d3ee" stroke-opacity="0.4" stroke-width="1.3"/>
+      <text x="107" y="28" text-anchor="middle" class="fg">done vs half-wired state</text>
+    </g>
+    <g transform="translate(720,812)">
+      <rect x="0" y="0" width="180" height="44" rx="22" fill="#101a2d" stroke="#22d3ee" stroke-opacity="0.4" stroke-width="1.3"/>
+      <text x="90" y="28" text-anchor="middle" class="fg">on-demand trace</text>
+    </g>
+  </g>
+
+  <!-- footer strip -->
+  <text x="1000" y="840" font-size="15" class="mono" fill="#475569">Claude Code · opencode · Codex</text>
+  <text x="1000" y="864" font-size="14" class="mono" fill="#3f4b60">zero deps · no telemetry · nothing leaves your machine</text>
+</svg>

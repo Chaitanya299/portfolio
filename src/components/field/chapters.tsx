@@ -343,7 +343,31 @@ function WorkRow({
             <a className="fld-work-link" href={item.github} target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label={"Open\ncode"}>
               See the code <span>↗</span>
             </a>
-            <div className="fld-work-frame">{item.shot}</div>
+            <div className="fld-work-frame" data-has-img={item.img ? true : undefined}>
+              <span className="fld-work-frame-cap">{item.shot}</span>
+              {item.img ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={item.img}
+                  alt={item.alt ?? item.title}
+                  width={item.imgW}
+                  height={item.imgH}
+                  onLoad={(e) => {
+                    // panel height is JS-driven; grow it now that the image has real height
+                    const panel = e.currentTarget.closest(".fld-work-panel") as HTMLElement | null;
+                    const inner = e.currentTarget.closest(".fld-work-panel-inner") as HTMLElement | null;
+                    if (panel && inner && panel.style.height !== "0px" && panel.style.height !== "") {
+                      panel.style.height = inner.offsetHeight + "px";
+                    }
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                    const cap = e.currentTarget.previousElementSibling as HTMLElement | null;
+                    if (cap) cap.style.display = "grid";
+                  }}
+                />
+              ) : null}
+            </div>
           </div>
         </div>
       </div>
@@ -358,7 +382,7 @@ export function Work({ touch, track }: { touch: boolean; track: (panel: HTMLElem
 
   return (
     <div className="fld-col">
-      <ChapterHead num="02" title="Selected Work" meta="What I built" />
+      <ChapterHead num="02" title="Key Projects" meta="What I built" />
       <div className="fld-work-list">
         {WORK.map((item, i) => (
           <WorkRow
@@ -400,7 +424,7 @@ export function Roadmap() {
         data-split="words"
         style={{ fontSize: "clamp(1.7rem,3.9vw,3.2rem)", lineHeight: 1.04, letterSpacing: "-0.03em", maxWidth: "24ch", marginBottom: "clamp(36px,6vh,72px)" }}
       >
-        <Split text="Four things I am building " />
+        <Split text="Five things I am building " />
         <em>
           <Split text="right now" />
         </em>

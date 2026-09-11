@@ -1291,6 +1291,7 @@ button {
   border-bottom-color: var(--ac);
 }
 .fld-work-frame {
+  position: relative;
   flex: 1 1 260px;
   min-width: 220px;
   height: 120px;
@@ -1303,6 +1304,35 @@ button {
   text-transform: uppercase;
   color: var(--t3);
   background-image: repeating-linear-gradient(115deg, var(--bg3) 0 1px, transparent 1px 9px);
+  overflow: hidden;
+}
+.fld-work-frame-cap {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  text-align: center;
+}
+/* When a real screenshot is present: own full-width row, whole image visible, no crop. */
+.fld-work-frame[data-has-img] {
+  flex: 1 1 100%;
+  min-width: 0;
+  height: auto;
+  max-width: 760px;
+  padding: clamp(8px, 1vw, 14px);
+  border: 1px solid var(--ln2);
+  background: var(--bg2);
+  background-image: none;
+}
+.fld-work-frame[data-has-img] .fld-work-frame-cap {
+  display: none;
+}
+.fld-work-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 .fld-preview-card {
   position: fixed;

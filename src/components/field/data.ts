@@ -26,7 +26,7 @@ export interface ChapterMeta {
 export const CHAPTERS: ChapterMeta[] = [
   { key: "home", num: "00", title: "Opening", meta: "Start here", railLabel: "" },
   { key: "build", num: "01", title: "What I Can Build", meta: "For you", railLabel: "What I build" },
-  { key: "work", num: "02", title: "Selected Work", meta: "What I built", railLabel: "Selected work" },
+  { key: "work", num: "02", title: "Key Projects", meta: "What I built", railLabel: "Key projects" },
   { key: "roadmap", num: "03", title: "On the Roadmap", meta: "What comes next", railLabel: "Roadmap" },
   { key: "recognition", num: "04", title: "Recognition", meta: "Receipts", railLabel: "Recognition" },
   { key: "contact", num: "05", title: "Contact", meta: "Say hello", railLabel: "Contact" },
@@ -136,7 +136,11 @@ export interface WorkItem {
   why: string;
   tricky: string;
   github: string;
-  shot: string; // placeholder frame caption
+  shot: string; // placeholder frame caption (fallback when no img)
+  img?: string; // real screenshot in /public
+  alt?: string; // alt text for the screenshot
+  imgW?: number; // natural width, reserves layout space before load
+  imgH?: number; // natural height
 }
 
 export const WORK: WorkItem[] = [
@@ -151,6 +155,10 @@ export const WORK: WorkItem[] = [
     tricky: "The built in assistant reads server logs, and a log can say anything. So it is allowed to suggest but never to act, and a person clicks the final button. A booby trapped log line cannot change your system.",
     github: "https://github.com/Chaitanya299/k8s-gitops-lab",
     shot: "Dashboard shot, drop image",
+    img: "/work/ai-platform.png",
+    alt: "The AI Platform GitOps dashboard: a Deploy an AI service form (service name, model, replicas, CPU, memory, namespace) beside a Deploy assistant side panel.",
+    imgW: 2456,
+    imgH: 1364,
   },
   {
     n: "02",
@@ -163,6 +171,10 @@ export const WORK: WorkItem[] = [
     tricky: "Surviving other apps in fullscreen: accessory activation policy, join-all-spaces, and a screen-saver window level, while avoiding the auxiliary mode that would tie the overlay to its own window.",
     github: "https://github.com/Chaitanya299/Vellum",
     shot: "App shot, drop image",
+    img: "/work/vellum.png",
+    alt: "Vellum's macOS menu-bar panel: the Vellum Effect toggle on Bamboo Weave, an intensity slider, snooze and per-app disable buttons, and a row of quick paper textures over a sunset ocean wallpaper.",
+    imgW: 1002,
+    imgH: 930,
   },
   {
     n: "03",
@@ -175,6 +187,10 @@ export const WORK: WorkItem[] = [
     tricky: "Points are frozen snapshots at completion time, so editing a task never rewrites history. A unique constraint makes double-completion impossible at the database layer.",
     github: "https://github.com/Chaitanya299/ScoreDay",
     shot: "Scoreboard shot, drop image",
+    img: "/work/scoreday.png",
+    alt: "ScoreDay's monthly progress view: average score, best day, total points and completion tiles above a score-history line chart and an activity calendar.",
+    imgW: 2880,
+    imgH: 1800,
   },
   {
     n: "04",
@@ -187,6 +203,10 @@ export const WORK: WorkItem[] = [
     tricky: "Safe by design: no network, no telemetry, read-only survey agents, secret-blind by default, and a commit step that refuses to ship a key. Every write is a proposal the human reviews.",
     github: "https://github.com/Chaitanya299/Orient",
     shot: "Terminal shot, drop image",
+    img: "/work/orient.svg",
+    alt: "Orient's hero: a project map showing STATE.md, an append-only decision log of ADRs, and on-demand request tracing living alongside the code.",
+    imgW: 1440,
+    imgH: 900,
   },
 ];
 
@@ -200,6 +220,14 @@ export interface RoadmapCard {
 }
 
 export const ROADMAP: RoadmapCard[] = [
+  {
+    status: "Building now",
+    date: "Late 2026",
+    title: "Armor",
+    lead: "An AI code reviewer that reads every pull request and leaves line-level feedback, in the spirit of CodeRabbit.",
+    body: "It walks the diff, understands the code around each change, and posts focused review comments on bugs, risks and cleanups, so a human reviewer starts from a first pass instead of a blank page.",
+    tags: ["LLM Agents", "Code Review", "GitHub", "TypeScript"],
+  },
   {
     status: "Building now",
     date: "Late 2026",
@@ -313,7 +341,7 @@ export const CONTACT = {
     "Not sure yet, help me figure it out",
   ],
   budgets: [
-    "₹20k – 50k ($250 – 600)",
+    "₹10k – 50k ($120 – 600)",
     "₹50k – 1.5L ($600 – 1,800)",
     "₹1.5L – 4L ($1,800 – 5,000)",
     "₹4L – 10L ($5,000 – 12,000)",
