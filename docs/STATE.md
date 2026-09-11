@@ -1,4 +1,4 @@
-# STATE — <!-- updated: 2026-09-05 -->
+# STATE — <!-- updated: 2026-09-11 -->
 
 ## Current focus
 The **FIELD** portfolio: a single fixed-viewport, six-chapter site on a custom
@@ -51,6 +51,15 @@ flowchart TD
   sitemap submitted, indexing requested. Vercel Analytics + Speed Insights on. Branded
   open-C favicon (`icon.svg` + `apple-icon`, bone bg), OG description trimmed to 141/113
   chars. Lighthouse: Accessibility 100 / SEO 100.
+- **Real work screenshots + Key Projects pass:** dropped real screenshots into
+  `public/work/` (AI Platform, ScoreDay, Vellum PNGs + `orient.svg` hero). Work frames now
+  render the whole image uncropped (`object-fit: contain`, own full-width row, reserved
+  `width`/`height` so the JS-driven panel grows to fit; dropped `loading="lazy"` which never
+  fired inside the transformed scroll stage) with per-image `alt`. Hover preview card now
+  shows the same thumbnail (image fills the card, label in a bottom strip, shimmer off when
+  an image is present). Renamed chapter 02 **Selected Work → Key Projects** (heading + rail
+  label). Roadmap: added **Armor** (CodeRabbit-style AI code reviewer) to *Building now*,
+  header count Four → Five. Contact budget now starts at **₹10k**. Verified live, deployed.
 - Earlier: CI/CD (Docker, k8s, Actions), `/api/me` + `/api/health`.
 
 ## Decisions (docs/decisions/)
@@ -58,8 +67,7 @@ flowchart TD
 static-HTML rendering strategy. See `docs/ARCHITECTURE.md` for the current shape.
 
 ## Next up
-- Supply real work screenshots (placeholder "…shot, drop image" frames) + hover-card art;
-  add `alt` text when real `<img>`s land.
+- None open.
 
 ## Blocked / needs research
 - None open.
