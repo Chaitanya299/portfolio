@@ -1367,6 +1367,34 @@ button {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
+/* Hover thumbnail: real screenshot fills the card, label sits in a bottom strip. */
+.fld-preview-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  display: block;
+}
+.fld-preview-card[data-has-img]::before {
+  display: none;
+}
+.fld-preview-cap {
+  position: relative;
+  z-index: 1;
+}
+.fld-preview-card[data-has-img] .fld-preview-cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 6px 8px;
+  text-align: left;
+  color: var(--t2);
+  background: color-mix(in oklab, var(--bg1) 82%, transparent);
+  border-top: 1px solid var(--ln2);
+}
 
 /* ---------- ROADMAP (chapter 03) ---------- */
 .fld-roadmap {

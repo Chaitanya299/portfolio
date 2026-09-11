@@ -241,7 +241,7 @@ export function Build({ onNavigate }: { onNavigate: Nav }) {
 }
 
 /* ============================= 02 WORK ============================= */
-type PreviewState = { label: string; x: number; y: number; show: boolean };
+type PreviewState = { label: string; img?: string; x: number; y: number; show: boolean };
 
 function WorkRow({
   item,
@@ -286,7 +286,7 @@ function WorkRow({
   return (
     <div
       className="fld-work-row"
-      onMouseEnter={() => !touch && !open && setPreview({ label: item.preview, show: true })}
+      onMouseEnter={() => !touch && !open && setPreview({ label: item.preview, img: item.img, show: true })}
       onMouseLeave={() => !touch && setPreview({ show: false })}
       onMouseMove={(e) => !touch && setPreview({ x: e.clientX, y: e.clientY })}
     >
@@ -404,9 +404,14 @@ export function Work({ touch, track }: { touch: boolean; track: (panel: HTMLElem
         <div
           className="fld-preview-card"
           data-show={preview.show}
+          data-has-img={preview.img ? true : undefined}
           style={{ left: preview.x + 150, top: preview.y }}
         >
-          {preview.label}
+          {preview.img ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={preview.img} alt="" />
+          ) : null}
+          <span className="fld-preview-cap">{preview.label}</span>
         </div>
       ) : null}
     </div>
