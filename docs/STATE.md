@@ -1,4 +1,4 @@
-# STATE — <!-- updated: 2026-09-11 -->
+# STATE — <!-- updated: 2026-09-19 -->
 
 ## Current focus
 The **FIELD** portfolio: a single fixed-viewport, six-chapter site on a custom
@@ -60,6 +60,14 @@ flowchart TD
   an image is present). Renamed chapter 02 **Selected Work → Key Projects** (heading + rail
   label). Roadmap: added **Armor** (CodeRabbit-style AI code reviewer) to *Building now*,
   header count Four → Five. Contact budget now starts at **₹10k**. Verified live, deployed.
+- **SEO audit fixes:** hero `<h1>` text content was `ChaitanyaParasana` (two char-split
+  spans + `<br>`, no whitespace node) → added a space node so it reads "Chaitanya Parasana"
+  (strongest on-page signal; visual line break unchanged); same fix on the `Let's talk`
+  contact `<h2>`. Removed `/api/me` from `sitemap.ts` (it's `Disallow`ed in robots.txt, so a
+  sitemap entry threw a Search Console conflict). Broadened `SITE_TITLE` to `… · Hyderabad`
+  (adds locus, differentiates from an identical competitor title). Verified in the built
+  HTML. Left canonical trailing-slash alone (root-domain `…com` ≡ `…com/`, already
+  consistent with og:url). Off-page authority + a content-page decision remain manual.
 - Earlier: CI/CD (Docker, k8s, Actions), `/api/me` + `/api/health`.
 
 ## Decisions (docs/decisions/)

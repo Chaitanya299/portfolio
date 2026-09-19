@@ -60,7 +60,7 @@ export function Home({ onNavigate }: { onNavigate: Nav }) {
       </div>
 
       <h1 className="fld-h1" data-reveal data-split="chars" aria-label={`${HERO.name[0]} ${HERO.name[1]}, ${HERO.eyebrow[0]}`}>
-        <Split text={HERO.name[0]} by="chars" />
+        <Split text={HERO.name[0]} by="chars" />{" "}
         <br />
         <Split text={HERO.name[1]} by="chars" />
       </h1>
@@ -688,7 +688,7 @@ export function Contact({ onNavigate }: { onNavigate: Nav }) {
 
       <div className="fld-contact-head">
         <h2 className="fld-talk" data-reveal data-split="chars">
-          <Split text="Let's" by="chars" />
+          <Split text="Let's" by="chars" />{" "}
           <br />
           <Split text="talk" by="chars" />
         </h2>

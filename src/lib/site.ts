@@ -5,7 +5,7 @@ export const SITE_URL = (
 ).replace(/\/$/, "");
 
 export const SITE_NAME = "Chaitanya Parasana";
-export const SITE_TITLE = "Chaitanya Parasana | Full-Stack & AI Engineer";
+export const SITE_TITLE = "Chaitanya Parasana | Full-Stack & AI Engineer · Hyderabad";
 // Meta description: kept under ~155 chars so Google does not truncate it.
 export const SITE_DESCRIPTION =
   "Full-stack and AI engineer building AI products that keep working after the demo: voice agents, assistants, and the machinery that runs them.";
