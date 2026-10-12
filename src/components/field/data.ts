@@ -38,7 +38,7 @@ export const HERO = {
   proposition: "AI products that keep working after the demo is over.",
   propositionSub:
     "Assistants you can talk to, search that understands a plain question, and the quiet machinery that keeps both running in production.",
-  availability: "Free this September, usually reply the same day",
+  availability: "Available for Q3",
   metrics: [
     { num: "500ms", cap: "Live answer, voice or chat" },
     { num: "99.9%", cap: "Uptime I design for" },
