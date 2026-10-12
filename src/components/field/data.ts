@@ -326,7 +326,7 @@ export const RECOGNITION = {
 export const CONTACT = {
   trust: "No sales pitch back. Just a straight answer on whether I'm the right person for it.",
   availability:
-    "Free this September and usually reply the same day. Tell me what you are trying to build, and I will tell you honestly whether I am the right person for it.",
+    "Available this quarter, and I usually reply the same day. Tell me what you are trying to build, and I will tell you honestly whether I am the right person for it.",
   whatNext: [
     { n: "01", t: "I read it and reply the same day." },
     { n: "02", t: "A half-hour call to understand the shape of it." },
