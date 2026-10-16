@@ -472,6 +472,12 @@ export function Roadmap() {
           ))}
         </div>
       </div>
+
+      <div data-reveal style={{ marginTop: "clamp(28px,4vh,48px)" }}>
+        <a className="fld-work-link" href={LINKS.reddit} target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label="Open">
+          Follow the build daily on Reddit <span>↗</span>
+        </a>
+      </div>
     </div>
   );
 }
