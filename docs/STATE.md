@@ -85,6 +85,8 @@ flowchart TD
   facts not on the site, follows multi-turn context. Caching hit ~1 in 3, so a 429 now falls
   back across 3 free models (burst of 5 parallel questions: all answered). Em dashes are
   stripped on the stream.
+- **Assistant live in production (Oct 17):** `GROQ_API_KEY` set in Vercel; questions on
+  chaitanyaparasana.com stream correct answers.
 - **Reddit build log:** `LINKS.reddit` / `SOCIALS.reddit` (u/Chaitanya299) shown as a
   "Build log" link in Contact, added to Person JSON-LD `sameAs`, and given to the assistant.
 - Earlier: CI/CD (Docker, k8s, Actions), `/api/me` + `/api/health`.
@@ -96,7 +98,8 @@ static-HTML rendering strategy · 0009 Ask assistant on Claude Haiku 5.5 (supers
 `docs/ARCHITECTURE.md` for the current shape.
 
 ## Next up
-- Add `GROQ_API_KEY` to Vercel (Production + Preview) and redeploy; ask one live question.
+- Hero metric says "500ms"; live production first word measured 561 to 835ms warm (one cold
+  start ~1s first word, 6s total). Decide whether to adjust the copy or leave it.
 
 ## Blocked / needs research
 - None open.
