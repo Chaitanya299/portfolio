@@ -1,4 +1,4 @@
-# STATE — <!-- updated: 2026-09-19 -->
+# STATE — <!-- updated: 2026-10-17 -->
 
 ## Current focus
 The **FIELD** portfolio: a single fixed-viewport, six-chapter site on a custom
@@ -11,6 +11,7 @@ flowchart TD
   Visitor[Visitor / Browser] --> App[Next.js 16 App Router]
   App --> Contact["/api/contact — Resend send"]
   App --> API["/api/me — public JSON resume"]
+  App --> Ask["/api/ask — streams Groq gpt-oss-20b"]
 ```
 
 ## Done
@@ -68,14 +69,34 @@ flowchart TD
   (adds locus, differentiates from an identical competitor title). Verified in the built
   HTML. Left canonical trailing-slash alone (root-domain `…com` ≡ `…com/`, already
   consistent with og:url). Off-page authority + a content-page decision remain manual.
+- **Copy + count consistency (Oct):** hero and contact availability now "Available this
+  quarter". Project count is 4 everywhere (hero metric, About sentence + its highlight split
+  in `chapters.tsx`, Build numbers, Recognition counter).
+- **Hero "Ask about my work" assistant (ADR-0009 → ADR-0010):** `Ask.tsx` under the intro
+  row streams from `/api/ask` (Groq free tier, `openai/gpt-oss-20b` via plain `fetch`;
+  grounded in `field/data.ts`, cached system prompt, no tools; first built on Claude Haiku
+  5.5, switched to Groq to cost $0) and shows the measured "first word in Nms". Per-IP limit moved to shared
+  `src/lib/rate-limit.ts` (contact 5, ask 15 per 10 min). Verified locally: 400 on bad input,
+  500 with a clear message when the key is unset, 429 from request 16, digits typed in the
+  box don't trigger chapter hotkeys, no mobile overflow (row padded clear of the progress
+  rail label). Build + lint clean.
+- **Assistant live-tested locally with a Groq key:** streams, facts match the site, first
+  word 275 to 680ms; declines off-topic and injection, says "don't know" (no invention) for
+  facts not on the site, follows multi-turn context. Caching hit ~1 in 3, so a 429 now falls
+  back across 3 free models (burst of 5 parallel questions: all answered). Em dashes are
+  stripped on the stream.
+- **Reddit build log:** `LINKS.reddit` / `SOCIALS.reddit` (u/Chaitanya299) shown as a
+  "Build log" link in Contact, added to Person JSON-LD `sameAs`, and given to the assistant.
 - Earlier: CI/CD (Docker, k8s, Actions), `/api/me` + `/api/health`.
 
 ## Decisions (docs/decisions/)
 0006 FIELD engine · 0007 remove Convex → direct Resend (supersedes 0002) · 0008 SEO /
-static-HTML rendering strategy. See `docs/ARCHITECTURE.md` for the current shape.
+static-HTML rendering strategy · 0009 Ask assistant on Claude Haiku 5.5 (superseded) ·
+0010 Ask assistant on the Groq free tier. See
+`docs/ARCHITECTURE.md` for the current shape.
 
 ## Next up
-- None open.
+- Add `GROQ_API_KEY` to Vercel (Production + Preview) and redeploy; ask one live question.
 
 ## Blocked / needs research
 - None open.

@@ -13,8 +13,10 @@ import {
   WORK,
   type ChapterKey,
 } from "./data";
+import Ask from "./Ask";
 
 type Nav = (key: ChapterKey) => void;
+type Track = (panel: HTMLElement, getOpen: () => boolean) => void;
 
 // Split text into reveal units. Engine drives .fld-unit transforms.
 function Split({ text, by = "words" }: { text: string; by?: "words" | "chars" }) {
@@ -48,7 +50,7 @@ function ChapterHead({ num, title, meta }: { num: string; title: string; meta: s
 }
 
 /* ============================= 00 HOME ============================= */
-export function Home({ onNavigate }: { onNavigate: Nav }) {
+export function Home({ onNavigate, track }: { onNavigate: Nav; track: Track }) {
   return (
     <div className="fld-col">
       {/* hero */}
@@ -90,6 +92,8 @@ export function Home({ onNavigate }: { onNavigate: Nav }) {
           </span>
         </div>
       </div>
+
+      <Ask track={track} />
 
       <button className="fld-next" onClick={() => onNavigate("build")} data-reveal data-cursor="explore" data-cursor-label="Go">
         <span className="fld-next-cue" />
@@ -134,11 +138,11 @@ export function Home({ onNavigate }: { onNavigate: Nav }) {
               <Split text={ABOUT.paragraphs[0]} />
             </p>
             {(() => {
-              const [a, b] = ABOUT.paragraphs[1].split("5 projects");
+              const [a, b] = ABOUT.paragraphs[1].split("4 projects");
               return (
                 <p className="fld-about-p p2" data-reveal>
                   {a}
-                  <span style={{ color: "var(--ac)" }}>5 projects</span>
+                  <span style={{ color: "var(--ac)" }}>4 projects</span>
                   {b}
                 </p>
               );
@@ -710,6 +714,10 @@ export function Contact({ onNavigate }: { onNavigate: Nav }) {
           <a className="fld-social" href={LINKS.linkedin} target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label="Open">
             <span className="lbl">LinkedIn</span>
             <span className="meta">Chaitanya Parasana ↗</span>
+          </a>
+          <a className="fld-social" href={LINKS.reddit} target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label="Open">
+            <span className="lbl">Build log</span>
+            <span className="meta">Daily on Reddit ↗</span>
           </a>
 
           <div className="fld-whatnext">

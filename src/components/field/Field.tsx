@@ -714,7 +714,7 @@ export default function Field() {
 
       <div className="fld-stage" ref={stageRef}>
         <div className="fld-chapter" data-active={pageIdx === 0}>
-          <Home onNavigate={nav} />
+          <Home onNavigate={nav} track={track} />
         </div>
         <div className="fld-chapter" data-active={pageIdx === 1}>
           <Build onNavigate={nav} />

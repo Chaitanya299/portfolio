@@ -82,7 +82,7 @@ const personLd = {
     "Kubernetes",
     "macOS and mobile apps",
   ],
-  sameAs: [SOCIALS.github, SOCIALS.linkedin],
+  sameAs: [SOCIALS.github, SOCIALS.linkedin, SOCIALS.reddit],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

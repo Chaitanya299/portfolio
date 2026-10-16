@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { makeRateLimiter, clientIp } from "@/lib/rate-limit";
 
 const TO = "chaitanya.sai311@gmail.com";
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -7,22 +8,7 @@ const esc = (s: string) =>
   s.replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" })[c] as string);
 const oneLine = (s: string) => s.replace(/[\r\n]+/g, " "); // no header/subject injection
 
-// ponytail: in-memory sliding window. Per-instance only (a serverless cold start or
-// a second instance resets it), so it is a courtesy speed bump, not a hard guarantee.
-// Fine for a portfolio form; swap for Upstash/KV if real abuse shows up.
-const WINDOW_MS = 10 * 60 * 1000;
-const MAX_HITS = 5;
-const hits = new Map<string, number[]>();
-function rateLimited(ip: string): boolean {
-  const now = Date.now();
-  const recent = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
-  recent.push(now);
-  hits.set(ip, recent);
-  if (hits.size > 5000) {
-    for (const [k, v] of hits) if (!v.some((t) => now - t < WINDOW_MS)) hits.delete(k);
-  }
-  return recent.length > MAX_HITS;
-}
+const rateLimited = makeRateLimiter(10 * 60 * 1000, 5); // 5 messages per 10 min per IP
 
 export async function POST(req: NextRequest) {
   let body: Record<string, unknown>;
@@ -32,8 +18,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON payload" }, { status: 400 });
   }
 
-  const ip = (req.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown";
-  if (rateLimited(ip)) {
+  if (rateLimited(clientIp(req.headers))) {
     return NextResponse.json({ error: "Too many messages. Try again in a bit." }, { status: 429 });
   }
 
@@ -87,6 +72,3 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json({ success: true });
 }
-
-// ponytail: no rate limiting. Serverless has no shared memory to hold a counter,
-// the honeypot stops bots, and Resend enforces its own send limits.

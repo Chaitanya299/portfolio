@@ -3,6 +3,7 @@
 export const LINKS = {
   github: "https://github.com/Chaitanya299",
   linkedin: "https://www.linkedin.com/in/saichaitanyaparasana",
+  reddit: "https://www.reddit.com/user/Chaitanya299/",
   email: "chaitanya.sai311@gmail.com",
 };
 
@@ -42,7 +43,7 @@ export const HERO = {
   metrics: [
     { num: "500ms", cap: "Live answer, voice or chat" },
     { num: "99.9%", cap: "Uptime I design for" },
-    { num: "5", cap: "Projects shipped end to end" },
+    { num: "4", cap: "Projects shipped end to end" },
     { num: "1", cap: "Person, start to finish" },
   ],
 };
@@ -50,7 +51,7 @@ export const HERO = {
 export const ABOUT = {
   paragraphs: [
     "A demo only has to work once, in front of a friendly audience. Real software has to work at two in the morning, for someone in a hurry, on a bad connection. That second thing is the job I take.",
-    "Over the last year I've shipped 5 projects end to end, from the first call to the thing running in production.",
+    "Over the last year I've shipped 4 projects end to end, from the first call to the thing running in production.",
   ],
   tags: ["Voice agents", "AI agents and SLM", "Web development", "Freelance work", "Mac and mobile apps"],
   services: [
@@ -108,7 +109,7 @@ export const BUILD = {
     },
   ],
   footnote: "Timelines assume one person working properly",
-  numbers: ["5 projects shipped", "1+ years", "Same-day replies", "One person, start to finish"],
+  numbers: ["4 projects shipped", "1+ years", "Same-day replies", "One person, start to finish"],
   closing: [
     {
       label: "How it starts",

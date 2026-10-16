@@ -18,11 +18,17 @@ plain, crawlable, semantic HTML. Live at `https://www.chaitanyaparasana.com`.
   `chapters.tsx` (6 chapters + reveal/expand/form), `Field.tsx` (engine),
   `MobileChapterBar.tsx` (bottom nav ≤720px).
 
-## 2. Backend — none; direct Resend (ADR-0007, supersedes Convex ADR-0002)
+## 2. Backend — direct Resend + Ask assistant (ADR-0007, ADR-0010)
 - No database. The contact form posts to `src/app/api/contact/route.ts`, a Next Route
   Handler that sends email via **Resend** (init inside the handler, ADR-0005).
 - Guards: honeypot, input validation, HTML escaping, newline-stripped name, in-memory IP
   rate limit (5 / 10 min). Reflects the real send result to the user.
+- The hero "Ask about my work" box (`src/components/field/Ask.tsx`) posts to
+  `src/app/api/ask/route.ts`, which streams answers from **Groq's free tier**
+  (`openai/gpt-oss-20b`, falling back to `gpt-oss-120b` then `qwen3.8-27b` on a 429; plain
+  `fetch`, no SDK), grounded only in `field/data.ts` as a cached system prompt, no tools,
+  em dashes stripped on the stream (ADR-0010, supersedes ADR-0009).
+- Shared per-IP limiter `src/lib/rate-limit.ts`: contact 5 / 10 min, ask 15 / 10 min.
 
 ## 3. Rendering & SEO (ADR-0008)
 - Content is static semantic HTML; one `<h1>` (hero), an `<h2>` per chapter, `<h3>` items;
@@ -36,7 +42,8 @@ plain, crawlable, semantic HTML. Live at `https://www.chaitanyaparasana.com`.
 ## 4. Deployment
 - Vercel, connected to the GitHub repo (push to `main` → production deploy).
 - `vercel.json` uses the framework default build. Env: `RESEND_API_KEY` (required),
-  optional `NEXT_PUBLIC_APP_URL` (overrides the canonical default).
+  `GROQ_API_KEY` (required for the Ask assistant), optional `NEXT_PUBLIC_APP_URL`
+  (overrides the canonical default).
 - Domain bought at Spaceship; `www` primary, apex 308 → `www`, HTTPS via Vercel.
 - A multi-stage `Dockerfile` + Kubernetes manifests exist (ADR-0004) but Vercel is the
   live target.
@@ -45,6 +52,7 @@ plain, crawlable, semantic HTML. Live at `https://www.chaitanyaparasana.com`.
 - `/api/me` — structured JSON resume (fed by `src/lib/portfolio-data.ts`).
 - `/api/health` — liveness/readiness probe.
 - `/api/contact` — the Resend contact handler.
+- `/api/ask` — the hero assistant (streams plain text from Groq gpt-oss-20b).
 
 ## 6. Data flow
 ```mermaid
@@ -52,5 +60,6 @@ flowchart TD
   Visitor[Visitor / Browser] --> App[Next.js 16 App Router — static prerender]
   App --> Contact["/api/contact — Resend send"]
   App --> Me["/api/me — public JSON resume"]
+  App --> Ask["/api/ask — streams Groq gpt-oss-20b"]
   App --> VA[Vercel Analytics + Speed Insights]
 ```

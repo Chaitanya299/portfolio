@@ -16,4 +16,5 @@ export const SITE_OG_DESCRIPTION =
 export const SOCIALS = {
   github: "https://github.com/Chaitanya299",
   linkedin: "https://www.linkedin.com/in/saichaitanyaparasana",
+  reddit: "https://www.reddit.com/user/Chaitanya299/",
 };

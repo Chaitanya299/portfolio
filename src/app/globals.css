@@ -766,6 +766,86 @@ button {
 .fld-intro-l {
   flex: 1 1 min(100%, 420px);
 }
+
+/* ---------- ASK (hero assistant) ---------- */
+.fld-ask {
+  margin-top: clamp(22px, 3.4vh, 36px);
+  max-width: 720px;
+}
+.fld-ask-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  margin-top: 6px;
+}
+.fld-ask-row .fld-input {
+  flex: 1 1 auto;
+}
+.fld-ask-btn {
+  min-height: 48px;
+  padding: 0 4px;
+  border-bottom: 1px solid var(--ln4);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ac);
+}
+.fld-ask-btn:disabled {
+  color: var(--t4);
+  cursor: default;
+}
+.fld-ask-sugg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin-top: 12px;
+}
+.fld-ask-sugg button {
+  min-height: 32px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--ln2);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--t3);
+  transition: color 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+}
+.fld-ask-sugg button:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ac);
+}
+.fld-ask-q {
+  margin-top: 20px;
+  font-weight: 500;
+  color: var(--t1);
+}
+.fld-ask-a {
+  margin-top: 8px;
+  white-space: pre-wrap;
+}
+.fld-ask-meta,
+.fld-ask-note {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--t3);
+}
+.fld-ask-meta[data-tone="error"] {
+  color: oklch(0.74 0.13 35);
+}
+.fld-ask-note {
+  color: var(--t4);
+}
+@media (max-width: 720px) {
+  /* keep the Ask button clear of the fixed progress-rail label at the right edge */
+  .fld-ask-row {
+    padding-right: 30px;
+  }
+}
 .fld-prop {
   font-size: clamp(1.35rem, 2.9vw, 2.5rem);
   font-weight: 500;
