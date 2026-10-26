@@ -1,4 +1,5 @@
-// FIELD content. Copy is final per the handoff. House rule: no em dashes.
+// FIELD content, aligned with the v3 page (Markup.tsx). Feeds the /api/ask grounding prompt.
+// House rule: no em dashes.
 
 export const LINKS = {
   github: "https://github.com/Chaitanya299",
@@ -6,32 +7,6 @@ export const LINKS = {
   reddit: "https://www.reddit.com/user/Chaitanya299/",
   email: "chaitanya.sai311@gmail.com",
 };
-
-export type ChapterKey =
-  | "home"
-  | "build"
-  | "work"
-  | "roadmap"
-  | "recognition"
-  | "contact";
-
-export interface ChapterMeta {
-  key: ChapterKey;
-  num: string; // "00".."05"
-  title: string; // mono chapter title
-  meta: string; // right-aligned meta label
-  railLabel: string; // nav rail label (chapters 01-05)
-}
-
-// Order drives nav, curtain and the canvas field formation.
-export const CHAPTERS: ChapterMeta[] = [
-  { key: "home", num: "00", title: "Opening", meta: "Start here", railLabel: "" },
-  { key: "build", num: "01", title: "What I Can Build", meta: "For you", railLabel: "What I build" },
-  { key: "work", num: "02", title: "Key Projects", meta: "What I built", railLabel: "Key projects" },
-  { key: "roadmap", num: "03", title: "On the Roadmap", meta: "What comes next", railLabel: "Roadmap" },
-  { key: "recognition", num: "04", title: "Recognition", meta: "Receipts", railLabel: "Recognition" },
-  { key: "contact", num: "05", title: "Contact", meta: "Say hello", railLabel: "Contact" },
-];
 
 export const HERO = {
   eyebrow: ["Full-stack and AI engineer", "Hyderabad, India"],
@@ -48,6 +23,19 @@ export const HERO = {
   ],
 };
 
+// Hero "Now" block.
+export const NOW = {
+  title: "Co-founder of Stafflo",
+  link: "https://www.stafflo.ai/",
+  body: "It starts with an audit: two weeks inside one process, mapping how the work really runs and ranking what is worth automating, what it would save, and what to leave alone. Only then do we build, on machines the client owns. Two of the demos are mine.",
+  about:
+    "Stafflo builds AI tools for the teams behind US staffing, medical coding, lending and software delivery, and runs them on machines the client owns or in their own cloud.",
+  demos: [
+    { title: "Bench Desk", tag: "IT staffing", link: "https://www.stafflo.ai/demos/bench-desk", desc: "Builds the day’s hotlists, matches vendor requirements to your bench, and sorts the replies." },
+    { title: "Private AI Module Kit", tag: "Software agencies", link: "https://www.stafflo.ai/demos/module-kit", desc: "AI modules agencies ship inside their clients’ apps, under their own brand." },
+  ],
+};
+
 export const ABOUT = {
   paragraphs: [
     "A demo only has to work once, in front of a friendly audience. Real software has to work at two in the morning, for someone in a hurry, on a bad connection. That second thing is the job I take.",
@@ -58,12 +46,12 @@ export const ABOUT = {
     {
       n: "01",
       t: "Automating the work that eats your day",
-      d: "The follow-ups, the data entry, the back-and-forth. I hand the repetitive work to AI that runs it for you, so the hours go back into what actually grows the business.",
+      d: "The follow-ups, the data entry, the back-and-forth. I hand the repetitive work to AI that runs it for you, so the hours go back into the business.",
     },
     {
       n: "02",
       t: "AI that answers the moment someone asks",
-      d: "Chatbots, voice assistants and agents that handle questions, booking and support around the clock, so talking to your software feels closer to talking to a person than filling out a form.",
+      d: "Chatbots, voice assistants and agents that handle questions, booking and support around the clock, closer to talking to a person than filling out a form.",
     },
     {
       n: "03",
@@ -74,8 +62,8 @@ export const ABOUT = {
 };
 
 export const BUILD = {
-  lead: "Five things I get asked for, in <em>plain words</em>.",
-  desc: "Here are the five things people usually come to me for. Pick the one that sounds like what you need, and let's talk about it.",
+  lead: "Four things I get asked for, in <em>plain words</em>.",
+  desc: "Pick the one that sounds like what you need, and let's talk about it.",
   services: [
     {
       n: "01",
@@ -85,35 +73,28 @@ export const BUILD = {
     },
     {
       n: "02",
-      title: "A website for your business",
-      desc: "A fast, considered site that reads well on a phone and says exactly what you do, no template look.",
-      tl: "6–10 weeks",
-    },
-    {
-      n: "03",
       title: "An app for Mac or your phone",
       desc: "Native Mac utilities and mobile apps that feel at home on the platform and respect your data.",
       tl: "4–8 weeks",
     },
     {
-      n: "04",
+      n: "03",
       title: "A tool for your own team",
       desc: "The internal dashboard or automation that replaces the spreadsheet everyone quietly hates.",
       tl: "2–5 weeks",
     },
     {
-      n: "05",
+      n: "04",
       title: "Getting what you have live",
       desc: "Containers, pipelines and monitoring so the thing you already built goes out and stays up.",
       tl: "1–3 weeks",
     },
   ],
   footnote: "Timelines assume one person working properly",
-  numbers: ["4 projects shipped", "1+ years", "Same-day replies", "One person, start to finish"],
   closing: [
     {
       label: "How it starts",
-      body: "A short call, then a written plan with a fixed price and a date. If it is a fit we start, if it is not I will point you somewhere better.",
+      body: "A short call, then a written plan with a fixed price and a date. If it is a fit we start, if not I will point you somewhere better.",
       cta: true,
     },
     {
@@ -326,16 +307,14 @@ export const RECOGNITION = {
 
 export const CONTACT = {
   trust: "No sales pitch back. Just a straight answer on whether I'm the right person for it.",
-  availability:
-    "Available this quarter, and I usually reply the same day. Tell me what you are trying to build, and I will tell you honestly whether I am the right person for it.",
+  availability: "Available this quarter, and I usually reply the same day.",
   whatNext: [
-    { n: "01", t: "I read it and reply the same day." },
-    { n: "02", t: "A half-hour call to understand the shape of it." },
-    { n: "03", t: "A written plan, a fixed price, a date, and a free demo." },
+    { n: "01", t: "Same-day reply: I read every message myself and answer the same day." },
+    { n: "02", t: "A half-hour call: we talk through the shape of it, no slides, no pitch." },
+    { n: "03", t: "Plan, price, demo: a written plan with a fixed price, a date, and a free demo." },
   ],
   needs: [
     "An AI agent or assistant",
-    "A website or portfolio",
     "A native app (Mac or phone)",
     "An internal tool or dashboard",
     "Deploy and maintain what I have",

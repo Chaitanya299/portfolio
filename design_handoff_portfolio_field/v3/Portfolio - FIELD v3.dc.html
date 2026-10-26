@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg0: #fdfbf6; --bg1: #f9f6ef; --bg2: #f1ece2; --bg3: #e8e0d4; --bg4: #dccfc3;
+    --ln1: oklch(0.905 0.01 40); --ln2: oklch(0.862 0.016 34); --ln3: oklch(0.788 0.026 30); --ln4: oklch(0.69 0.038 28); --ln5: oklch(0.578 0.052 26);
+    --t4: oklch(0.605 0.03 26); --t3: oklch(0.5 0.028 26); --t2: oklch(0.398 0.026 26); --t1: oklch(0.312 0.03 26);
+    --ink2: oklch(0.232 0.038 25); --ink: oklch(0.178 0.042 24); --ac: #8c2a35;
+    --hl: oklch(0.4 0.1 25 / 0.055); --shadow: oklch(0.3 0.07 25 / 0.24);
+    --sh1: inset 0 1px 0 oklch(1 0 0 / 0.7), 0 1px 1px oklch(0.3 0.07 25 / 0.04), 0 3px 8px -3px oklch(0.3 0.07 25 / 0.07), 0 22px 44px -30px var(--shadow);
+    --sh2: inset 0 1px 0 oklch(1 0 0 / 0.8), 0 1px 2px oklch(0.3 0.07 25 / 0.06), 0 10px 22px -10px oklch(0.3 0.07 25 / 0.14), 0 46px 80px -40px var(--shadow);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-padding-top: 96px; -webkit-text-size-adjust: 100%; }
+  html, body { overflow-x: clip; background: var(--bg1); color: var(--t2); font-family: 'Archivo', system-ui, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--ac); }
+  button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+  input, textarea, select { font: inherit; }
+  input::placeholder, textarea::placeholder { color: var(--t4); }
+  ::selection { background: color-mix(in oklab, var(--ac) 22%, transparent); color: var(--ink); }
+  @keyframes fldPulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.72); opacity: 0.35; } }
+  @keyframes fldRipple { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(3.4); opacity: 0; } }
+  @keyframes fldCue { 0% { transform: scaleY(0); transform-origin: top; } 45% { transform: scaleY(1); transform-origin: top; } 55% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+</style>
+<script src="./field-engine.js"></script>
+</helmet>
+
+<div data-fe-root="1" style="position:relative;min-height:100dvh;opacity:0;background:var(--bg1);color:var(--t2);font-family:'Archivo',system-ui,sans-serif;">
+
+  <header data-hdr="1" style="position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:24px;min-width:0;padding:max(clamp(14px,2.2vh,24px),env(safe-area-inset-top)) max(clamp(20px,5vw,88px),env(safe-area-inset-right)) clamp(14px,2.2vh,24px) max(clamp(20px,5vw,88px),env(safe-area-inset-left));background:linear-gradient(var(--bg1) 30%, color-mix(in oklab, var(--bg1) 0%, transparent));transition:background 0.6s cubic-bezier(0.16,1,0.3,1),box-shadow 0.6s cubic-bezier(0.16,1,0.3,1),padding 0.6s cubic-bezier(0.16,1,0.3,1);">
+    <a href="#" data-cursor="explore" data-cursor-label="Top" style="display:flex;align-items:center;gap:13px;">
+      <svg width="26" height="26" viewBox="0 0 26 26" style="display:block;overflow:visible;"><path d="M18.16 5.63 A 9 9 0 1 0 18.16 20.37" fill="none" stroke="var(--ink2)" stroke-width="1.4" stroke-linecap="round"></path><circle cx="18.16" cy="5.63" r="1.5" fill="var(--ink2)"></circle><circle cx="18.16" cy="20.37" r="1.5" fill="var(--ink2)"></circle><circle cx="13" cy="13" r="2.1" fill="var(--ac)"></circle></svg>
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--t1);">Chaitanya</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:clamp(18px,3vw,40px);min-width:0;">
+      <nav aria-label="Chapters" data-ch-nav="1" style="position:relative;display:flex;align-items:stretch;flex-wrap:nowrap;min-width:0;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:4px;gap:2px;border-radius:999px;border:1px solid var(--ln2);background:linear-gradient(color-mix(in oklab, var(--bg3) 88%, transparent), color-mix(in oklab, var(--bg2) 88%, transparent));backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 var(--hl), 0 18px 36px -24px var(--shadow);">
+        <span data-ch-prog="1" aria-hidden="true" style="position:absolute;left:18px;right:18px;bottom:0;height:1.5px;border-radius:2px;background:var(--ac);transform-origin:left;transform:scaleX(0);opacity:0.55;pointer-events:none;"></span>
+        <span data-ch-ind="1" aria-hidden="true" style="position:absolute;top:4px;bottom:4px;left:4px;width:0;opacity:0;border-radius:999px;background:var(--bg0);border:1px solid var(--ln1);box-shadow:inset 0 1px 0 oklch(1 0 0 / 0.8), 0 1px 2px oklch(0.3 0.07 25 / 0.08), 0 8px 18px -8px var(--shadow);transition:left 0.62s cubic-bezier(0.16,1,0.3,1),width 0.62s cubic-bezier(0.16,1,0.3,1),opacity 0.4s ease;"></span>
+        <button type="button" data-ch-link="build" data-cursor="explore" data-cursor-label="Go" style="position:relative;z-index:1;display:flex;align-items:center;gap:8px;flex:1 1 auto;justify-content:center;min-height:42px;padding:0 clamp(12px,1.3vw,20px);border-radius:999px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;white-space:nowrap;color:var(--t2);transition:color 0.4s cubic-bezier(0.16,1,0.3,1);" style-hover="color:var(--ink);"><span data-ch-num="1" style="font-size:9px;letter-spacing:0.06em;color:color-mix(in oklab, var(--ac) 60%, transparent);transition:color 0.4s ease;">01</span><span>What I Build</span></button>
+        <button type="button" data-ch-link="work" data-cursor="explore" data-cursor-label="Go" style="position:relative;z-index:1;display:flex;align-items:center;gap:8px;flex:1 1 auto;justify-content:center;min-height:42px;padding:0 clamp(12px,1.3vw,20px);border-radius:999px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;white-space:nowrap;color:var(--t2);transition:color 0.4s cubic-bezier(0.16,1,0.3,1);" style-hover="color:var(--ink);"><span data-ch-num="1" style="font-size:9px;letter-spacing:0.06em;color:color-mix(in oklab, var(--ac) 60%, transparent);transition:color 0.4s ease;">02</span><span>Key projects</span></button>
+        <button type="button" data-ch-link="roadmap" data-cursor="explore" data-cursor-label="Go" style="position:relative;z-index:1;display:flex;align-items:center;gap:8px;flex:1 1 auto;justify-content:center;min-height:42px;padding:0 clamp(12px,1.3vw,20px);border-radius:999px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;white-space:nowrap;color:var(--t2);transition:color 0.4s cubic-bezier(0.16,1,0.3,1);" style-hover="color:var(--ink);"><span data-ch-num="1" style="font-size:9px;letter-spacing:0.06em;color:color-mix(in oklab, var(--ac) 60%, transparent);transition:color 0.4s ease;">03</span><span>Roadmap</span></button>
+        <button type="button" data-ch-link="recognition" data-cursor="explore" data-cursor-label="Go" style="position:relative;z-index:1;display:flex;align-items:center;gap:8px;flex:1 1 auto;justify-content:center;min-height:42px;padding:0 clamp(12px,1.3vw,20px);border-radius:999px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;white-space:nowrap;color:var(--t2);transition:color 0.4s cubic-bezier(0.16,1,0.3,1);" style-hover="color:var(--ink);"><span data-ch-num="1" style="font-size:9px;letter-spacing:0.06em;color:color-mix(in oklab, var(--ac) 60%, transparent);transition:color 0.4s ease;">04</span><span>Recognition</span></button>
+        <button type="button" data-ch-link="contact" data-cursor="explore" data-cursor-label="Go" style="position:relative;z-index:1;display:flex;align-items:center;gap:8px;flex:1 1 auto;justify-content:center;min-height:42px;padding:0 clamp(12px,1.3vw,20px);border-radius:999px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;white-space:nowrap;color:var(--t2);transition:color 0.4s cubic-bezier(0.16,1,0.3,1);" style-hover="color:var(--ink);"><span data-ch-num="1" style="font-size:9px;letter-spacing:0.06em;color:color-mix(in oklab, var(--ac) 60%, transparent);transition:color 0.4s ease;">05</span><span>Contact</span></button>
+      </nav>
+      <a href="#contact" data-cursor="explore" data-cursor-label="Say
+hello" style="display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid var(--ac);padding-bottom:4px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);white-space:nowrap;">Start a project <span>↗</span></a>
+    </div>
+    <span data-fe="progress" style="position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ac);transform:scaleX(0);transform-origin:left;"></span>
+  </header>
+
+  <main style="position:relative;z-index:2;">
+
+    <section data-sec="home" data-form="0" data-label="Start here" data-screen-label="00 Opening" style="padding:clamp(130px,22vh,230px) max(clamp(20px,5vw,88px),env(safe-area-inset-right)) 0 max(clamp(20px,5vw,88px),env(safe-area-inset-left));">
+      <div style="max-width:1600px;margin:0 auto;">
+        <h1 data-rise="1" style="font-size:clamp(2.2rem,11.6vw,12rem);font-weight:600;letter-spacing:-0.045em;line-height:0.86;text-transform:uppercase;color:var(--ink);">Chaitanya<br>Parasana</h1>
+        <div style="display:flex;flex-wrap:wrap;align-items:stretch;gap:clamp(28px,5vw,96px);margin-top:clamp(56px,10vh,120px);">
+          <aside style="flex:1 1 180px;max-width:300px;"><div data-rv="0" style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;line-height:1.6;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--t3);">
+          <span style="width:26px;height:1px;background:var(--ac);"></span><span>Full-stack and AI engineer</span><a href="https://www.stafflo.ai/" target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label="Open" style="display:inline-flex;align-items:center;gap:10px;color:var(--ac);border-bottom:1px solid color-mix(in oklab, var(--ac) 40%, transparent);padding-bottom:3px;flex-wrap:wrap;row-gap:6px;"><span style="white-space:nowrap;">Co-founder,</span><svg viewBox="-12 -12 1024 404" width="22" height="9" aria-hidden="true" style="display:block;flex:0 0 auto;overflow:visible;"><g fill="none" stroke="currentColor" stroke-width="118" stroke-linecap="round" stroke-linejoin="round"><polyline points="497,54 205,54 362,326 52,326"></polyline><polyline points="484,326 642,54 800,326"></polyline><polyline points="790,54 948,326"></polyline></g></svg><span style="white-space:nowrap;">Stafflo</span></a><span>Hyderabad, India</span>
+        </div></aside>
+          <div style="flex:999 1 560px;min-width:0;max-width:1000px;">
+
+        <div style="display:flex;flex-direction:column;gap:clamp(24px,3.6vh,40px);">
+          <p data-rv="2" style="max-width:28ch;font-size:clamp(1.6rem,3.3vw,2.9rem);font-weight:500;letter-spacing:-0.03em;line-height:1.1;color:var(--ink);text-wrap:balance;">AI products that keep working after the demo is over.</p>
+          <div data-rv="3" style="width:min(100%,60ch);padding-top:clamp(4px,1vh,12px);">
+            <p style="font-size:clamp(1.08rem,1.3vw,1.26rem);line-height:1.65;color:var(--t2);text-wrap:pretty;">Assistants you can talk to, search that understands a plain question, and the quiet machinery that keeps both running in production.</p>
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;margin-top:clamp(28px,4.4vh,44px);">
+              <a href="#contact" data-cursor="explore" data-cursor-label="Say
+hello" style="display:inline-flex;align-items:center;gap:16px;min-height:48px;padding:14px 24px;background:var(--ac);border:1px solid var(--ac);color:var(--bg0);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;white-space:nowrap;transition:background 0.5s cubic-bezier(0.16,1,0.3,1),border-color 0.5s cubic-bezier(0.16,1,0.3,1);" style-hover="background:var(--ink);border-color:var(--ink);color:var(--bg0);">Start a project <span style="width:5px;height:5px;border-radius:50%;background:var(--bg0);animation:fldPulse 2.4s cubic-bezier(0.16,1,0.3,1) infinite;"></span></a>
+              <span style="display:flex;align-items:center;gap:9px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--t3);"><span style="position:relative;width:6px;height:6px;border-radius:50%;background:var(--ac);"><span style="position:absolute;inset:0;border-radius:50%;background:var(--ac);animation:fldRipple 2.6s cubic-bezier(0.16,1,0.3,1) infinite;"></span></span>Available this quarter</span>
+            </div>
+          </div>
+        </div>
+
+        <div data-rv="0" data-ask="1" style="margin-top:clamp(88px,13vh,160px);max-width:820px;border-top:1px solid var(--ln2);padding-top:clamp(36px,6vh,64px);">
+              <div style="display:flex;align-items:center;gap:14px;margin-bottom:clamp(28px,4.6vh,48px);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ac);"><span style="width:26px;height:1px;background:var(--ac);"></span>Ask about my work</div>
+              <div data-ask-idle="1">
+                <form data-ask-form="1" style="font-size:clamp(1.6rem,3.6vw,2.9rem);font-weight:600;letter-spacing:-0.035em;line-height:1.22;color:var(--ink);">
+                  <label for="ask-in" style="margin-right:0.22em;">I’d like to know</label>
+                  <span style="display:inline-flex;align-items:baseline;max-width:100%;border-bottom:2px solid var(--ac);padding-bottom:2px;">
+                    <input id="ask-in" data-ask-input="1" type="text" maxlength="200" autocomplete="off" size="16" placeholder="how Vellum works" aria-label="Finish the sentence: I'd like to know" style="min-width:6ch;max-width:100%;background:transparent;border:none;border-radius:0;outline:none;padding:0 4px;font:inherit;letter-spacing:inherit;color:var(--ink);">
+                  </span>
+                </form>
+                <div style="margin-top:clamp(36px,5.6vh,56px);display:flex;flex-wrap:wrap;gap:12px 14px;">
+                  <button type="button" data-ask-chip="what was hard about the AI platform" data-cursor="link" data-cursor-label="Ask" style="padding:14px 22px;min-height:50px;border:1px solid var(--ln3);font-size:clamp(1.04rem,1.15vw,1.14rem);line-height:1.3;letter-spacing:-0.005em;color:var(--t1);text-align:left;transition:border-color 0.35s cubic-bezier(0.16,1,0.3,1),color 0.35s cubic-bezier(0.16,1,0.3,1);" style-hover="border-color:var(--ac);color:var(--ac);">…what was hard about the AI platform</button>
+                  <button type="button" data-ask-chip="if you’re taking work" data-cursor="link" data-cursor-label="Ask" style="padding:14px 22px;min-height:50px;border:1px solid var(--ln3);font-size:clamp(1.04rem,1.15vw,1.14rem);line-height:1.3;letter-spacing:-0.005em;color:var(--t1);text-align:left;transition:border-color 0.35s cubic-bezier(0.16,1,0.3,1),color 0.35s cubic-bezier(0.16,1,0.3,1);" style-hover="border-color:var(--ac);color:var(--ac);">…if you’re taking work</button>
+                  <button type="button" data-ask-chip="what it would cost" data-cursor="link" data-cursor-label="Ask" style="padding:14px 22px;min-height:50px;border:1px solid var(--ln3);font-size:clamp(1.04rem,1.15vw,1.14rem);line-height:1.3;letter-spacing:-0.005em;color:var(--t1);text-align:left;transition:border-color 0.35s cubic-bezier(0.16,1,0.3,1),color 0.35s cubic-bezier(0.16,1,0.3,1);" style-hover="border-color:var(--ac);color:var(--ac);">…what it would cost</button>
+                  <button type="button" data-ask-chip="what Stafflo does" data-cursor="link" data-cursor-label="Ask" style="padding:14px 22px;min-height:50px;border:1px solid var(--ln3);font-size:clamp(1.04rem,1.15vw,1.14rem);line-height:1.3;letter-spacing:-0.005em;color:var(--t1);text-align:left;transition:border-color 0.35s cubic-bezier(0.16,1,0.3,1),color 0.35s cubic-bezier(0.16,1,0.3,1);" style-hover="border-color:var(--ac);color:var(--ac);">…what Stafflo does</button>
+                </div>
+                <div style="margin-top:clamp(24px,3.6vh,36px);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--t4);">Type to finish the sentence · enter to ask</div>
+              </div>
+              <div data-ask-done="1" aria-live="polite" style="display:none;">
+                <p style="font-size:clamp(1.15rem,1.7vw,1.4rem);font-weight:500;letter-spacing:-0.02em;line-height:1.25;color:var(--t3);">I’d like to know <span data-ask-echo="1" style="color:var(--ink);"></span></p>
+                <p data-ask-head="1" style="margin-top:clamp(24px,3.6vh,36px);font-size:clamp(2.2rem,4.2vw,3.4rem);font-weight:600;letter-spacing:-0.04em;line-height:1.06;color:var(--ac);text-wrap:balance;"></p>
+                <p data-ask-body="1" style="margin-top:clamp(20px,3vh,28px);max-width:60ch;font-size:clamp(1.1rem,1.35vw,1.28rem);line-height:1.7;color:var(--t1);text-wrap:pretty;"></p>
+                <div data-ask-actions="1" style="margin-top:clamp(36px,5.6vh,56px);display:none;flex-wrap:wrap;gap:18px 32px;align-items:center;">
+                  <a href="#contact" data-ask-cta="1" data-cursor="explore" data-cursor-label="Say
+hello" style="display:none;align-items:center;gap:12px;min-height:52px;padding:16px 28px;background:var(--ac);color:var(--bg0);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;transition:background 0.45s cubic-bezier(0.16,1,0.3,1);" style-hover="background:var(--ink);color:var(--bg0);">Start a project ↗</a>
+                  <a href="#work" data-ask-work="1" data-cursor="explore" data-cursor-label="Go" style="display:none;min-height:44px;align-items:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ac);border-bottom:1px solid var(--ln4);">See it in Key projects ↗</a>
+                  <button type="button" data-ask-again="1" data-cursor="explore" data-cursor-label="Ask" style="min-height:44px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--t2);border-bottom:1px solid var(--ln4);">Ask something else</button>
+                </div>
+              </div>
+              <p style="margin-top:clamp(40px,6vh,64px);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t4);">Answered by an AI assistant from this site’s content.</p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(46%,190px),1fr));gap:clamp(24px,3vw,48px);margin-top:clamp(80px,12vh,150px);">
+          <div data-rv="0" style="border-top:1px solid var(--ln2);padding-top:18px;"><div style="font-size:clamp(1.8rem,3.4vw,2.8rem);font-weight:600;letter-spacing:-0.035em;line-height:1;color:var(--ac);font-variant-numeric:tabular-nums;">500ms</div><div style="margin-top:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;line-height:1.5;text-transform:uppercase;color:var(--t3);">Live answer, voice or chat</div></div>
+          <div data-rv="1" style="border-top:1px solid var(--ln2);padding-top:18px;"><div style="font-size:clamp(1.8rem,3.4vw,2.8rem);font-weight:600;letter-spacing:-0.035em;line-height:1;color:var(--ac);font-variant-numeric:tabular-nums;">99.9%</div><div style="margin-top:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;line-height:1.5;text-transform:uppercase;color:var(--t3);">Uptime I design for</div></div>
+          <div data-rv="2" style="border-top:1px solid var(--ln2);padding-top:18px;"><div style="font-size:clamp(1.8rem,3.4vw,2.8rem);font-weight:600;letter-spacing:-0.035em;line-height:1;color:var(--ac);font-variant-numeric:tabular-nums;">4</div><div style="margin-top:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;line-height:1.5;text-transform:uppercase;color:var(--t3);">Projects shipped end to end</div></div>
+          <div data-rv="3" style="border-top:1px solid var(--ln2);padding-top:18px;"><div style="font-size:clamp(1.8rem,3.4vw,2.8rem);font-weight:600;letter-spacing:-0.035em;line-height:1;color:var(--ac);font-variant-numeric:tabular-nums;">1</div><div style="margin-top:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;line-height:1.5;text-transform:uppercase;color:var(--t3);">Person, start to finish</div></div>
+        </div>
+
+            <div data-rv="0" style="position:relative;margin-top:clamp(88px,13vh,160px);border-top:1px solid var(--ac);padding-top:clamp(28px,4.4vh,44px);">
+              <div aria-hidden="true" style="position:absolute;right:0;top:clamp(20px,3vh,36px);width:clamp(140px,22vw,300px);opacity:0.09;pointer-events:none;"><svg viewBox="-12 -12 1024 404" width="300" height="118" aria-hidden="true" style="display:block;flex:0 0 auto;overflow:visible;width:100%;height:auto;"><g fill="none" stroke="var(--ac)" stroke-width="118" stroke-linecap="round" stroke-linejoin="round"><polyline points="497,54 205,54 362,326 52,326"></polyline><polyline points="484,326 642,54 800,326"></polyline><polyline points="790,54 948,326"></polyline></g></svg></div>
+              <div style="position:relative;display:flex;align-items:center;gap:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ac);"><span style="position:relative;width:6px;height:6px;border-radius:50%;background:var(--ac);"><span style="position:absolute;inset:0;border-radius:50%;background:var(--ac);animation:fldRipple 2.6s cubic-bezier(0.16,1,0.3,1) infinite;"></span></span>Now</div>
+              <p style="position:relative;margin-top:clamp(18px,2.8vh,28px);max-width:22ch;font-size:clamp(1.9rem,3.6vw,3.1rem);font-weight:600;letter-spacing:-0.035em;line-height:1.06;color:var(--ink);text-wrap:balance;">Co-founder of <a href="https://www.stafflo.ai/" target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label="Open" style="display:inline-flex;align-items:center;gap:0.22em;color:var(--ac);white-space:nowrap;border-bottom:2px solid color-mix(in oklab, var(--ac) 35%, transparent);"><svg viewBox="-12 -12 1024 404" width="64" height="25" aria-hidden="true" style="display:block;flex:0 0 auto;overflow:visible;width:1.05em;height:auto;"><g fill="none" stroke="currentColor" stroke-width="118" stroke-linecap="round" stroke-linejoin="round"><polyline points="497,54 205,54 362,326 52,326"></polyline><polyline points="484,326 642,54 800,326"></polyline><polyline points="790,54 948,326"></polyline></g></svg>Stafflo</a>.</p>
+              <p style="position:relative;margin-top:clamp(14px,2.2vh,22px);max-width:54ch;font-size:clamp(1.06rem,1.25vw,1.2rem);line-height:1.62;color:var(--t2);text-wrap:pretty;">It starts with an audit: two weeks inside one process, mapping how the work really runs and ranking what is worth automating, what it would save, and what to leave alone. Only then do we build, on machines the client owns. Two of the demos are mine.</p>
+              <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(28px,3.6vw,48px);margin-top:clamp(30px,4.6vh,48px);">
+                <a href="https://www.stafflo.ai/demos/bench-desk" target="_blank" rel="noreferrer" data-cursor="project" data-cursor-label="Open
+demo" data-now-tile="1" style="display:flex;flex-direction:column;min-width:0;">
+                  <span style="position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:var(--bg2);border:1px solid var(--ln2);">
+                    <img data-now-img="1" src="https://www.stafflo.ai/demos/bench-desk/1440-light-01.png" alt="Bench Desk: the bench of consultants with skills, days on the bench, rate floor and bench cost a day." loading="eager" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top left;filter:saturate(0.55) contrast(1.02);transform-origin:top left;transition:transform 0.9s cubic-bezier(0.16,1,0.3,1),filter 0.6s ease;" data-comment-anchor="e22a456ea7-img">
+                    <span style="position:absolute;inset:0;background:linear-gradient(transparent 55%, color-mix(in oklab, var(--bg1) 70%, transparent));pointer-events:none;"></span>
+                    <span style="position:absolute;left:12px;bottom:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--t2);">Live demo</span>
+                  </span>
+                  <span style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--t3);"><span>IT staffing</span><span style="color:var(--ac);">↗</span></span>
+                  <span data-now-title="1" style="margin-top:8px;font-size:clamp(1.2rem,1.7vw,1.5rem);font-weight:500;letter-spacing:-0.018em;line-height:1.2;color:var(--ink);transition:transform 0.6s cubic-bezier(0.16,1,0.3,1);">Bench Desk</span>
+                  <span style="margin-top:8px;max-width:46ch;font-size:clamp(1rem,1.05vw,1.06rem);line-height:1.55;color:var(--t2);text-wrap:pretty;">Builds the day’s hotlists, matches vendor requirements to your bench, and sorts the replies.</span>
+                </a>
+                <a href="https://www.stafflo.ai/demos/module-kit" target="_blank" rel="noreferrer" data-cursor="project" data-cursor-label="Open
+demo" data-now-tile="1" style="display:flex;flex-direction:column;min-width:0;">
+                  <span style="position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:var(--bg2);border:1px solid var(--ln2);">
+                    <img data-now-img="1" src="https://www.stafflo.ai/demos/module-kit/1440-light-01.png" alt="Private AI Module Kit: a white-labelled client portal listing statements received, ready to be read." loading="eager" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top left;filter:saturate(0.55) contrast(1.02);transform-origin:top left;transition:transform 0.9s cubic-bezier(0.16,1,0.3,1),filter 0.6s ease;">
+                    <span style="position:absolute;inset:0;background:linear-gradient(transparent 55%, color-mix(in oklab, var(--bg1) 70%, transparent));pointer-events:none;"></span>
+                    <span style="position:absolute;left:12px;bottom:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--t2);">Live demo</span>
+                  </span>
+                  <span style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--t3);"><span>Software agencies</span><span style="color:var(--ac);">↗</span></span>
+                  <span data-now-title="1" style="margin-top:8px;font-size:clamp(1.2rem,1.7vw,1.5rem);font-weight:500;letter-spacing:-0.018em;line-height:1.2;color:var(--ink);transition:transform 0.6s cubic-bezier(0.16,1,0.3,1);">Private AI Module Kit</span>
+                  <span style="margin-top:8px;max-width:46ch;font-size:clamp(1rem,1.05vw,1.06rem);line-height:1.55;color:var(--t2);text-wrap:pretty;">AI modules agencies ship inside their clients’ apps, under their own brand.</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-sec="about" data-form="0" data-label="Who I am" data-screen-label="00 About" style="padding:clamp(120px,19vh,230px) max(clamp(20px,5vw,88px),env(safe-area-inset-right)) 0 max(clamp(20px,5vw,88px),env(safe-area-inset-left));">
+      <div style="max-width:1600px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:stretch;gap:clamp(28px,5vw,96px);">
+        <aside style="flex:1 1 180px;max-width:300px;"><div data-rv="0" style="position:sticky;top:clamp(96px,14vh,140px);display:flex;flex-direction:column;align-items:flex-start;gap:14px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--t3);"><span style="font-family:'Archivo',system-ui,sans-serif;font-size:clamp(4.6rem,8.6vw,8.8rem);font-weight:600;letter-spacing:-0.05em;line-height:0.8;color:transparent;-webkit-text-stroke:1px var(--ac);margin-left:-0.04em;">00</span><span style="width:32px;height:1px;background:var(--ac);"></span><span>About</span></div></aside>
+        <div style="flex:999 1 560px;min-width:0;max-width:1000px;">
+        <h2 data-rise="1" style="max-width:24ch;font-size:clamp(2.1rem,4.4vw,4.2rem);font-weight:600;letter-spacing:-0.035em;line-height:1.02;color:var(--ink);text-wrap:balance;">Most AI demos fall apart the first time a real person uses them. I build the <span style="color:var(--ac);">version that holds</span>.</h2>
+        <div style="display:flex;justify-content:flex-start;margin-top:clamp(40px,6.4vh,72px);">
+          <div data-rv="0" style="width:min(100%,60ch);display:flex;flex-direction:column;gap:22px;">
+            <p style="font-size:clamp(1.08rem,1.3vw,1.26rem);line-height:1.68;color:var(--t2);text-wrap:pretty;">A demo only has to work once, in front of a friendly audience. Real software has to work at two in the morning, for someone in a hurry, on a bad connection. That second thing is the job I take.</p>
+            <p style="font-size:clamp(1.08rem,1.3vw,1.26rem);line-height:1.68;color:var(--t1);text-wrap:pretty;">Over the last year I've shipped <span style="color:var(--ac);">4 projects</span> end to end, from the first call to the thing running in production.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:clamp(80px,12vh,150px);">
+          <div data-rv="0" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);margin-bottom:clamp(18px,3vh,28px);">What I do</div>
+          <div data-rv="0" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px clamp(24px,4vw,72px);border-top:1px solid var(--ln2);padding:clamp(38px,6.2vh,66px) 0;">
+            <span style="flex:0 0 48px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:var(--ac);">01</span>
+            <h3 style="flex:1 1 300px;max-width:22ch;font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:500;letter-spacing:-0.02em;line-height:1.18;color:var(--ink);">Automating the work that eats your day</h3>
+            <p style="width:min(100%,60ch);font-size:clamp(1.06rem,1.2vw,1.2rem);line-height:1.62;color:var(--t2);text-wrap:pretty;">The follow-ups, the data entry, the back-and-forth. I hand the repetitive work to AI that runs it for you, so the hours go back into the business.</p>
+          </div>
+          <div data-rv="0" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px clamp(24px,4vw,72px);border-top:1px solid var(--ln2);padding:clamp(38px,6.2vh,66px) 0;">
+            <span style="flex:0 0 48px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:var(--ac);">02</span>
+            <h3 style="flex:1 1 300px;max-width:22ch;font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:500;letter-spacing:-0.02em;line-height:1.18;color:var(--ink);">AI that answers the moment someone asks</h3>
+            <p style="width:min(100%,60ch);font-size:clamp(1.06rem,1.2vw,1.2rem);line-height:1.62;color:var(--t2);text-wrap:pretty;">Chatbots, voice assistants and agents that handle questions, booking and support around the clock, closer to talking to a person than filling out a form.</p>
+          </div>
+          <div data-rv="0" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px clamp(24px,4vw,72px);border-top:1px solid var(--ln2);border-bottom:1px solid var(--ln2);padding:clamp(38px,6.2vh,66px) 0;">
+            <span style="flex:0 0 48px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:var(--ac);">03</span>
+            <h3 style="flex:1 1 300px;max-width:22ch;font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:500;letter-spacing:-0.02em;line-height:1.18;color:var(--ink);">Shipping it, then keeping it up</h3>
+            <p style="width:min(100%,60ch);font-size:clamp(1.06rem,1.2vw,1.2rem);line-height:1.62;color:var(--t2);text-wrap:pretty;">I put it online, watch it, and fix the small things before anyone has to complain. Issues surface in monitoring, not in your inbox.</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-sec="build" data-form="1" data-label="For you" data-screen-label="01 What I Can Build" style="padding:clamp(120px,19vh,230px) max(clamp(20px,5vw,88px),env(safe-area-inset-right)) 0 max(clamp(20px,5vw,88px),env(safe-area-inset-left));">
+      <div style="max-width:1600px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:stretch;gap:clamp(28px,5vw,96px);">
+        <aside style="flex:1 1 180px;max-width:300px;"><div data-rv="0" style="position:sticky;top:clamp(96px,14vh,140px);display:flex;flex-direction:column;align-items:flex-start;gap:14px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--t3);"><span style="font-family:'Archivo',system-ui,sans-serif;font-size:clamp(4.6rem,8.6vw,8.8rem);font-weight:600;letter-spacing:-0.05em;line-height:0.8;color:transparent;-webkit-text-stroke:1px var(--ac);margin-left:-0.04em;">01</span><span style="width:32px;height:1px;background:var(--ac);"></span><span>What I can build</span></div></aside>
+        <div style="flex:999 1 560px;min-width:0;max-width:1000px;">
+        <h2 data-rise="1" style="max-width:24ch;font-size:clamp(2.1rem,4.4vw,4.2rem);font-weight:600;letter-spacing:-0.035em;line-height:1.02;color:var(--ink);text-wrap:balance;">Five things I get asked for, in <span style="color:var(--ac);">plain words</span>.</h2>
+        <div style="display:flex;justify-content:flex-start;margin-top:clamp(40px,6.4vh,72px);">
+          <p data-rv="0" style="width:min(100%,60ch);font-size:clamp(1.08rem,1.3vw,1.26rem);line-height:1.68;color:var(--t2);text-wrap:pretty;">Pick the one that sounds like what you need, and let's talk about it.</p>
+        </div>
+
+        <div style="margin-top:clamp(64px,10vh,120px);">
+          <div data-rv="0" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px clamp(24px,4vw,72px);border-top:1px solid var(--ln2);padding:clamp(38px,6.2vh,66px) 0;">
+            <span style="flex:0 0 48px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:var(--ac);">01</span>
+            <h3 style="flex:1 1 300px;max-width:22ch;font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:500;letter-spacing:-0.02em;line-height:1.18;color:var(--ink);">Agents you can talk to</h3>
+            <div style="width:min(100%,60ch);"><p style="font-size:clamp(1.06rem,1.2vw,1.2rem);line-height:1.62;color:var(--t2);text-wrap:pretty;">Voice and chat assistants that answer in real time, hold context, and hand off to a person when they should.</p><div style="margin-top:16px;display:inline-flex;align-items:center;gap:8px;padding:6px 11px;background:var(--bg0);border:1px solid color-mix(in oklab, var(--ac) 35%, var(--ln2));box-shadow:0 6px 14px -10px var(--shadow);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ac);"><span style="width:5px;height:5px;border-radius:50%;background:var(--ac);"></span>3–6 weeks</div></div>
+          </div>
+                    <div data-rv="0" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px clamp(24px,4vw,72px);border-top:1px solid var(--ln2);padding:clamp(38px,6.2vh,66px) 0;">
+            <span style="flex:0 0 48px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:var(--ac);">02</span>
+            <h3 style="flex:1 1 300px;max-width:22ch;font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:500;letter-spacing:-0.02em;line-height:1.18;color:var(--ink);">An app for Mac or your phone</h3>
+            <div style="width:min(100%,60ch);"><p style="font-size:clamp(1.06rem,1.2vw,1.2rem);line-height:1.62;color:var(--t2);text-wrap:pretty;">Native Mac utilities and mobile apps that feel at home on the platform and respect your data.</p><div style="margin-top:16px;display:inline-flex;align-items:center;gap:8px;padding:6px 11px;background:var(--bg0);border:1px solid color-mix(in oklab, var(--ac) 35%, var(--ln2));box-shadow:0 6px 14px -10px var(--shadow);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ac);"><span style="width:5px;height:5px;border-radius:50%;background:var(--ac);"></span>4–8 weeks</div></div>
+          </div>
+          <div data-rv="0" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px clamp(24px,4vw,72px);border-top:1px solid var(--ln2);padding:clamp(38px,6.2vh,66px) 0;">
+            <span style="flex:0 0 48px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:var(--ac);">03</span>
+            <h3 style="flex:1 1 300px;max-width:22ch;font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:500;letter-spacing:-0.02em;line-height:1.18;color:var(--ink);">A tool for your own team</h3>
+            <div style="width:min(100%,60ch);"><p style="font-size:clamp(1.06rem,1.2vw,1.2rem);line-height:1.62;color:var(--t2);text-wrap:pretty;">The internal dashboard or automation that replaces the spreadsheet everyone quietly hates.</p><div style="margin-top:16px;display:inline-flex;align-items:center;gap:8px;padding:6px 11px;background:var(--bg0);border:1px solid color-mix(in oklab, var(--ac) 35%, var(--ln2));box-shadow:0 6px 14px -10px var(--shadow);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ac);"><span style="width:5px;height:5px;border-radius:50%;background:var(--ac);"></span>2–5 weeks</div></div>
+          </div>
+          <div data-rv="0" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px clamp(24px,4vw,72px);border-top:1px solid var(--ln2);border-bottom:1px solid var(--ln2);padding:clamp(38px,6.2vh,66px) 0;">
+            <span style="flex:0 0 48px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:var(--ac);">04</span>
+            <h3 style="flex:1 1 300px;max-width:22ch;font-size:clamp(1.3rem,2.2vw,1.9rem);font-weight:500;letter-spacing:-0.02em;line-height:1.18;color:var(--ink);">Getting what you have live</h3>
+            <div style="width:min(100%,60ch);"><p style="font-size:clamp(1.06rem,1.2vw,1.2rem);line-height:1.62;color:var(--t2);text-wrap:pretty;">Containers, pipelines and monitoring so the thing you already built goes out and stays up.</p><div style="margin-top:16px;display:inline-flex;align-items:center;gap:8px;padding:6px 11px;background:var(--bg0);border:1px solid color-mix(in oklab, var(--ac) 35%, var(--ln2));box-shadow:0 6px 14px -10px var(--shadow);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ac);"><span style="width:5px;height:5px;border-radius:50%;background:var(--ac);"></span>1–3 weeks</div></div>
+          </div>
+          <div data-rv="0" style="display:flex;align-items:center;gap:12px;margin-top:20px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);"><span style="width:22px;height:1px;background:var(--ac);"></span>Timelines assume one person working properly</div>
+        </div>
+
+        <div style="margin-top:clamp(88px,13vh,160px);display:flex;flex-direction:column;gap:clamp(72px,11vh,128px);">
+          <div data-rv="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(12px,1.4vw,20px);">
+            <div style="display:flex;flex-direction:column;justify-content:space-between;gap:clamp(40px,7vh,72px);min-height:clamp(220px,30vh,320px);padding:clamp(22px,3vw,44px);border:1px solid var(--ln2);background:var(--bg0);box-shadow:var(--sh1);">
+              <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);">How it starts</span>
+              <p style="font-size:clamp(1.1rem,1.5vw,1.4rem);line-height:1.45;letter-spacing:-0.012em;color:var(--ink);text-wrap:pretty;">A short call, then a written plan with a fixed price and a date. If it is a fit we start, if not I will point you somewhere better.</p>
+            </div>
+            <a href="#contact" data-cursor="explore" data-cursor-label="Say
+hello" style="display:flex;flex-direction:column;justify-content:space-between;gap:clamp(40px,7vh,72px);min-height:clamp(220px,30vh,320px);padding:clamp(22px,3vw,44px);border:1px solid var(--ac);background:var(--ac);color:var(--bg0);box-shadow:0 30px 60px -30px color-mix(in oklab, var(--ac) 70%, transparent), inset 0 1px 0 color-mix(in oklab, var(--bg0) 18%, transparent);transition:background 0.5s cubic-bezier(0.16,1,0.3,1),border-color 0.5s cubic-bezier(0.16,1,0.3,1);" style-hover="background:var(--ink);border-color:var(--ink);color:var(--bg0);">
+              <span style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:color-mix(in oklab, var(--bg0) 78%, transparent);"><span>Next step</span><span style="font-size:18px;color:var(--bg0);">↗</span></span>
+              <span style="display:block;">
+                <span style="display:block;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:600;letter-spacing:-0.035em;line-height:1.02;color:var(--bg0);">Start a project</span>
+                <span style="display:block;margin-top:12px;font-size:clamp(1.04rem,1.15vw,1.14rem);line-height:1.5;color:color-mix(in oklab, var(--bg0) 82%, transparent);">Same-day reply. Available this quarter.</span>
+              </span>
+            </a>
+          </div>
+          <div data-rv="0" style="display:flex;flex-wrap:wrap;gap:12px clamp(24px,4vw,64px);">
+            <span style="flex:0 0 160px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);padding-top:6px;">What you keep</span>
+            <p style="width:min(100%,60ch);font-size:clamp(1.1rem,1.5vw,1.4rem);line-height:1.45;letter-spacing:-0.012em;color:var(--ink);text-wrap:pretty;">The code, the accounts, the documentation. Everything is handed over in your name, nothing is locked to me.</p>
+          </div>
+          <div data-rv="0" style="display:flex;flex-wrap:wrap;gap:12px clamp(24px,4vw,64px);">
+            <span style="flex:0 0 160px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);padding-top:6px;">How I price it</span>
+            <p style="width:min(100%,60ch);font-size:clamp(1.1rem,1.5vw,1.4rem);line-height:1.45;letter-spacing:-0.012em;color:var(--ink);text-wrap:pretty;">One fixed price for the scope we agree on, not an hourly meter. You know the number before anything begins.</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-sec="work" data-form="2" data-label="What I built" data-screen-label="02 Key Projects" style="padding:clamp(120px,19vh,230px) max(clamp(20px,5vw,88px),env(safe-area-inset-right)) 0 max(clamp(20px,5vw,88px),env(safe-area-inset-left));">
+      <div style="max-width:1600px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:stretch;gap:clamp(28px,5vw,96px);">
+        <aside style="flex:1 1 180px;max-width:300px;"><div data-rv="0" style="position:sticky;top:clamp(96px,14vh,140px);display:flex;flex-direction:column;align-items:flex-start;gap:14px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--t3);"><span style="font-family:'Archivo',system-ui,sans-serif;font-size:clamp(4.6rem,8.6vw,8.8rem);font-weight:600;letter-spacing:-0.05em;line-height:0.8;color:transparent;-webkit-text-stroke:1px var(--ac);margin-left:-0.04em;">02</span><span style="width:32px;height:1px;background:var(--ac);"></span><span>Key projects</span></div></aside>
+        <div style="flex:999 1 560px;min-width:0;max-width:1000px;">
+
+        <article data-fe="work-row" data-pv-row="1" data-pv-label="AI deployment platform" data-pv-img="public/work/ai-platform.png" data-rv="0" style="border-top:1px solid var(--ln2);">
+          <button data-fe="work-toggle" aria-expanded="false" data-cursor="project" data-cursor-label="Read
+more" style="display:grid;grid-template-columns:clamp(38px,4vw,64px) 1fr auto;gap:clamp(14px,2.4vw,32px);align-items:start;width:100%;padding:clamp(32px,5.4vh,58px) 0;text-align:left;" style-hover="color:inherit;">
+            <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;color:var(--ac);letter-spacing:0.18em;padding-top:12px;">01</span>
+            <span style="min-width:0;">
+              <span data-pv-title="1" style="display:block;font-size:clamp(1.55rem,4.1vw,3.3rem);font-weight:600;letter-spacing:-0.035em;line-height:1.02;color:var(--t1);transition:transform 0.6s cubic-bezier(0.16,1,0.3,1),color 0.4s ease;">AI Deployment Platform</span>
+              <span style="display:block;margin-top:12px;max-width:64ch;font-size:clamp(1.04rem,1.15vw,1.14rem);line-height:1.55;color:var(--t2);text-wrap:pretty;">A dashboard that puts an AI service online in one click, and writes down every change it makes.</span>
+              <span style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);"><span>Kubernetes</span><span style="color:var(--ln4);">·</span><span>ArgoCD</span><span style="color:var(--ln4);">·</span><span>FastAPI</span><span style="color:var(--ln4);">·</span><span>Next.js</span><span style="color:var(--ln4);">·</span><span>Helm</span><span style="color:var(--ln4);">·</span><span>Prometheus</span></span>
+            </span>
+            <span data-pv-plus="1" style="align-self:center;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--ln2);border-radius:50%;transition:border-color 0.4s ease,transform 0.6s cubic-bezier(0.16,1,0.3,1);"><span style="position:relative;display:block;width:11px;height:11px;"><span style="position:absolute;top:5px;left:0;width:11px;height:1px;background:var(--t1);"></span><span data-fe="plus-v" style="position:absolute;top:0;left:5px;width:1px;height:11px;background:var(--t1);transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);"></span></span></span>
+          </button>
+          <div data-fe="work-panel" style="overflow:hidden;height:0;transition:height 0.62s cubic-bezier(0.16,1,0.3,1);">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,2.6vw,44px);border-top:1px solid var(--ln1);padding:clamp(20px,3vh,32px) 0 clamp(30px,4vh,50px);">
+              <div><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);">How it works</span><p style="margin-top:10px;font-size:clamp(1.02rem,1.1vw,1.14rem);line-height:1.5;color:var(--t2);text-wrap:pretty;">Every change is written to a file first. A background service then makes the servers match that file. Nothing happens that is not written down, so what is running always matches the plan.</p></div>
+              <div><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);">Why it matters</span><p style="margin-top:10px;font-size:clamp(1.02rem,1.1vw,1.14rem);line-height:1.5;color:var(--t2);text-wrap:pretty;">The whole thing starts on one laptop with a single command. No cloud account, no monthly bill just to try it out.</p></div>
+              <div><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);">The tricky part</span><p style="margin-top:10px;font-size:clamp(1.02rem,1.1vw,1.14rem);line-height:1.5;color:var(--t2);text-wrap:pretty;">The built in assistant reads server logs, and a log can say anything. So it is allowed to suggest but never to act, and a person clicks the final button. A booby trapped log line cannot change your system.</p></div>
+              <div style="grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+                <a href="https://github.com/Chaitanya299/k8s-gitops-lab" target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label="Open
+code" style="display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid var(--ln4);padding-bottom:4px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ac);" style-hover="border-bottom-color:var(--ac);">See the code <span>↗</span></a>
+                <div style="flex:1 1 100%;min-width:0;max-width:760px;padding:clamp(8px,1vw,14px);border:1px solid var(--ln2);background:var(--bg2);box-shadow:inset 0 1px 0 color-mix(in oklab, var(--bg0) 85%, transparent), 0 1px 2px oklch(0.3 0.07 25 / 0.06), 0 28px 56px -32px var(--shadow), 0 70px 120px -70px oklch(0.3 0.07 25 / 0.2);"><img src="public/work/ai-platform.png" alt="The AI Platform GitOps dashboard: a Deploy an AI service form beside a Deploy assistant side panel." style="display:block;width:100%;height:auto;object-fit:contain;"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article data-fe="work-row" data-pv-row="1" data-pv-label="Vellum, screen softener for Mac" data-pv-img="public/work/vellum.png" data-rv="0" style="border-top:1px solid var(--ln2);">
+          <button data-fe="work-toggle" aria-expanded="false" data-cursor="project" data-cursor-label="Read
+more" style="display:grid;grid-template-columns:clamp(38px,4vw,64px) 1fr auto;gap:clamp(14px,2.4vw,32px);align-items:start;width:100%;padding:clamp(32px,5.4vh,58px) 0;text-align:left;" style-hover="color:inherit;">
+            <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;color:var(--ac);letter-spacing:0.18em;padding-top:12px;">02</span>
+            <span style="min-width:0;">
+              <span data-pv-title="1" style="display:block;font-size:clamp(1.55rem,4.1vw,3.3rem);font-weight:600;letter-spacing:-0.035em;line-height:1.02;color:var(--t1);transition:transform 0.6s cubic-bezier(0.16,1,0.3,1),color 0.4s ease;">Vellum</span>
+              <span style="display:block;margin-top:12px;max-width:64ch;font-size:clamp(1.04rem,1.15vw,1.14rem);line-height:1.55;color:var(--t2);text-wrap:pretty;">A small Mac app that lays a soft paper texture over your screen, so a long day at the desk is easier on the eyes.</span>
+              <span style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);"><span>Objective-C</span><span style="color:var(--ln4);">·</span><span>AppKit</span><span style="color:var(--ln4);">·</span><span>Core Graphics</span><span style="color:var(--ln4);">·</span><span>macOS</span></span>
+            </span>
+            <span data-pv-plus="1" style="align-self:center;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--ln2);border-radius:50%;transition:border-color 0.4s ease,transform 0.6s cubic-bezier(0.16,1,0.3,1);"><span style="position:relative;display:block;width:11px;height:11px;"><span style="position:absolute;top:5px;left:0;width:11px;height:1px;background:var(--t1);"></span><span data-fe="plus-v" style="position:absolute;top:0;left:5px;width:1px;height:11px;background:var(--t1);transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);"></span></span></span>
+          </button>
+          <div data-fe="work-panel" style="overflow:hidden;height:0;transition:height 0.62s cubic-bezier(0.16,1,0.3,1);">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,2.6vw,44px);border-top:1px solid var(--ln1);padding:clamp(20px,3vh,32px) 0 clamp(30px,4vh,50px);">
+              <div><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);">How it works</span><p style="margin-top:10px;font-size:clamp(1.02rem,1.1vw,1.14rem);line-height:1.5;color:var(--t2);text-wrap:pretty;">Hand-built AppKit with no storyboards. One borderless window per screen draws a tint pass plus a tiled soft-light grain over procedurally generated, cached textures.</p></div>
+              <div><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);">Why it matters</span><p style="margin-top:10px;font-size:clamp(1.02rem,1.1vw,1.14rem);line-height:1.5;color:var(--t2);text-wrap:pretty;">Twelve textures, a circadian day and night schedule, and per-app exclusions, all drawn cheaply enough to sit over every screen without you noticing the cost.</p></div>
+              <div><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);">The tricky part</span><p style="margin-top:10px;font-size:clamp(1.02rem,1.1vw,1.14rem);line-height:1.5;color:var(--t2);text-wrap:pretty;">Surviving other apps in fullscreen: accessory activation policy, join-all-spaces, and a screen-saver window level, while avoiding the auxiliary mode that would tie the overlay to its own window.</p></div>
+              <div style="grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+                <a href="https://github.com/Chaitanya299/Vellum" target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label="Open
+code" style="display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid var(--ln4);padding-bottom:4px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ac);" style-hover="border-bottom-color:var(--ac);">See the code <span>↗</span></a>
+                <div style="flex:1 1 100%;min-width:0;max-width:760px;padding:clamp(8px,1vw,14px);border:1px solid var(--ln2);background:var(--bg2);box-shadow:inset 0 1px 0 color-mix(in oklab, var(--bg0) 85%, transparent), 0 1px 2px oklch(0.3 0.07 25 / 0.06), 0 28px 56px -32px var(--shadow), 0 70px 120px -70px oklch(0.3 0.07 25 / 0.2);"><img src="public/work/vellum.png" alt="Vellum's macOS menu-bar panel with texture toggle, intensity slider and quick paper textures." style="display:block;width:100%;height:auto;object-fit:contain;"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article data-fe="work-row" data-pv-row="1" data-pv-label="ScoreDay, daily habit scoreboard" data-pv-img="public/work/scoreday.png" data-rv="0" style="border-top:1px solid var(--ln2);">
+          <button data-fe="work-toggle" aria-expanded="false" data-cursor="project" data-cursor-label="Read
+more" style="display:grid;grid-template-columns:clamp(38px,4vw,64px) 1fr auto;gap:clamp(14px,2.4vw,32px);align-items:start;width:100%;padding:clamp(32px,5.4vh,58px) 0;text-align:left;" style-hover="color:inherit;">
+            <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;color:var(--ac);letter-spacing:0.18em;padding-top:12px;">03</span>
+            <span style="min-width:0;">
+              <span data-pv-title="1" style="display:block;font-size:clamp(1.55rem,4.1vw,3.3rem);font-weight:600;letter-spacing:-0.035em;line-height:1.02;color:var(--t1);transition:transform 0.6s cubic-bezier(0.16,1,0.3,1),color 0.4s ease;">ScoreDay</span>
+              <span style="display:block;margin-top:12px;max-width:64ch;font-size:clamp(1.04rem,1.15vw,1.14rem);line-height:1.55;color:var(--t2);text-wrap:pretty;">A daily scoreboard for the habits you are trying to keep, with a score you cannot fudge.</span>
+              <span style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);"><span>Next.js</span><span style="color:var(--ln4);">·</span><span>TypeScript</span><span style="color:var(--ln4);">·</span><span>Prisma</span><span style="color:var(--ln4);">·</span><span>SQLite</span><span style="color:var(--ln4);">·</span><span>Vitest</span></span>
+            </span>
+            <span data-pv-plus="1" style="align-self:center;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--ln2);border-radius:50%;transition:border-color 0.4s ease,transform 0.6s cubic-bezier(0.16,1,0.3,1);"><span style="position:relative;display:block;width:11px;height:11px;"><span style="position:absolute;top:5px;left:0;width:11px;height:1px;background:var(--t1);"></span><span data-fe="plus-v" style="position:absolute;top:0;left:5px;width:1px;height:11px;background:var(--t1);transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);"></span></span></span>
+          </button>
+          <div data-fe="work-panel" style="overflow:hidden;height:0;transition:height 0.62s cubic-bezier(0.16,1,0.3,1);">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,2.6vw,44px);border-top:1px solid var(--ln1);padding:clamp(20px,3vh,32px) 0 clamp(30px,4vh,50px);">
+              <div><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);">How it works</span><p style="margin-top:10px;font-size:clamp(1.02rem,1.1vw,1.14rem);line-height:1.5;color:var(--t2);text-wrap:pretty;">A recurrence engine computes occurrences and a central status engine tracks each one. Scoring derives from real occurrences, and levels map earned XP to a rank.</p></div>
+              <div><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);">Why it matters</span><p style="margin-top:10px;font-size:clamp(1.02rem,1.1vw,1.14rem);line-height:1.5;color:var(--t2);text-wrap:pretty;">Seven recurrence types, occurrence-based completions, XP levelling and streaks, all local-first on SQLite so your data stays on your machine.</p></div>
+              <div><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);">The tricky part</span><p style="margin-top:10px;font-size:clamp(1.02rem,1.1vw,1.14rem);line-height:1.5;color:var(--t2);text-wrap:pretty;">Points are frozen snapshots at completion time, so editing a task never rewrites history. A unique constraint makes double-completion impossible at the database layer.</p></div>
+              <div style="grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+                <a href="https://github.com/Chaitanya299/ScoreDay" target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label="Open
+code" style="display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid var(--ln4);padding-bottom:4px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ac);" style-hover="border-bottom-color:var(--ac);">See the code <span>↗</span></a>
+                <div style="flex:1 1 100%;min-width:0;max-width:760px;padding:clamp(8px,1vw,14px);border:1px solid var(--ln2);background:var(--bg2);box-shadow:inset 0 1px 0 color-mix(in oklab, var(--bg0) 85%, transparent), 0 1px 2px oklch(0.3 0.07 25 / 0.06), 0 28px 56px -32px var(--shadow), 0 70px 120px -70px oklch(0.3 0.07 25 / 0.2);"><img src="public/work/scoreday.png" alt="ScoreDay's monthly progress view with score history chart and activity calendar." style="display:block;width:100%;height:auto;object-fit:contain;"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article data-fe="work-row" data-pv-row="1" data-pv-label="orient, project memory for developers" data-pv-img="public/work/orient.svg" data-rv="0" style="border-top:1px solid var(--ln2);border-bottom:1px solid var(--ln2);">
+          <button data-fe="work-toggle" aria-expanded="false" data-cursor="project" data-cursor-label="Read
+more" style="display:grid;grid-template-columns:clamp(38px,4vw,64px) 1fr auto;gap:clamp(14px,2.4vw,32px);align-items:start;width:100%;padding:clamp(32px,5.4vh,58px) 0;text-align:left;" style-hover="color:inherit;">
+            <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;color:var(--ac);letter-spacing:0.18em;padding-top:12px;">04</span>
+            <span style="min-width:0;">
+              <span data-pv-title="1" style="display:block;font-size:clamp(1.55rem,4.1vw,3.3rem);font-weight:600;letter-spacing:-0.035em;line-height:1.02;color:var(--t1);transition:transform 0.6s cubic-bezier(0.16,1,0.3,1),color 0.4s ease;">Orient</span>
+              <span style="display:block;margin-top:12px;max-width:64ch;font-size:clamp(1.04rem,1.15vw,1.14rem);line-height:1.55;color:var(--t2);text-wrap:pretty;">A tool that keeps notes on why a project is built the way it is, right next to the code.</span>
+              <span style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);"><span>TypeScript</span><span style="color:var(--ln4);">·</span><span>Node</span><span style="color:var(--ln4);">·</span><span>Claude Code</span><span style="color:var(--ln4);">·</span><span>Codex</span><span style="color:var(--ln4);">·</span><span>opencode</span></span>
+            </span>
+            <span data-pv-plus="1" style="align-self:center;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--ln2);border-radius:50%;transition:border-color 0.4s ease,transform 0.6s cubic-bezier(0.16,1,0.3,1);"><span style="position:relative;display:block;width:11px;height:11px;"><span style="position:absolute;top:5px;left:0;width:11px;height:1px;background:var(--t1);"></span><span data-fe="plus-v" style="position:absolute;top:0;left:5px;width:1px;height:11px;background:var(--t1);transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);"></span></span></span>
+          </button>
+          <div data-fe="work-panel" style="overflow:hidden;height:0;transition:height 0.62s cubic-bezier(0.16,1,0.3,1);">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,2.6vw,44px);border-top:1px solid var(--ln1);padding:clamp(20px,3vh,32px) 0 clamp(30px,4vh,50px);">
+              <div><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);">How it works</span><p style="margin-top:10px;font-size:clamp(1.02rem,1.1vw,1.14rem);line-height:1.5;color:var(--t2);text-wrap:pretty;">Six commands map to a docs tree: current state, architecture, and an append-only decision log. It surveys the repo in a read-only agent and drafts every write for you to approve.</p></div>
+              <div><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);">Why it matters</span><p style="margin-top:10px;font-size:clamp(1.02rem,1.1vw,1.14rem);line-height:1.5;color:var(--t2);text-wrap:pretty;">The always-on footprint is a few lines of pointers. Everything substantial lives in files that load only when read, so it holds up on repos that stay alive for years.</p></div>
+              <div><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);">The tricky part</span><p style="margin-top:10px;font-size:clamp(1.02rem,1.1vw,1.14rem);line-height:1.5;color:var(--t2);text-wrap:pretty;">Safe by design: no network, no telemetry, read-only survey agents, secret-blind by default, and a commit step that refuses to ship a key. Every write is a proposal the human reviews.</p></div>
+              <div style="grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+                <a href="https://github.com/Chaitanya299/Orient" target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label="Open
+code" style="display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid var(--ln4);padding-bottom:4px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ac);" style-hover="border-bottom-color:var(--ac);">See the code <span>↗</span></a>
+                <div style="flex:1 1 100%;min-width:0;max-width:760px;padding:clamp(8px,1vw,14px);border:1px solid var(--ln2);background:var(--bg2);box-shadow:inset 0 1px 0 color-mix(in oklab, var(--bg0) 85%, transparent), 0 1px 2px oklch(0.3 0.07 25 / 0.06), 0 28px 56px -32px var(--shadow), 0 70px 120px -70px oklch(0.3 0.07 25 / 0.2);"><img src="public/work/orient.svg" alt="Orient's project map: STATE.md, an append-only decision log and request tracing beside the code." style="display:block;width:100%;height:auto;object-fit:contain;"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section data-sec="roadmap" data-form="3" data-label="What comes next" data-screen-label="03 On the Roadmap" style="padding:clamp(120px,19vh,230px) max(clamp(20px,5vw,88px),env(safe-area-inset-right)) 0 max(clamp(20px,5vw,88px),env(safe-area-inset-left));">
+      <div style="max-width:1600px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:stretch;gap:clamp(28px,5vw,96px);">
+        <aside style="flex:1 1 180px;max-width:300px;"><div data-rv="0" style="position:sticky;top:clamp(96px,14vh,140px);display:flex;flex-direction:column;align-items:flex-start;gap:14px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--t3);"><span style="font-family:'Archivo',system-ui,sans-serif;font-size:clamp(4.6rem,8.6vw,8.8rem);font-weight:600;letter-spacing:-0.05em;line-height:0.8;color:transparent;-webkit-text-stroke:1px var(--ac);margin-left:-0.04em;">03</span><span style="width:32px;height:1px;background:var(--ac);"></span><span>On the roadmap</span></div></aside>
+        <div style="flex:999 1 560px;min-width:0;max-width:1000px;">
+        <h2 data-rise="1" style="max-width:24ch;font-size:clamp(2.1rem,4.4vw,4.2rem);font-weight:600;letter-spacing:-0.035em;line-height:1.02;color:var(--ink);text-wrap:balance;">Five things I am building <span style="color:var(--ac);">right now</span>.</h2>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(72px,11vh,120px) clamp(44px,6vw,96px);margin-top:clamp(64px,10vh,120px);">
+          <article data-rv="0" style="border-top:1px solid var(--ln2);padding-top:22px;">
+            <div style="display:flex;justify-content:space-between;gap:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);"><span style="display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--ac);animation:fldPulse 2.4s cubic-bezier(0.16,1,0.3,1) infinite;"></span>Building now</span><span>Late 2026</span></div>
+            <h3 style="margin-top:18px;font-size:clamp(1.3rem,2.1vw,1.8rem);font-weight:600;letter-spacing:-0.02em;color:var(--ink);">Armor</h3>
+            <p style="margin-top:12px;max-width:46ch;font-size:clamp(1.06rem,1.25vw,1.2rem);line-height:1.5;color:var(--ac);text-wrap:pretty;">An AI code reviewer that reads every pull request and leaves line-level feedback.</p>
+            <div style="margin-top:18px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--t3);">LLM Agents <span style="color:var(--ln4);">·</span> Code Review <span style="color:var(--ln4);">·</span> GitHub</div>
+          </article>
+          <article data-rv="1" style="border-top:1px solid var(--ln2);padding-top:22px;">
+            <div style="display:flex;justify-content:space-between;gap:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);"><span style="display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--ac);animation:fldPulse 2.4s cubic-bezier(0.16,1,0.3,1) infinite;"></span>Building now</span><span>Late 2026</span></div>
+            <h3 style="margin-top:18px;font-size:clamp(1.3rem,2.1vw,1.8rem);font-weight:600;letter-spacing:-0.02em;color:var(--ink);">MonFlow</h3>
+            <p style="margin-top:12px;max-width:46ch;font-size:clamp(1.06rem,1.25vw,1.2rem);line-height:1.5;color:var(--ac);text-wrap:pretty;">A privacy-first UPI expense tracker whose data never leaves your phone.</p>
+            <div style="margin-top:18px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--t3);">React Native <span style="color:var(--ln4);">·</span> Kotlin <span style="color:var(--ln4);">·</span> SQLCipher</div>
+          </article>
+          <article data-rv="2" style="border-top:1px solid var(--ln2);padding-top:22px;">
+            <div style="display:flex;justify-content:space-between;gap:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);"><span style="display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--ac);animation:fldPulse 2.4s cubic-bezier(0.16,1,0.3,1) infinite;"></span>In testing</span><span>Mid 2026</span></div>
+            <h3 style="margin-top:18px;font-size:clamp(1.3rem,2.1vw,1.8rem);font-weight:600;letter-spacing:-0.02em;color:var(--ink);">JobAutomator &amp; Crawler</h3>
+            <p style="margin-top:12px;max-width:46ch;font-size:clamp(1.06rem,1.25vw,1.2rem);line-height:1.5;color:var(--ac);text-wrap:pretty;">An AI agent that fills job applications for you, with a human approving every submit.</p>
+            <div style="margin-top:18px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--t3);">FastAPI <span style="color:var(--ln4);">·</span> Chrome Extension <span style="color:var(--ln4);">·</span> Python</div>
+          </article>
+          <article data-rv="0" style="border-top:1px solid var(--ln2);padding-top:22px;">
+            <div style="display:flex;justify-content:space-between;gap:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);"><span style="display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;border-radius:50%;border:1px solid var(--ln4);"></span>Planning</span><span>Early 2027</span></div>
+            <h3 style="margin-top:18px;font-size:clamp(1.3rem,2.1vw,1.8rem);font-weight:600;letter-spacing:-0.02em;color:var(--ink);">Edge Assistant</h3>
+            <p style="margin-top:12px;max-width:46ch;font-size:clamp(1.06rem,1.25vw,1.2rem);line-height:1.5;color:var(--ac);text-wrap:pretty;">A small language model and tool-use agent that runs fully on-device.</p>
+            <div style="margin-top:18px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--t3);">SLM <span style="color:var(--ln4);">·</span> llama.cpp <span style="color:var(--ln4);">·</span> Tool Use</div>
+          </article>
+          <article data-rv="1" style="border-top:1px solid var(--ln2);padding-top:22px;">
+            <div style="display:flex;justify-content:space-between;gap:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);"><span style="display:flex;align-items:center;gap:8px;"><span style="width:7px;height:7px;border-radius:50%;border:1px solid var(--ln4);"></span>Planning</span><span>Late 2026</span></div>
+            <h3 style="margin-top:18px;font-size:clamp(1.3rem,2.1vw,1.8rem);font-weight:600;letter-spacing:-0.02em;color:var(--ink);">Chatbot Builder</h3>
+            <p style="margin-top:12px;max-width:46ch;font-size:clamp(1.06rem,1.25vw,1.2rem);line-height:1.5;color:var(--ac);text-wrap:pretty;">A grounded assistant from your own documents, stood up in an afternoon.</p>
+            <div style="margin-top:18px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--t3);">RAG <span style="color:var(--ln4);">·</span> Embeddings <span style="color:var(--ln4);">·</span> Next.js</div>
+          </article>
+        </div>
+        <div data-rv="0" style="margin-top:clamp(56px,9vh,96px);">
+          <a href="https://www.reddit.com/user/Chaitanya299/" target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label="Open" style="display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid var(--ln4);padding-bottom:4px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ac);" style-hover="border-bottom-color:var(--ac);">Follow the build daily on Reddit <span>↗</span></a>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-sec="recognition" data-form="4" data-label="Receipts" data-screen-label="04 Recognition" style="padding:clamp(120px,19vh,230px) max(clamp(20px,5vw,88px),env(safe-area-inset-right)) 0 max(clamp(20px,5vw,88px),env(safe-area-inset-left));">
+      <div style="max-width:1600px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:stretch;gap:clamp(28px,5vw,96px);">
+        <aside style="flex:1 1 180px;max-width:300px;"><div data-rv="0" style="position:sticky;top:clamp(96px,14vh,140px);display:flex;flex-direction:column;align-items:flex-start;gap:14px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--t3);"><span style="font-family:'Archivo',system-ui,sans-serif;font-size:clamp(4.6rem,8.6vw,8.8rem);font-weight:600;letter-spacing:-0.05em;line-height:0.8;color:transparent;-webkit-text-stroke:1px var(--ac);margin-left:-0.04em;">04</span><span style="width:32px;height:1px;background:var(--ac);"></span><span>Recognition</span></div></aside>
+        <div style="flex:999 1 560px;min-width:0;max-width:1000px;">
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(46%,190px),1fr));gap:clamp(24px,3vw,48px);">
+          <div data-rv="0"><div data-count="4" style="font-size:clamp(3rem,6.4vw,5.6rem);font-weight:600;letter-spacing:-0.04em;line-height:1;color:var(--ac);font-variant-numeric:tabular-nums;">04</div><div style="margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);">Certifications earned</div></div>
+          <div data-rv="1"><div data-count="4" style="font-size:clamp(3rem,6.4vw,5.6rem);font-weight:600;letter-spacing:-0.04em;line-height:1;color:var(--ac);font-variant-numeric:tabular-nums;">04</div><div style="margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);">Projects I finished</div></div>
+          <div data-rv="2"><div data-count="3" style="font-size:clamp(3rem,6.4vw,5.6rem);font-weight:600;letter-spacing:-0.04em;line-height:1;color:var(--ac);font-variant-numeric:tabular-nums;">03</div><div style="margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);">Years writing code</div></div>
+          <div data-rv="3"><div style="font-size:clamp(3rem,6.4vw,5.6rem);font-weight:600;line-height:1;color:var(--ac);">●</div><div style="margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);">Brown belt, martial arts</div></div>
+        </div>
+
+        <div style="margin-top:clamp(72px,11vh,130px);">
+          <a href="https://drive.google.com/file/d/1QvxkMBhskNkW-y7IkX7a-S5FKO_5VwdQ/view" target="_blank" rel="noreferrer" data-rv="0" data-cursor="link" data-cursor-label="View" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px clamp(24px,4vw,72px);border-top:1px solid var(--ln2);padding:clamp(34px,5.6vh,56px) 0;" style-hover="color:inherit;">
+            <span style="flex:0 0 48px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:var(--ac);">01</span>
+            <span style="flex:1 1 300px;font-size:clamp(1.3rem,2.4vw,1.9rem);font-weight:500;letter-spacing:-0.02em;color:var(--ink);">AWS Cloud Practitioner</span>
+            <span style="width:min(100%,60ch);"><span style="display:block;font-size:clamp(1.04rem,1.15vw,1.14rem);line-height:1.6;color:var(--t2);">Cloud fundamentals, global infrastructure, security and the shared responsibility model.</span><span style="display:block;margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);">Amazon Web Services ↗</span></span>
+          </a>
+          <a href="https://drive.google.com/file/d/1XSeJ27istaznc6wHCDkI-vkB5yw9XGTR/view" target="_blank" rel="noreferrer" data-rv="0" data-cursor="link" data-cursor-label="View" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px clamp(24px,4vw,72px);border-top:1px solid var(--ln2);padding:clamp(34px,5.6vh,56px) 0;" style-hover="color:inherit;">
+            <span style="flex:0 0 48px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:var(--ac);">02</span>
+            <span style="flex:1 1 300px;font-size:clamp(1.3rem,2.4vw,1.9rem);font-weight:500;letter-spacing:-0.02em;color:var(--ink);">Azure AI Fundamentals</span>
+            <span style="width:min(100%,60ch);"><span style="display:block;font-size:clamp(1.04rem,1.15vw,1.14rem);line-height:1.6;color:var(--t2);">AI workloads, machine learning principles, computer vision and language on Azure.</span><span style="display:block;margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);">Microsoft ↗</span></span>
+          </a>
+          <a href="https://drive.google.com/file/d/1tLHtUUc0AuF4MBiPEFOtXAuEtBbmDvou/view" target="_blank" rel="noreferrer" data-rv="0" data-cursor="link" data-cursor-label="View" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px clamp(24px,4vw,72px);border-top:1px solid var(--ln2);padding:clamp(34px,5.6vh,56px) 0;" style-hover="color:inherit;">
+            <span style="flex:0 0 48px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:var(--ac);">03</span>
+            <span style="flex:1 1 300px;font-size:clamp(1.3rem,2.4vw,1.9rem);font-weight:500;letter-spacing:-0.02em;color:var(--ink);">Mastering Django</span>
+            <span style="width:min(100%,60ch);"><span style="display:block;font-size:clamp(1.04rem,1.15vw,1.14rem);line-height:1.6;color:var(--t2);">Scalable server-side applications, clean architecture, ORM and authentication.</span><span style="display:block;margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);">Certificate ↗</span></span>
+          </a>
+          <a href="https://drive.google.com/file/d/10_Y8CUsY8J6t8ABM_AxVL5df1rZ3wcRa/view" target="_blank" rel="noreferrer" data-rv="0" data-cursor="link" data-cursor-label="View" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px clamp(24px,4vw,72px);border-top:1px solid var(--ln2);border-bottom:1px solid var(--ln2);padding:clamp(34px,5.6vh,56px) 0;" style-hover="color:inherit;">
+            <span style="flex:0 0 48px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.1em;color:var(--ac);">04</span>
+            <span style="flex:1 1 300px;font-size:clamp(1.3rem,2.4vw,1.9rem);font-weight:500;letter-spacing:-0.02em;color:var(--ink);">Generative AI Foundations</span>
+            <span style="width:min(100%,60ch);"><span style="display:block;font-size:clamp(1.04rem,1.15vw,1.14rem);line-height:1.6;color:var(--t2);">Prompt engineering, transformer architectures, fine-tuning, and AI safety patterns.</span><span style="display:block;margin-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);">Microsoft / upGrad ↗</span></span>
+          </a>
+        </div>
+
+        <div style="margin-top:clamp(88px,13vh,160px);display:flex;flex-direction:column;gap:clamp(72px,11vh,128px);">
+          <div data-rv="0" style="display:flex;flex-wrap:wrap;gap:12px clamp(24px,4vw,64px);">
+            <span style="flex:0 0 160px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);padding-top:6px;">Money and markets</span>
+            <p style="width:min(100%,60ch);font-size:clamp(1.1rem,1.5vw,1.4rem);line-height:1.45;letter-spacing:-0.012em;color:var(--ink);text-wrap:pretty;">I read markets the way I read systems, looking for the part that quietly holds it together.</p>
+          </div>
+          <div data-rv="0" style="display:flex;flex-wrap:wrap;gap:12px clamp(24px,4vw,64px);">
+            <span style="flex:0 0 160px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);padding-top:6px;">Martial arts</span>
+            <p style="width:min(100%,60ch);font-size:clamp(1.1rem,1.5vw,1.4rem);line-height:1.45;letter-spacing:-0.012em;color:var(--ink);text-wrap:pretty;">An international win and a brown belt. Precision and patience beat force, which turns out to be true of software too.</p>
+          </div>
+          <div data-rv="0" style="display:flex;flex-wrap:wrap;gap:12px clamp(24px,4vw,64px);">
+            <span style="flex:0 0 160px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);padding-top:6px;">Away from the desk</span>
+            <p style="width:min(100%,60ch);font-size:clamp(1.1rem,1.5vw,1.4rem);line-height:1.45;letter-spacing:-0.012em;color:var(--ink);text-wrap:pretty;">Books, horse riding and swimming. The best fixes arrive when I am nowhere near a keyboard.</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-sec="contact" data-form="5" data-label="Say hello" data-screen-label="05 Contact" style="padding:clamp(120px,19vh,230px) max(clamp(20px,5vw,88px),env(safe-area-inset-right)) max(clamp(40px,6vh,64px),calc(env(safe-area-inset-bottom) + 88px)) max(clamp(20px,5vw,88px),env(safe-area-inset-left));">
+      <div style="max-width:1600px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:stretch;gap:clamp(28px,5vw,96px);">
+        <aside style="flex:1 1 180px;max-width:300px;"><div data-rv="0" style="position:sticky;top:clamp(96px,14vh,140px);display:flex;flex-direction:column;align-items:flex-start;gap:14px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--t3);"><span style="font-family:'Archivo',system-ui,sans-serif;font-size:clamp(4.6rem,8.6vw,8.8rem);font-weight:600;letter-spacing:-0.05em;line-height:0.8;color:transparent;-webkit-text-stroke:1px var(--ac);margin-left:-0.04em;">05</span><span style="width:32px;height:1px;background:var(--ac);"></span><span>Contact</span></div></aside>
+        <div style="flex:999 1 560px;min-width:0;max-width:1000px;">
+        <h2 data-rise="1" style="font-size:clamp(2.4rem,8.4vw,8.4rem);font-weight:600;letter-spacing:-0.045em;line-height:0.86;text-transform:uppercase;color:var(--ink);">Let's<br>talk</h2>
+        <p data-rv="0" style="margin-top:clamp(28px,4.4vh,44px);max-width:40ch;font-size:clamp(1.3rem,2vw,1.75rem);font-weight:500;line-height:1.28;letter-spacing:-0.02em;color:var(--ac);text-wrap:pretty;">No sales pitch back. Just a straight answer on whether I'm the right person for it.</p>
+
+        <div data-rv="0" style="margin-top:clamp(64px,10vh,120px);">
+          <div style="display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--t3);"><span style="color:var(--ac);">A</span><span style="width:28px;height:1px;background:var(--ac);"></span><span>The fastest way</span></div>
+          <div style="margin-top:clamp(22px,3.4vh,34px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(28px,4vw,64px);align-items:end;">
+            <div style="min-width:0;">
+              <p style="font-size:clamp(1.06rem,1.25vw,1.2rem);line-height:1.6;color:var(--t2);text-wrap:pretty;">Available this quarter, and I usually reply the same day.</p>
+              <button data-fe="copy-email" data-cursor="explore" data-cursor-label="Copy" style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;width:100%;margin-top:clamp(18px,2.6vh,26px);padding:0 0 14px;border-bottom:1px solid var(--ac);text-align:left;"><span style="min-width:0;overflow-wrap:anywhere;font-size:clamp(1.25rem,2.2vw,1.8rem);font-weight:500;letter-spacing:-0.02em;color:var(--ink);">chaitanya.sai311@gmail.com</span><span data-fe="copy-label" style="flex:0 0 auto;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ac);">Copy</span></button>
+            </div>
+            <div style="min-width:0;border-bottom:1px solid var(--ln2);">
+              <a href="https://www.stafflo.ai/" target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label="Open" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 0;border-top:1px solid var(--ln2);transition:padding-left 0.45s cubic-bezier(0.16,1,0.3,1),color 0.3s ease;" style-hover="padding-left:8px;"><span style="display:inline-flex;align-items:center;gap:10px;font-size:1.06rem;color:var(--ink);"><svg viewBox="-12 -12 1024 404" width="22" height="9" aria-hidden="true" style="display:block;flex:0 0 auto;overflow:visible;"><g fill="none" stroke="var(--ac)" stroke-width="118" stroke-linecap="round" stroke-linejoin="round"><polyline points="497,54 205,54 362,326 52,326"></polyline><polyline points="484,326 642,54 800,326"></polyline><polyline points="790,54 948,326"></polyline></g></svg>Stafflo</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);">Co-founder · stafflo.ai ↗</span></a>
+              <a href="https://github.com/Chaitanya299" target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label="Open" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 0;border-top:1px solid var(--ln2);transition:padding-left 0.45s cubic-bezier(0.16,1,0.3,1),color 0.3s ease;" style-hover="padding-left:8px;"><span style="font-size:1.06rem;color:var(--ink);">GitHub</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);">github.com/Chaitanya299 ↗</span></a>
+              <a href="https://www.linkedin.com/in/saichaitanyaparasana" target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label="Open" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 0;border-top:1px solid var(--ln2);transition:padding-left 0.45s cubic-bezier(0.16,1,0.3,1),color 0.3s ease;" style-hover="padding-left:8px;"><span style="font-size:1.06rem;color:var(--ink);">LinkedIn</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);">Chaitanya Parasana ↗</span></a>
+              <a href="https://www.reddit.com/user/Chaitanya299/" target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label="Open" style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 0;border-top:1px solid var(--ln2);transition:padding-left 0.45s cubic-bezier(0.16,1,0.3,1),color 0.3s ease;" style-hover="padding-left:8px;"><span style="font-size:1.06rem;color:var(--ink);">Build log</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);">Daily on Reddit ↗</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div data-rv="0" style="margin-top:clamp(64px,10vh,120px);">
+          <div style="display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--t3);"><span style="color:var(--ac);">B</span><span style="width:28px;height:1px;background:var(--ac);"></span><span>Or tell me about the project</span></div>
+          <form data-fe="form" novalidate="" style="margin-top:clamp(18px,2.6vh,26px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,3.4vw,48px);padding:clamp(26px,4vw,56px);background:color-mix(in oklab, var(--bg0) 75%, var(--bg2));border:1px solid var(--ln2);box-shadow:var(--sh1);">
+            <div style="display:flex;flex-direction:column;gap:clamp(20px,3vh,28px);min-width:0;">
+              <label style="display:flex;flex-direction:column;gap:6px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--t3);">Name<input name="name" type="text" autocomplete="name" placeholder="Ada Lovelace" style="background:transparent;border:none;border-bottom:1px solid var(--ln2);border-radius:0;min-height:48px;padding:12px 2px;font-family:'Archivo',system-ui,sans-serif;font-size:1rem;letter-spacing:0;text-transform:none;color:var(--ink);outline:none;" style-focus="border-bottom-color:var(--ac);"></label>
+              <label style="display:flex;flex-direction:column;gap:6px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--t3);">Email<input name="email" type="email" autocomplete="email" placeholder="ada@example.com" style="background:transparent;border:none;border-bottom:1px solid var(--ln2);border-radius:0;min-height:48px;padding:12px 2px;font-family:'Archivo',system-ui,sans-serif;font-size:1rem;letter-spacing:0;text-transform:none;color:var(--ink);outline:none;" style-focus="border-bottom-color:var(--ac);"></label>
+              <fieldset style="border:none;">
+              <legend style="margin-bottom:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--t3);">What you need</legend>
+              <div style="display:grid;grid-template-columns:1fr;gap:0;">
+                <label data-cursor="explore" data-cursor-label="Pick" style="display:flex;align-items:center;gap:10px;min-height:44px;font-size:1.02rem;color:var(--t1);"><input type="checkbox" name="needs" value="agent" style="width:15px;height:15px;accent-color:var(--ac);">An AI agent or assistant</label>
+                <label data-cursor="explore" data-cursor-label="Pick" style="display:flex;align-items:center;gap:10px;min-height:44px;font-size:1.02rem;color:var(--t1);"><input type="checkbox" name="needs" value="app" style="width:15px;height:15px;accent-color:var(--ac);">A native app (Mac or phone)</label>
+                <label data-cursor="explore" data-cursor-label="Pick" style="display:flex;align-items:center;gap:10px;min-height:44px;font-size:1.02rem;color:var(--t1);"><input type="checkbox" name="needs" value="tool" style="width:15px;height:15px;accent-color:var(--ac);">An internal tool or dashboard</label>
+                <label data-cursor="explore" data-cursor-label="Pick" style="display:flex;align-items:center;gap:10px;min-height:44px;font-size:1.02rem;color:var(--t1);"><input type="checkbox" name="needs" value="deploy" style="width:15px;height:15px;accent-color:var(--ac);">Deploy and maintain what I have</label>
+                <label data-cursor="explore" data-cursor-label="Pick" style="display:flex;align-items:center;gap:10px;min-height:44px;font-size:1.02rem;color:var(--t1);"><input type="checkbox" name="needs" value="unsure" style="width:15px;height:15px;accent-color:var(--ac);">Not sure yet, help me figure it out</label>
+              </div>
+            </fieldset>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:clamp(20px,3vh,28px);min-width:0;">
+              <label style="display:flex;flex-direction:column;gap:6px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--t3);">Budget (optional)<input name="budget" type="text" placeholder="Rough range, or 'not sure yet'" style="background:transparent;border:none;border-bottom:1px solid var(--ln2);border-radius:0;min-height:48px;padding:12px 2px;font-family:'Archivo',system-ui,sans-serif;font-size:1rem;letter-spacing:0;text-transform:none;color:var(--ink);outline:none;" style-focus="border-bottom-color:var(--ac);"></input></label>
+              <label style="display:flex;flex-direction:column;gap:6px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--t3);">Timeline (optional)<select name="timeline" style="appearance:none;background:transparent;border:none;border-bottom:1px solid var(--ln2);border-radius:0;min-height:48px;padding:12px 2px;font-size:1rem;letter-spacing:0.02em;text-transform:none;color:var(--ink);outline:none;background-image:linear-gradient(45deg, transparent 50%, var(--t3) 50%),linear-gradient(135deg, var(--t3) 50%, transparent 50%);background-position:right 6px center,right 1px center;background-size:5px 5px,5px 5px;background-repeat:no-repeat;"><option>As soon as possible</option><option>Within 1–2 months</option><option>Just exploring for now</option></select></label>
+              <label style="display:flex;flex-direction:column;gap:6px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--t3);">Message<textarea name="message" rows="4" placeholder="One or two lines about the project. What it is, and what you're stuck on." style="background:transparent;border:none;border-bottom:1px solid var(--ln2);border-radius:0;min-height:110px;padding:12px 2px;font-family:'Archivo',system-ui,sans-serif;font-size:1rem;line-height:1.5;letter-spacing:0;text-transform:none;color:var(--ink);outline:none;resize:vertical;" style-focus="border-bottom-color:var(--ac);"></textarea></label>
+              <div>
+              <button type="submit" data-fe="form-btn" data-cursor="explore" data-cursor-label="Send" style="display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:14px 24px;background:var(--ac);color:var(--bg0);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;transition:background 0.45s cubic-bezier(0.16,1,0.3,1);" style-hover="background:var(--ink);color:var(--bg0);">Send it <span>↗</span></button>
+              <div data-fe="form-status" style="margin-top:14px;min-height:14px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--t3);"></div>
+            </div>
+            </div>
+          </form>
+        </div>
+
+        <div data-rv="0" style="margin-top:clamp(64px,10vh,120px);">
+          <div style="display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--t3);"><span style="color:var(--ac);">C</span><span style="width:28px;height:1px;background:var(--ac);"></span><span>What happens next</span></div>
+          <div style="margin-top:clamp(30px,4.6vh,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:clamp(28px,3vw,40px) 0;">
+            <div style="position:relative;padding-top:26px;border-top:1px solid var(--ln3);"><span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 5px var(--bg1);"></span><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:var(--ac);">01</div><div style="margin-top:10px;font-size:clamp(1.15rem,1.6vw,1.4rem);font-weight:500;letter-spacing:-0.015em;line-height:1.25;color:var(--ink);">Same-day reply</div><p style="margin-top:8px;font-size:clamp(1.02rem,1.1vw,1.1rem);line-height:1.55;color:var(--t2);text-wrap:pretty;">I read every message myself and answer the same day.</p></div>
+            <div style="position:relative;padding-top:26px;border-top:1px solid var(--ln3);"><span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 5px var(--bg1);"></span><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:var(--ac);">02</div><div style="margin-top:10px;font-size:clamp(1.15rem,1.6vw,1.4rem);font-weight:500;letter-spacing:-0.015em;line-height:1.25;color:var(--ink);">A half-hour call</div><p style="margin-top:8px;font-size:clamp(1.02rem,1.1vw,1.1rem);line-height:1.55;color:var(--t2);text-wrap:pretty;">We talk through the shape of it, no slides, no pitch.</p></div>
+            <div style="position:relative;padding-top:26px;border-top:1px solid var(--ln2);"><span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 5px var(--bg1);"></span><div style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.18em;color:var(--ac);">03</div><div style="margin-top:10px;font-size:clamp(1.15rem,1.6vw,1.4rem);font-weight:500;letter-spacing:-0.015em;line-height:1.25;color:var(--ink);">Plan, price, demo</div><p style="margin-top:8px;font-size:clamp(1.02rem,1.1vw,1.1rem);line-height:1.55;color:var(--t2);text-wrap:pretty;">A written plan with a fixed price, a date, and a free demo.</p></div>
+          </div>
+        </div>
+
+        <footer style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:clamp(88px,13vh,160px);border-top:1px solid var(--ln2);padding-top:clamp(18px,3vh,26px);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t3);">
+          <span>© 2026 Chaitanya Parasana</span>
+          <a href="#" data-cursor="explore" data-cursor-label="Go">Back to the start ↑</a>
+        </footer>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div aria-hidden="true" style="position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(70% 50% at 15% 0%, color-mix(in oklab, var(--bg0) 80%, transparent), transparent 70%), radial-gradient(120% 100% at 50% 0%, transparent 55%, color-mix(in oklab, var(--ac) 7%, transparent) 100%);"></div>
+  <div aria-hidden="true" style="position:fixed;inset:0;z-index:35;pointer-events:none;opacity:0.05;background-image:url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.86' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
+  <div data-pv-card="1" aria-hidden="true" style="position:fixed;left:0;top:0;z-index:10;width:270px;height:170px;border:1px solid var(--ln3);background:var(--bg2);box-shadow:0 18px 36px -24px var(--shadow);pointer-events:none;opacity:0;transform:translate(-50%,-50%) scale(0.96);transition:opacity 0.35s cubic-bezier(0.16,1,0.3,1);will-change:transform,opacity;overflow:hidden;">
+    <img data-pv-cimg="1" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top left;display:none;">
+    <span data-pv-cap="1" style="position:absolute;left:0;right:0;bottom:0;padding:6px 8px;text-align:left;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--t2);background:color-mix(in oklab, var(--bg1) 82%, transparent);border-top:1px solid var(--ln2);"></span>
+  </div>
+  <div data-ch-curtain="1" aria-hidden="true" style="position:fixed;inset:0;z-index:40;pointer-events:none;background:var(--ac);clip-path:inset(100% 0 0 0);display:flex;align-items:center;padding:0 max(clamp(20px,5vw,88px),env(safe-area-inset-right)) 0 max(clamp(20px,5vw,88px),env(safe-area-inset-left));will-change:clip-path;">
+    <div data-ch-inner="1" style="display:flex;flex-direction:column;gap:clamp(14px,2.4vh,26px);max-width:1600px;margin:0 auto;width:100%;will-change:transform;">
+      <div data-ch-cnum="1" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:color-mix(in oklab, var(--bg0) 72%, transparent);">01</div>
+      <div data-ch-ctitle="1" style="font-size:clamp(1.9rem,min(9.5vw,17vh),9rem);overflow-wrap:break-word;font-weight:600;line-height:0.88;letter-spacing:-0.045em;text-transform:uppercase;color:var(--bg0);">What I Can Build</div>
+      <div style="height:1px;background:color-mix(in oklab, var(--bg0) 45%, transparent);"></div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;navTransition&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;curtain&quot;,&quot;glide&quot;],&quot;default&quot;:&quot;curtain&quot;,&quot;tsType&quot;:&quot;'curtain' | 'glide'&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;scrollCurtain&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;headerAutoHide&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Small screens&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = document.querySelector('[data-fe-root]');
+    const go = () => {
+      if (this.dead) return;
+      if (!window.FieldEngine) { this.t = setTimeout(go, 40); return; }
+      let started = false;
+      const start = () => {
+        if (started || this.dead) return; started = true;
+        try {
+          this.un = window.FieldEngine.mount(root);
+          ['setupChapters', 'setupAsk', 'setupRich', 'setupPreview', 'setupLift'].forEach(f => { try { this[f](); } catch (err) { console.error(f, err); } });
+        } finally {
+          if (root) {
+            if (document.visibilityState === 'hidden') { root.style.opacity = '1'; }
+            else { root.style.transition = 'opacity 0.7s cubic-bezier(0.16,1,0.3,1)'; void root.offsetWidth; root.style.opacity = '1'; }
+          }
+        }
+      };
+      // wait for fonts (capped) so the first paint never reflows mid-reveal
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(start);
+      this.t2 = setTimeout(start, 900);
+    };
+    go();
+  }
+  componentWillUnmount() { this.dead = true; clearTimeout(this.t); clearTimeout(this.t2); (this.timers || []).forEach(clearTimeout); cancelAnimationFrame(this.raf); (this.offs || []).forEach(f => f()); if (this.un) this.un(); }
+
+  setupChapters() {
+    const root = document.querySelector('[data-fe-root]'); if (!root) return;
+    const CH = { home: ['00', 'Start here'], about: ['00', 'About'], build: ['01', 'What I Can Build'], work: ['02', 'Key Projects'], roadmap: ['03', 'On the Roadmap'], recognition: ['04', 'Recognition'], contact: ['05', 'Contact'] };
+    const CURTAIN = ['build', 'work', 'roadmap', 'recognition', 'contact'];
+    const secs = Array.from(root.querySelectorAll('[data-sec]'));
+    const cur = root.querySelector('[data-ch-curtain]'), inner = root.querySelector('[data-ch-inner]');
+    const cNum = root.querySelector('[data-ch-cnum]'), cTitle = root.querySelector('[data-ch-ctitle]');
+    const nav = root.querySelector('[data-ch-nav]'), ind = root.querySelector('[data-ch-ind]');
+    const links = Array.from(root.querySelectorAll('[data-ch-link]'));
+    const hdr = root.querySelector('[data-hdr]'), main = root.querySelector('main');
+    const hdrCta = root.querySelector('header > div > a[href="#contact"]'), hdrRight = hdr.querySelector(':scope > div');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const P = () => this.props || {};
+    this.timers = []; this.offs = [];
+    const on = (t, e, h, o) => { t.addEventListener(e, h, o); this.offs.push(() => t.removeEventListener(e, h, o)); };
+    const later = (f, ms) => { const id = setTimeout(f, ms); this.timers.push(id); return id; };
+    let busy = false, curKey = null, glideUntil = 0;
+
+    const mark = key => {
+      let hit = null;
+      links.forEach(l => {
+        const onK = l.dataset.chLink === key; if (onK) hit = l;
+        l.style.color = onK ? 'var(--ink)' : 'var(--t2)';
+        const n = l.querySelector('[data-ch-num]'); if (n) n.style.color = onK ? 'var(--ac)' : 'color-mix(in oklab, var(--ac) 60%, transparent)';
+      });
+      if (!ind) return;
+      if (hit) { ind.style.left = hit.offsetLeft + 'px'; ind.style.width = hit.offsetWidth + 'px'; ind.style.opacity = '1'; if (nav.scrollWidth > nav.clientWidth + 2) nav.scrollTo({ left: hit.offsetLeft - (nav.clientWidth - hit.offsetWidth) / 2, behavior: 'smooth' }); }
+      else ind.style.opacity = '0';
+    };
+    const secEl = k => root.querySelector('[data-sec="' + k + '"]');
+    const topOf = el => el.getBoundingClientRect().top + window.scrollY;
+
+    // input is only locked while a curtain runs, so everyday scrolling stays passive and native
+    const KEYS = [' ', 'PageDown', 'PageUp', 'ArrowDown', 'ArrowUp', 'Home', 'End'];
+    const block = e => e.preventDefault();
+    const blockKey = e => { if (KEYS.includes(e.key)) e.preventDefault(); };
+    const lock = v => {
+      const m = v ? 'addEventListener' : 'removeEventListener';
+      window[m]('wheel', block, { passive: false }); window[m]('touchmove', block, { passive: false }); window[m]('keydown', blockKey);
+    };
+    this.offs.push(() => lock(false));
+
+    const play = (key, jump) => {
+      if (busy) return; busy = true; lock(true);
+      const c = CH[key] || ['', ''];
+      cNum.textContent = c[0]; cTitle.textContent = c[1];
+      const done = () => { busy = false; lock(false); };
+      if (reduced) { jump(); curKey = key; mark(key); done(); return; }
+      const IN = 520, HOLD = 90, OUTT = 680, WIPE = 'cubic-bezier(0.76,0,0.24,1)', OUT = 'cubic-bezier(0.16,1,0.3,1)';
+      // content under the curtain waits and reveals as it lifts
+      window.__feRevealAt = performance.now() + IN + HOLD + OUTT * 0.3;
+      cur.style.transition = 'none'; cur.style.clipPath = 'inset(100% 0 0 0)';
+      inner.style.transition = 'none'; inner.style.transform = 'translate3d(0,48px,0)'; inner.style.opacity = '0';
+      void cur.offsetWidth;
+      cur.style.transition = 'clip-path ' + IN + 'ms ' + WIPE;
+      cur.style.clipPath = 'inset(0 0 0 0)';
+      inner.style.transition = 'transform 820ms ' + OUT + ' 70ms, opacity 460ms ease 70ms';
+      inner.style.transform = 'translate3d(0,0,0)'; inner.style.opacity = '1';
+      mark(key);
+      later(() => {
+        jump(); curKey = key;
+        later(() => {
+          cur.style.transition = 'clip-path ' + OUTT + 'ms ' + WIPE;
+          cur.style.clipPath = 'inset(0 0 100% 0)';
+          inner.style.transition = 'transform ' + OUTT + 'ms ' + WIPE + ', opacity ' + Math.round(OUTT * 0.55) + 'ms ease';
+          inner.style.transform = 'translate3d(0,-40px,0)'; inner.style.opacity = '0';
+          later(() => { cur.style.transition = 'none'; cur.style.clipPath = 'inset(100% 0 0 0)'; done(); }, OUTT);
+        }, HOLD);
+      }, IN);
+    };
+    const goTo = key => {
+      const el = secEl(key); if (!el || busy) return;
+      const top = key === 'home' ? 0 : Math.round(topOf(el));
+      if (Math.abs(window.scrollY - top) < 4) return;
+      if ((P().navTransition || 'curtain') === 'glide' || reduced) {
+        curKey = key; mark(key);
+        const dist = Math.abs(window.scrollY - top);
+        glideUntil = performance.now() + Math.min(1600, 500 + dist * 0.12);
+        window.scrollTo({ top, behavior: reduced ? 'auto' : 'smooth' });
+        return;
+      }
+      play(key, () => window.scrollTo({ top, behavior: 'auto' }));
+    };
+
+    links.forEach(l => on(l, 'click', () => goTo(l.dataset.chLink)));
+    on(root, 'click', e => {
+      const a = e.target.closest && e.target.closest('a[href^="#"]'); if (!a) return;
+      const id = a.getAttribute('href').slice(1) || 'home';
+      if (!secEl(id)) return;
+      e.preventDefault(); e.stopPropagation(); goTo(id);
+    }, true);
+    // a user gesture cancels a glide lock so the indicator follows them right away
+    const cancelGlide = () => { glideUntil = 0; };
+    on(window, 'wheel', cancelGlide, { passive: true }); on(window, 'touchstart', cancelGlide, { passive: true });
+
+    const current = () => {
+      const vh = window.innerHeight; let k = secs[0] && secs[0].dataset.sec;
+      for (const s of secs) if (s.getBoundingClientRect().top <= vh * 0.5) k = s.dataset.sec;
+      return k;
+    };
+    curKey = current(); mark(curKey);
+    let lastY = window.scrollY, seenY = NaN;
+    const tick = () => {
+      if (this.dead) return;
+      const y = window.scrollY, dir = y > lastY ? 1 : y < lastY ? -1 : 0; lastY = y;
+      if (!busy && y !== seenY && performance.now() > glideUntil) {
+        seenY = y;
+        const k = current();
+        if (k && k !== curKey) {
+          const el = secEl(k);
+          if (P().scrollCurtain !== false && CURTAIN.includes(k) && el && curKey !== null) {
+            play(k, () => {
+              const vh = window.innerHeight, t = topOf(el);
+              window.scrollTo({ top: dir < 0 ? Math.max(t, t + el.offsetHeight - vh) : t, behavior: 'auto' });
+            });
+          } else { curKey = k; mark(k); }
+        }
+      }
+      this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+
+    // header: glass when scrolled, tucks away on small screens while reading down
+    const asides = Array.from(root.querySelectorAll('[data-sec] aside')).filter(a => a.nextElementSibling);
+    const mains = asides.map(a => a.nextElementSibling), rows = asides.map(a => a.parentNode);
+    const h1 = root.querySelector('[data-sec="home"] h1'), h1Fs = h1 ? h1.style.fontSize : '';
+    const ctFs = cTitle.style.fontSize, curPad = cur.style.padding, rowGap = rows.map(r => r.style.gap);
+    const dualH = matchMedia('(horizontal-viewport-segments: 2)'), dualV = matchMedia('(vertical-viewport-segments: 2)');
+    const PAD = 'clamp(20px,5vw,88px)', SEG0R = 'env(viewport-segment-right 0 0, 50vw)', SEG1L = 'env(viewport-segment-left 1 0, 50vw)', SEG0B = 'env(viewport-segment-bottom 0 0, 50vh)';
+    hdr.style.transition += ', top 0.55s cubic-bezier(0.16,1,0.3,1)';
+    let phone = false, compact = false, scrolled = null, tucked = false, hy = window.scrollY, acc = 0;
+    const paintHdr = () => {
+      const s = window.scrollY > 12; if (s === scrolled && !hdr.dataset.dirty) return; scrolled = s; delete hdr.dataset.dirty;
+      hdr.style.background = s ? 'color-mix(in oklab, var(--bg1) ' + (phone ? 94 : 82) + '%, transparent)' : 'linear-gradient(var(--bg1) 30%, color-mix(in oklab, var(--bg1) 0%, transparent))';
+      hdr.style.boxShadow = s ? '0 1px 0 var(--ln1), 0 18px 40px -30px var(--shadow)' : 'none';
+      // no backdrop-filter on phones: it would trap the fixed bottom rail inside the header
+      const glass = s && !phone ? 'blur(14px) saturate(1.2)' : '';
+      hdr.style.backdropFilter = glass; hdr.style.webkitBackdropFilter = glass;
+    };
+    const tuck = v => { if (v === tucked) return; tucked = v; hdr.style.top = v ? (-hdr.offsetHeight - 2) + 'px' : '0px'; };
+    const onScrollHdr = () => {
+      const y = window.scrollY, d = y - hy; hy = y;
+      if (P().headerAutoHide === false || !compact || y < 90 || busy) { tuck(false); acc = 0; return; }
+      acc = (d > 0) === (acc > 0) ? acc + d : d;
+      if (acc > 28) tuck(true); else if (acc < -18) tuck(false);
+    };
+    let sig = '';
+    const fitNav = () => {
+      const w = window.innerWidth, h = window.innerHeight, span = dualH.matches, stack = dualV.matches;
+      const s2 = [w, h < 560, span, stack].join('|'); if (s2 === sig) { mark(curKey); return; } sig = s2;
+      phone = w < 760; compact = phone || h < 560;
+      if (hdrCta) hdrCta.style.display = w < 1100 ? 'none' : 'inline-flex';
+      links.forEach(l => { const n = l.querySelector('[data-ch-num]'); if (n) n.style.display = w < 1000 ? 'none' : ''; l.style.minHeight = phone ? (h < 560 ? '40px' : '46px') : '42px'; });
+      Object.assign(nav.style, phone
+        ? { position: 'fixed', left: 'max(12px, env(safe-area-inset-left))', right: 'max(12px, env(safe-area-inset-right))', bottom: 'max(12px, env(safe-area-inset-bottom))', zIndex: '31', boxShadow: 'var(--sh2)', background: 'color-mix(in oklab, var(--bg0) 90%, transparent)', backdropFilter: 'blur(14px) saturate(1.2)' }
+        : { position: 'relative', left: '', right: '', bottom: '', zIndex: '', boxShadow: 'inset 0 1px 0 var(--hl), 0 18px 36px -24px var(--shadow)', background: 'linear-gradient(color-mix(in oklab, var(--bg3) 88%, transparent), color-mix(in oklab, var(--bg2) 88%, transparent))', backdropFilter: 'blur(10px)' });
+      if (main) main.style.paddingBottom = phone ? 'calc(76px + env(safe-area-inset-bottom))' : '0px';
+      // dual-screen (Surface Duo, spanned foldables): chapter column left of the hinge, content right
+      rows.forEach((r, i) => {
+        r.style.gap = span ? 'calc(' + SEG1L + ' - ' + SEG0R + ' + 64px)' : rowGap[i];
+        asides[i].style.flex = span ? '0 0 calc(' + SEG0R + ' - ' + PAD + ' - 32px)' : '1 1 180px';
+        asides[i].style.maxWidth = span ? 'none' : '300px';
+        if (mains[i]) mains[i].style.flex = span ? '1 1 0' : '999 1 560px';
+      });
+      if (h1) { h1.style.fontSize = span ? 'calc((' + SEG0R + ' - ' + PAD + ' - 32px) * 0.165)' : h1Fs; }
+      if (hdrRight) hdrRight.style.maxWidth = span ? 'calc(100vw - ' + SEG1L + ' - ' + PAD + ')' : '';
+      cur.style.padding = span ? '0 calc(100vw - ' + SEG0R + ' + ' + PAD + ') 0 ' + PAD : curPad;
+      cTitle.style.fontSize = span ? 'calc((' + SEG0R + ' - ' + PAD + ' * 2) * 0.12)' : ctFs;
+      // folded top/bottom (Flip in flex mode, Duo rotated): curtain title sits on the top half
+      cur.style.alignItems = stack ? 'flex-start' : 'center';
+      inner.style.marginTop = stack ? 'max(24px, calc(' + SEG0B + ' / 2 - 80px))' : '0px';
+      tuck(false); hdr.dataset.dirty = '1'; paintHdr(); mark(curKey);
+    };
+    fitNav();
+    on(window, 'resize', fitNav);
+    on(window, 'orientationchange', () => later(fitNav, 250));
+    on(window, 'scroll', () => { paintHdr(); onScrollHdr(); }, { passive: true });
+    const prog = nav.querySelector('[data-ch-prog]');
+    let lastP = -1;
+    const paintProg = () => { if (!prog) return; const m = document.documentElement.scrollHeight - window.innerHeight; const p = m > 0 ? Math.min(1, window.scrollY / m) : 0; if (Math.abs(p - lastP) < 0.001) return; lastP = p; prog.style.transform = 'scaleX(' + p.toFixed(4) + ')'; };
+    paintProg(); on(window, 'scroll', paintProg, { passive: true });
+    if (dualH.addEventListener) { on(dualH, 'change', fitNav); on(dualV, 'change', fitNav); }
+    const vm = document.querySelector('meta[name="viewport"]'); if (vm && !/viewport-fit/.test(vm.content)) vm.content += ', viewport-fit=cover';
+  }
+  setupAsk() {
+    const root = document.querySelector('[data-ask]'); if (!root) return;
+    const g = k => root.querySelector('[data-ask-' + k + ']');
+    const idle = g('idle'), done = g('done'), form = g('form'), input = g('input');
+    const echo = g('echo'), head = g('head'), body = g('body'), actions = g('actions'), cta = g('cta'), work = g('work'), again = g('again');
+    const FE = window.FieldEngine || {};
+    const CTX = FE.CTX || '', FALLBACK = FE.FALLBACK || [];
+    const on = (t, e, h) => { t.addEventListener(e, h); this.offs.push(() => t.removeEventListener(e, h)); };
+    let busy = false, hist = [], dots = 0;
+    const fit = () => { input.size = Math.max(6, Math.min(34, (input.value || input.placeholder).length + 1)); };
+    const split = a => {
+      a = String(a).trim();
+      const m = a.match(/^HEADLINE:\s*(.+?)\s*\n+\s*BODY:\s*([\s\S]+)$/i);
+      if (m) return [m[1].trim(), m[2].trim()];
+      const k = a.search(/[.!?](\s|$)/);
+      return k > 0 && k < 90 ? [a.slice(0, k + 1), a.slice(k + 1).trim()] : ['', a];
+    };
+    const ask = async raw => {
+      let q = (raw || '').trim().replace(/^[…\.]+/, '').slice(0, 200); if (!q || busy) return;
+      busy = true;
+      echo.textContent = q.replace(/[?.]*$/, '') + '.';
+      idle.style.display = 'none'; done.style.display = 'block'; actions.style.display = 'none';
+      body.textContent = ''; head.style.color = 'var(--t4)';
+      const tick = setInterval(() => { dots = (dots + 1) % 4; head.textContent = 'Thinking' + '.'.repeat(dots); }, 280);
+      head.textContent = 'Thinking';
+      const full = "I'd like to know " + q;
+      let a = '';
+      try {
+        if (window.claude && window.claude.complete) {
+          const convo = hist.map(h => (h.r === 'u' ? 'Visitor: ' : 'You: ') + h.c).join('\n');
+          a = await window.claude.complete(CTX + ' "The platform" always means the AI Deployment Platform.\n\nFormat exactly:\nHEADLINE: a direct answer in at most 8 words\nBODY: one to three plain sentences of detail.' + (convo ? '\n\nEarlier:\n' + convo : '') + '\n\nQuestion: ' + full);
+        }
+      } catch (e) { a = ''; }
+      if (!a) {
+        if (/cost|price|budget|charge|rate/i.test(q)) a = 'HEADLINE: A fixed price, agreed up front.\nBODY: Projects range from about ₹10k to ₹10L+, depending on scope. After a short call he writes a plan with one fixed number and a date, never an hourly meter.';
+        else if (/work|free|available|hire|taking/i.test(q)) a = 'HEADLINE: Yes, this quarter.\nBODY: He usually replies the same day. It starts with a short call, then a written plan with a fixed price and a date.';
+        else { const hit = FALLBACK.find(f => f[0].test(q)); a = hit ? hit[1] : 'HEADLINE: The site doesn’t cover that yet.\nBODY: Email chaitanya.sai311@gmail.com and he will answer directly, usually the same day.'; }
+      }
+      clearInterval(tick); busy = false;
+      if (this.dead) return;
+      const [h, b] = split(a);
+      hist = hist.concat([{ r: 'u', c: full }, { r: 'a', c: a }]).slice(-6);
+      head.style.color = 'var(--ac)'; head.textContent = h || b; body.textContent = h ? b : '';
+      body.style.display = body.textContent ? 'block' : 'none';
+      const hire = /work|free|available|hire|taking|cost|price|budget|project for|build/i.test(q);
+      const proj = /vellum|platform|scoreday|orient|project|deploy|kubernetes/i.test(q + ' ' + a);
+      cta.style.display = hire ? 'inline-flex' : 'none';
+      work.style.display = !hire && proj ? 'inline-flex' : 'none';
+      actions.style.display = 'flex';
+    };
+    on(input, 'input', fit); fit();
+    on(form, 'submit', e => { e.preventDefault(); ask(input.value || input.placeholder); input.value = ''; fit(); });
+    root.querySelectorAll('[data-ask-chip]').forEach(c => on(c, 'click', () => ask(c.dataset.askChip)));
+    on(again, 'click', () => { if (busy) return; done.style.display = 'none'; idle.style.display = 'block'; input.focus(); });
+  }
+  setupRich() {
+    const root = document.querySelector('[data-fe-root]'); if (!root) return;
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const EASE = 'cubic-bezier(0.16,1,0.3,1)';
+    // masked line rise: wrap words, delay by visual line
+    const heads = Array.from(root.querySelectorAll('[data-rise]'));
+    heads.forEach(h => {
+      const walk = n => Array.from(n.childNodes).forEach(c => {
+        if (c.nodeType === 3) {
+          const parts = c.textContent.split(/(\s+)/); if (parts.length === 1 && !parts[0].trim()) return;
+          const frag = document.createDocumentFragment();
+          parts.forEach(p => {
+            if (!p) return;
+            if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
+            const m = document.createElement('span');
+            m.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:top;padding:0.08em 0 0.12em;margin:-0.08em 0 -0.12em;';
+            const w = document.createElement('span');
+            w.dataset.riseW = '1'; w.textContent = p;
+            w.style.cssText = 'display:inline-block;will-change:transform;' + (reduced ? '' : 'transform:translateY(112%);');
+            m.appendChild(w); frag.appendChild(m);
+          });
+          c.replaceWith(frag);
+        } else if (c.nodeType === 1 && c.tagName !== 'BR') walk(c);
+      });
+      walk(h);
+    });
+    const play = h => {
+      const ws = Array.from(h.querySelectorAll('[data-rise-w]'));
+      const hold = Math.max(0, (window.__feRevealAt || 0) - performance.now()) / 1000;
+      let line = -1, lastTop = null;
+      ws.forEach(w => {
+        const t = Math.round(w.parentNode.offsetTop);
+        if (lastTop === null || Math.abs(t - lastTop) > 4) { line++; lastTop = t; }
+        w.style.transition = 'transform 1.1s ' + EASE + ' ' + (hold + line * 0.09).toFixed(2) + 's';
+        w.style.transform = 'translateY(0)';
+      });
+    };
+    if (!reduced) {
+      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { play(e.target); io.unobserve(e.target); } }), { threshold: 0.25, rootMargin: '0px 0px -8% 0px' });
+      heads.forEach(h => io.observe(h));
+      this.offs.push(() => io.disconnect());
+    }
+  }
+  setupLift() {
+    if (matchMedia('(hover: hover) and (pointer: fine)').matches) document.querySelectorAll('[data-now-tile]').forEach(t => {
+      const img = t.querySelector('[data-now-img]'), ti = t.querySelector('[data-now-title]');
+      const set = v => { if (img) { img.style.transform = v ? 'scale(1.035)' : ''; img.style.filter = v ? 'saturate(1) contrast(1)' : 'saturate(0.55) contrast(1.02)'; } if (ti) ti.style.transform = v ? 'translateX(8px)' : ''; };
+      const en = () => set(true), lv = () => set(false);
+      t.addEventListener('mouseenter', en); t.addEventListener('mouseleave', lv);
+      this.offs.push(() => { t.removeEventListener('mouseenter', en); t.removeEventListener('mouseleave', lv); });
+    });
+    if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    const E = 'cubic-bezier(0.16,1,0.3,1)';
+    const on = (t, e, h) => { t.addEventListener(e, h); this.offs.push(() => t.removeEventListener(e, h)); };
+    document.querySelectorAll('[data-lift]').forEach(el => {
+      const arm = () => { if (!/box-shadow/.test(el.style.transition)) el.style.transition = (el.style.transition ? el.style.transition + ', ' : '') + 'box-shadow 0.6s ' + E + ', translate 0.6s ' + E + ', border-color 0.4s ease'; };
+      on(el, 'mouseenter', () => { arm(); el.style.boxShadow = 'var(--sh2)'; el.style.translate = '0 -3px'; el.style.borderColor = 'var(--ln2)'; });
+      on(el, 'mouseleave', () => { el.style.boxShadow = 'var(--sh1)'; el.style.translate = '0 0'; el.style.borderColor = 'var(--ln1)'; });
+    });
+  }
+  setupPreview() {
+    const root = document.querySelector('[data-fe-root]'); if (!root) return;
+    const card = root.querySelector('[data-pv-card]'), cimg = root.querySelector('[data-pv-cimg]'), cap = root.querySelector('[data-pv-cap]');
+    const touch = !matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const on = (t, e, h) => { t.addEventListener(e, h); this.offs.push(() => t.removeEventListener(e, h)); };
+    const st = { x: 0, y: 0, tx: 0, ty: 0, s: 0.96, ts: 0.96, live: false };
+    let raf = 0, last = 0;
+    const paint = t => {
+      const dt = Math.min(50, Math.max(1, last ? t - last : 16.7)); last = t;
+      const k = 1 - Math.pow(1 - 0.2, dt / 16.7), ks = 1 - Math.pow(1 - 0.16, dt / 16.7);
+      st.x += (st.tx - st.x) * k; st.y += (st.ty - st.y) * k; st.s += (st.ts - st.s) * ks;
+      card.style.transform = 'translate3d(' + st.x.toFixed(1) + 'px,' + st.y.toFixed(1) + 'px,0) translate(-50%,-50%) scale(' + st.s.toFixed(4) + ')';
+      if (Math.abs(st.tx - st.x) + Math.abs(st.ty - st.y) + Math.abs(st.ts - st.s) * 200 > 0.2) raf = requestAnimationFrame(paint); else { raf = 0; last = 0; }
+    };
+    const kick = () => { if (!raf) raf = requestAnimationFrame(paint); };
+    this.offs.push(() => cancelAnimationFrame(raf));
+    const aim = e => { st.tx = Math.min(e.clientX + 150, window.innerWidth - 145); st.ty = Math.max(95, Math.min(e.clientY, window.innerHeight - 95)); };
+    const show = (v, e) => {
+      if (v && !st.live && e) { aim(e); st.x = st.tx; st.y = st.ty; }
+      st.live = v; card.style.opacity = v ? '1' : '0'; st.ts = v ? 1 : 0.96; kick();
+    };
+    card.style.left = '0px'; card.style.top = '0px';
+    root.querySelectorAll('[data-pv-row]').forEach(row => {
+      const btn = row.querySelector('[data-fe="work-toggle"]'), title = row.querySelector('[data-pv-title]'), plus = row.querySelector('[data-pv-plus]');
+      const isOpen = () => btn && btn.getAttribute('aria-expanded') === 'true';
+      on(row, 'mouseenter', e => {
+        title.style.transform = 'translateX(14px)'; title.style.color = 'var(--ink)';
+        plus.style.borderColor = 'color-mix(in oklab, var(--ac) 70%, transparent)';
+        if (touch || isOpen()) return;
+        if (cimg.getAttribute('src') !== row.dataset.pvImg) cimg.src = row.dataset.pvImg;
+        cimg.style.display = 'block'; cap.textContent = row.dataset.pvLabel; show(true, e);
+      });
+      on(row, 'mouseleave', () => { title.style.transform = ''; title.style.color = 'var(--t1)'; plus.style.borderColor = 'var(--ln2)'; show(false); });
+      on(row, 'mousemove', e => { if (touch) return; aim(e); kick(); });
+      const inner = row.querySelector('[data-fe="work-panel"] > div');
+      if (inner) { inner.style.opacity = '0'; inner.style.translate = '0 -10px'; inner.style.transition = 'opacity 0.5s ease, translate 0.7s cubic-bezier(0.16,1,0.3,1)'; }
+      if (btn) on(btn, 'click', () => setTimeout(() => { const o = isOpen(); if (o) show(false); if (inner) { inner.style.transitionDelay = o ? '0.12s' : '0s'; inner.style.opacity = o ? '1' : '0'; inner.style.translate = o ? '0 0' : '0 -10px'; } }, 0));
+    });
+  }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,9 +1,10 @@
-# STATE — <!-- updated: 2026-10-17 -->
+# STATE — <!-- updated: 2026-10-26 -->
 
 ## Current focus
-The **FIELD** portfolio: a single fixed-viewport, six-chapter site on a custom
-smooth-scroll stage, a 2D-canvas particle "field" behind everything, and a wine
-curtain between chapters. Palette "Bone paper & wine". No Three.js on the page.
+The **FIELD v3** portfolio: one native-scroll page (hero, About, five chapters) with a fixed
+header chapter pill (bottom bar on phones), a 2D-canvas particle "field" behind everything,
+and a wine curtain on nav clicks and when scrolling into chapters 01–05. Palette "Bone paper
+& wine". No Three.js on the page.
 
 ## Shape
 ```mermaid
@@ -89,6 +90,18 @@ flowchart TD
   chaitanyaparasana.com stream correct answers.
 - **Reddit build log:** `LINKS.reddit` / `SOCIALS.reddit` (u/Chaitanya299) shown as a
   "Build log" link in Contact, added to Person JSON-LD `sameAs`, and given to the assistant.
+- **FIELD v3 (Oct 26):** rebuilt from Claude Design `Portfolio - FIELD v3.dc.html` (source
+  in `design_handoff_portfolio_field/v3/`). `Markup.tsx` is the design's markup generated
+  verbatim (inline styles; `style-hover`/`style-focus` → `!important` classes in
+  `globals.css`), server-rendered. `Field.tsx` runs `engine.ts` (port of `field-engine.js`)
+  plus `setup.ts` (the dc script: chapters/curtain, header tuck, rise, work preview, lift)
+  after fonts load. Removed the custom scroll stage, preloader, nav rail, MobileChapterBar,
+  `chapters.tsx`, `canvas.ts`. New: Stafflo "Now" block (demo shots load from stafflo.ai),
+  sentence-style Ask ("I'd like to know …") answering `HEADLINE:`/`BODY:` streamed from
+  `/api/ask` (design's canned answers as the offline fallback; timing line dropped), contact
+  form on `/api/contact` with honeypot. Build lists 4 services, heading "Four things". Work +
+  Recognition aside labels are `<h2>` so every chapter has a heading. `data.ts` now only
+  grounds the assistant (aligned to v3 copy + Stafflo facts).
 - Earlier: CI/CD (Docker, k8s, Actions), `/api/me` + `/api/health`.
 
 ## Decisions (docs/decisions/)

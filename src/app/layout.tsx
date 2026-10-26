@@ -1,5 +1,5 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Archivo, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -15,9 +15,12 @@ const archivo = Archivo({
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-  weight: ["400"],
+  weight: ["400", "500"],
   display: "swap",
 });
+
+// viewport-fit=cover: the v3 header and mobile chapter pill pad with env(safe-area-inset-*).
+export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -90,6 +93,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${archivo.variable} ${jetbrainsMono.variable}`}>
       <body>
         {children}
+        <noscript>
+          <style>{"[data-fe-root]{opacity:1!important}"}</style>
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
