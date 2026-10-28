@@ -47,11 +47,12 @@ flowchart TD
 ## Decisions (docs/decisions/)
 0006 FIELD engine · 0007 remove Convex → direct Resend (supersedes 0002) · 0008 SEO /
 static-HTML rendering strategy · 0009 Ask assistant on Claude Haiku 5.5 (superseded) ·
-0010 Ask assistant on the Groq free tier. See `docs/ARCHITECTURE.md` for the current shape.
+0010 Ask assistant on the Groq free tier. v3's native scroll (replacing 0006's custom stage)
+was deliberately not recorded as an ADR. See `docs/ARCHITECTURE.md` for the current shape.
 
 ## Next up
-- Record an ADR for v3: native scroll + generated design markup replace the custom stage
-  (supersedes the stage parts of 0006); update `ARCHITECTURE.md` to match.
+- `docs/ARCHITECTURE.md` still describes the pre-v3 stage; refresh it for
+  `Markup.tsx` / `engine.ts` / `setup.ts`.
 - Hero metric says "500ms"; production first word measured 561 to 835ms warm. With the
   timing line gone from the Ask box, decide whether to keep the claim or adjust the copy.
 - Re-run Lighthouse on the v3 page (last 100/100 was the old stage build).
