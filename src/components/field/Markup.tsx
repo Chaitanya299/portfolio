@@ -1,8 +1,10 @@
 // GENERATED from design_handoff_portfolio_field/v3/Portfolio - FIELD v3.dc.html (scratchpad convert.cjs).
 // Markup is the design verbatim: inline styles kept, style-hover/style-focus -> .fh*/.ff* in globals.css.
 // Hand edits after generation: section ids, h1/h2 space nodes, "Four things", form honeypot, and the Work +
-// Recognition aside labels as <h2 style=font:inherit> so every chapter has a heading.
+// Recognition aside labels as <h2 style=font:inherit> so every chapter has a heading, and the Contact
+// <Booking /> block. Contact's A/B/C/D labels are a CSS counter (.ck) so they stay in order while Booking hides.
 /* eslint-disable @next/next/no-img-element */
+import Booking from "./Booking";
 
 export default function Markup() {
   return (
@@ -1272,9 +1274,7 @@ export default function Markup() {
               </p>
               <div data-rv="0" style={{ "marginTop": "clamp(64px,10vh,120px)" }}>
                 <div style={{ "display": "flex", "alignItems": "center", "gap": "14px", "fontFamily": "var(--font-mono),ui-monospace,monospace", "fontSize": "10px", "letterSpacing": "0.24em", "textTransform": "uppercase", "color": "var(--t3)" }}>
-                  <span style={{ "color": "var(--ac)" }}>
-                    A
-                  </span>
+                  <span className="ck" style={{ "color": "var(--ac)" }}></span>
                   <span style={{ "width": "28px", "height": "1px", "background": "var(--ac)" }}></span>
                   <span>
                     The fastest way
@@ -1337,11 +1337,10 @@ export default function Markup() {
                   </div>
                 </div>
               </div>
+              <Booking />
               <div data-rv="0" style={{ "marginTop": "clamp(64px,10vh,120px)" }}>
                 <div style={{ "display": "flex", "alignItems": "center", "gap": "14px", "fontFamily": "var(--font-mono),ui-monospace,monospace", "fontSize": "10px", "letterSpacing": "0.24em", "textTransform": "uppercase", "color": "var(--t3)" }}>
-                  <span style={{ "color": "var(--ac)" }}>
-                    B
-                  </span>
+                  <span className="ck" style={{ "color": "var(--ac)" }}></span>
                   <span style={{ "width": "28px", "height": "1px", "background": "var(--ac)" }}></span>
                   <span>
                     Or tell me about the project
@@ -1423,9 +1422,7 @@ export default function Markup() {
               </div>
               <div data-rv="0" style={{ "marginTop": "clamp(64px,10vh,120px)" }}>
                 <div style={{ "display": "flex", "alignItems": "center", "gap": "14px", "fontFamily": "var(--font-mono),ui-monospace,monospace", "fontSize": "10px", "letterSpacing": "0.24em", "textTransform": "uppercase", "color": "var(--t3)" }}>
-                  <span style={{ "color": "var(--ac)" }}>
-                    C
-                  </span>
+                  <span className="ck" style={{ "color": "var(--ac)" }}></span>
                   <span style={{ "width": "28px", "height": "1px", "background": "var(--ac)" }}></span>
                   <span>
                     What happens next

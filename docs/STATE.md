@@ -1,4 +1,4 @@
-# STATE — <!-- updated: 2026-10-26 -->
+# STATE — <!-- updated: 2026-10-28 -->
 
 ## Current focus
 The **FIELD v3** portfolio: one native-scroll page (hero, About, five chapters) with a fixed
@@ -13,6 +13,7 @@ flowchart TD
   App --> Contact["/api/contact — Resend send"]
   App --> API["/api/me — public JSON resume"]
   App --> Ask["/api/ask — streams Groq gpt-oss-20b"]
+  App --> Book["/api/book — clndr.pro slots + booking"]
 ```
 
 ## Done
@@ -58,7 +59,11 @@ was deliberately not recorded as an ADR. See `docs/ARCHITECTURE.md` for the curr
 - Re-run Lighthouse on the v3 page (last 100/100 was the old stage build).
 
 ## Blocked / needs research
-- None open.
+- Contact "Book a call" (`Booking.tsx`, `/api/book`, `lib/clndr.ts`; stafflo.ai/book flow) is
+  built and booked end to end locally (Oct 31) against `intro-call` on the personal clndr
+  account. Not live: uncommitted, and Vercel needs `CLNDR_PUBLISHABLE_KEY` +
+  `CLNDR_BOOKING_SLUG`. Hidden until set. Use a personal-account publishable key, not an
+  organization key (`stafflo.clndr.pro`): those return the org as host and its pages.
 
 ## Known issues
 - Not browser-tested on v3: reduced-motion mode and dual-screen (viewport-segments) layout.
