@@ -13,6 +13,9 @@ export const SITE_DESCRIPTION =
 export const SITE_OG_DESCRIPTION =
   "AI products that keep working after the demo is over. Voice agents, assistants, and the machinery that runs them.";
 
+// Sitemap lastmod and ProfilePage dateModified. Bump when the page copy changes.
+export const CONTENT_UPDATED = "2026-10-31";
+
 export const SOCIALS = {
   github: "https://github.com/Chaitanya299",
   linkedin: "https://www.linkedin.com/in/saichaitanyaparasana",

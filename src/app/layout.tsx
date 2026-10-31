@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION, SITE_OG_DESCRIPTION, SOCIALS } from "@/lib/site";
+import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION, SITE_OG_DESCRIPTION, SOCIALS, CONTENT_UPDATED } from "@/lib/site";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -66,26 +66,34 @@ export const metadata: Metadata = {
   },
 };
 
-// JSON-LD: describe the site owner as a Person so search engines resolve the entity.
-const personLd = {
+// JSON-LD: a ProfilePage about the site owner, so search engines resolve the person entity.
+const profileLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: SITE_NAME,
-  alternateName: "Sai Chaitanya Parasana",
+  "@type": "ProfilePage",
   url: SITE_URL,
-  jobTitle: "Full-Stack & AI Engineer",
-  description: SITE_DESCRIPTION,
-  address: { "@type": "PostalAddress", addressLocality: "Hyderabad", addressCountry: "IN" },
-  knowsAbout: [
-    "AI agents",
-    "Voice assistants",
-    "Small language models",
-    "Full-stack web development",
-    "Next.js",
-    "Kubernetes",
-    "macOS and mobile apps",
-  ],
-  sameAs: [SOCIALS.github, SOCIALS.linkedin, SOCIALS.reddit],
+  name: SITE_TITLE,
+  dateModified: CONTENT_UPDATED,
+  mainEntity: {
+    "@type": "Person",
+    name: SITE_NAME,
+    alternateName: "Sai Chaitanya Parasana",
+    url: SITE_URL,
+    image: `${SITE_URL}/opengraph-image`,
+    jobTitle: "Full-Stack & AI Engineer",
+    description: SITE_DESCRIPTION,
+    worksFor: { "@type": "Organization", name: "Stafflo", url: "https://www.stafflo.ai" },
+    address: { "@type": "PostalAddress", addressLocality: "Hyderabad", addressCountry: "IN" },
+    knowsAbout: [
+      "AI agents",
+      "Voice agents",
+      "Small language models",
+      "Full-stack web development",
+      "Next.js",
+      "Kubernetes",
+      "macOS and mobile apps",
+    ],
+    sameAs: [SOCIALS.github, SOCIALS.linkedin, SOCIALS.reddit],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -98,7 +106,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </noscript>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(profileLd).replace(/</g, "\\u003c") }}
         />
         <Analytics />
         <SpeedInsights />

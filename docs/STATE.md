@@ -1,4 +1,4 @@
-# STATE — <!-- updated: 2026-10-28 -->
+# STATE — <!-- updated: 2026-10-31 -->
 
 ## Current focus
 The **FIELD v3** portfolio: one native-scroll page (hero, About, five chapters) with a fixed
@@ -17,6 +17,25 @@ flowchart TD
 ```
 
 ## Done
+- **SEO near-term fixes (Oct 31, local, not pushed):** from the audit in
+  `docs/seo/2026-10-31-site-audit/`. The page stays single (no service or case-study pages,
+  by choice).
+  - Copy now says "freelance", "voice agents" and "hire me".
+  - All 6 screenshots are sized and lazy.
+  - `favicon.ico` added.
+  - JSON-LD is a `ProfilePage` (Person + `worksFor` Stafflo + image).
+  - Sitemap `lastmod` = `CONTENT_UPDATED` in `site.ts` (bump it on copy changes).
+  - New static `/llms.txt` + `/index.md` (canonical Link to `/`) from `src/lib/markdown.ts`.
+  - Booking calendar role `group`.
+  - Lighthouse mobile: perf 65 → 93, LCP 14.0 → 3.2 s, page weight 4.8 MB → 605 KB
+    (live before vs local after).
+- **Book a call (Oct 31, `4b122cd`):** Contact block on clndr.pro, stafflo.ai/book flow in
+  FIELD styling. `Booking.tsx` (calendar + times in the guest's timezone, host's questions),
+  `/api/book` (server-side publishable key, upstream cached 60s, validation, honeypot,
+  5/10 min per IP), `lib/clndr.ts`. Page `intro-call` on the personal clndr account; Vercel
+  has `CLNDR_PUBLISHABLE_KEY` + `CLNDR_BOOKING_SLUG`. A real production booking confirmed
+  and its slot closed. Use a personal-account key, not an organization key
+  (`stafflo.clndr.pro`): those return the org as host and its pages.
 - **FIELD v3 (Oct 26, `82c8c63`):** rebuilt from Claude Design `Portfolio - FIELD v3.dc.html`
   (source in `design_handoff_portfolio_field/v3/`). `Markup.tsx` = the design markup generated
   verbatim (inline styles; `style-hover`/`style-focus` → `!important` classes in
@@ -56,16 +75,14 @@ was deliberately not recorded as an ADR. See `docs/ARCHITECTURE.md` for the curr
   `Markup.tsx` / `engine.ts` / `setup.ts`.
 - Hero metric says "500ms"; production first word measured 561 to 835ms warm. With the
   timing line gone from the Ask box, decide whether to keep the claim or adjust the copy.
-- Re-run Lighthouse on the v3 page (last 100/100 was the old stage build).
+- After the SEO push: re-run Lighthouse and the Rich Results Test on the live site. Off-site
+  name links (LinkedIn/GitHub website field and README, Reddit, Stafflo team page) and a
+  Search Console baseline for "chaitanya parasana" are the owner's steps.
 
 ## Blocked / needs research
-- Contact "Book a call" (`Booking.tsx`, `/api/book`, `lib/clndr.ts`; stafflo.ai/book flow) is
-  built and booked end to end locally (Oct 31) against `intro-call` on the personal clndr
-  account. Not live: uncommitted, and Vercel needs `CLNDR_PUBLISHABLE_KEY` +
-  `CLNDR_BOOKING_SLUG`. Hidden until set. Use a personal-account publishable key, not an
-  organization key (`stafflo.clndr.pro`): those return the org as host and its pages.
+None.
 
 ## Known issues
 - Not browser-tested on v3: reduced-motion mode and dual-screen (viewport-segments) layout.
-- Copy edits now go in the generated `Markup.tsx` and, for assistant facts, `data.ts`;
-  the two can drift.
+- Copy edits now go in the generated `Markup.tsx` and in `data.ts`. `data.ts` feeds the
+  assistant, `/llms.txt` and `/index.md`, so the two can drift.

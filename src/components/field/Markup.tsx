@@ -88,7 +88,7 @@ export default function Markup() {
                 <div data-rv="0" style={{ "display": "flex", "flexDirection": "column", "alignItems": "flex-start", "gap": "12px", "lineHeight": "1.6", "fontFamily": "var(--font-mono),ui-monospace,monospace", "fontSize": "10px", "letterSpacing": "0.24em", "textTransform": "uppercase", "color": "var(--t3)" }}>
                   <span style={{ "width": "26px", "height": "1px", "background": "var(--ac)" }}></span>
                   <span>
-                    Full-stack and AI engineer
+                    Freelance full-stack and AI engineer
                   </span>
                   <a href="https://www.stafflo.ai/" target="_blank" rel="noreferrer" data-cursor="link" data-cursor-label="Open" style={{ "display": "inline-flex", "alignItems": "center", "gap": "10px", "color": "var(--ac)", "borderBottom": "1px solid color-mix(in oklab, var(--ac) 40%, transparent)", "paddingBottom": "3px", "flexWrap": "wrap", "rowGap": "6px" }}>
                     <span style={{ "whiteSpace": "nowrap" }}>
@@ -117,7 +117,7 @@ export default function Markup() {
                   </p>
                   <div data-rv="3" style={{ "width": "min(100%,60ch)", "paddingTop": "clamp(4px,1vh,12px)" }}>
                     <p style={{ "fontSize": "clamp(1.08rem,1.3vw,1.26rem)", "lineHeight": "1.65", "color": "var(--t2)", "textWrap": "pretty" }}>
-                      Assistants you can talk to, search that understands a plain question, and the quiet machinery that keeps both running in production.
+                      Voice agents and chat assistants you can talk to, search that understands a plain question, and the quiet machinery that keeps both running in production.
                     </p>
                     <div style={{ "display": "flex", "flexWrap": "wrap", "alignItems": "center", "gap": "16px 24px", "marginTop": "clamp(28px,4.4vh,44px)" }}>
                       <a className="fh1" href="#contact" data-cursor="explore" data-cursor-label={"Say\nhello"} style={{ "display": "inline-flex", "alignItems": "center", "gap": "16px", "minHeight": "48px", "padding": "14px 24px", "background": "var(--ac)", "border": "1px solid var(--ac)", "color": "var(--bg0)", "fontFamily": "var(--font-mono),ui-monospace,monospace", "fontSize": "10.5px", "letterSpacing": "0.2em", "textTransform": "uppercase", "whiteSpace": "nowrap", "transition": "background 0.5s cubic-bezier(0.16,1,0.3,1),border-color 0.5s cubic-bezier(0.16,1,0.3,1)" }}>
@@ -259,7 +259,7 @@ export default function Markup() {
                     <a href="https://www.stafflo.ai/demos/bench-desk" target="_blank" rel="noreferrer" data-cursor="project" data-cursor-label={"Open\ndemo"} data-now-tile="1" style={{ "display": "flex", "flexDirection": "column", "minWidth": "0" }}>
                       <span style={{ "position": "relative", "display": "block", "aspectRatio": "16/10", "overflow": "hidden", "background": "var(--bg2)", "border": "1px solid var(--ln2)" }}>
                         {" "}
-                        <img data-now-img="1" src="https://www.stafflo.ai/demos/bench-desk/1440-light-01.png" alt="Bench Desk: the bench of consultants with skills, days on the bench, rate floor and bench cost a day." loading="eager" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "objectFit": "cover", "objectPosition": "top left", "filter": "saturate(0.55) contrast(1.02)", "transformOrigin": "top left", "transition": "transform 0.9s cubic-bezier(0.16,1,0.3,1),filter 0.6s ease" }} />
+                        <img data-now-img="1" src="https://www.stafflo.ai/demos/bench-desk/1440-light-01.png" alt="Bench Desk: the bench of consultants with skills, days on the bench, rate floor and bench cost a day." width={1440} height={900} loading="lazy" decoding="async" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "objectFit": "cover", "objectPosition": "top left", "filter": "saturate(0.55) contrast(1.02)", "transformOrigin": "top left", "transition": "transform 0.9s cubic-bezier(0.16,1,0.3,1),filter 0.6s ease" }} />
                         {" "}
                         <span style={{ "position": "absolute", "inset": "0", "background": "linear-gradient(transparent 55%, color-mix(in oklab, var(--bg1) 70%, transparent))", "pointerEvents": "none" }}></span>
                         {" "}
@@ -286,7 +286,7 @@ export default function Markup() {
                     <a href="https://www.stafflo.ai/demos/module-kit" target="_blank" rel="noreferrer" data-cursor="project" data-cursor-label={"Open\ndemo"} data-now-tile="1" style={{ "display": "flex", "flexDirection": "column", "minWidth": "0" }}>
                       <span style={{ "position": "relative", "display": "block", "aspectRatio": "16/10", "overflow": "hidden", "background": "var(--bg2)", "border": "1px solid var(--ln2)" }}>
                         {" "}
-                        <img data-now-img="1" src="https://www.stafflo.ai/demos/module-kit/1440-light-01.png" alt="Private AI Module Kit: a white-labelled client portal listing statements received, ready to be read." loading="eager" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "objectFit": "cover", "objectPosition": "top left", "filter": "saturate(0.55) contrast(1.02)", "transformOrigin": "top left", "transition": "transform 0.9s cubic-bezier(0.16,1,0.3,1),filter 0.6s ease" }} />
+                        <img data-now-img="1" src="https://www.stafflo.ai/demos/module-kit/1440-light-01.png" alt="Private AI Module Kit: a white-labelled client portal listing statements received, ready to be read." width={1440} height={900} loading="lazy" decoding="async" style={{ "position": "absolute", "inset": "0", "width": "100%", "height": "100%", "objectFit": "cover", "objectPosition": "top left", "filter": "saturate(0.55) contrast(1.02)", "transformOrigin": "top left", "transition": "transform 0.9s cubic-bezier(0.16,1,0.3,1),filter 0.6s ease" }} />
                         {" "}
                         <span style={{ "position": "absolute", "inset": "0", "background": "linear-gradient(transparent 55%, color-mix(in oklab, var(--bg1) 70%, transparent))", "pointerEvents": "none" }}></span>
                         {" "}
@@ -347,7 +347,7 @@ export default function Markup() {
                     <span style={{ "color": "var(--ac)" }}>
                       4 projects
                     </span>
-                    {" end to end, from the first call to the thing running in production."}
+                    {" end to end, from the first call to the thing running in production. You can hire me for a single build or a longer contract, remote or from Hyderabad."}
                   </p>
                 </div>
               </div>
@@ -424,7 +424,7 @@ export default function Markup() {
                     01
                   </span>
                   <h3 style={{ "flex": "1 1 300px", "maxWidth": "22ch", "fontSize": "clamp(1.3rem,2.2vw,1.9rem)", "fontWeight": "500", "letterSpacing": "-0.02em", "lineHeight": "1.18", "color": "var(--ink)" }}>
-                    Agents you can talk to
+                    Voice and chat agents you can talk to
                   </h3>
                   <div style={{ "width": "min(100%,60ch)" }}>
                     <p style={{ "fontSize": "clamp(1.06rem,1.2vw,1.2rem)", "lineHeight": "1.62", "color": "var(--t2)", "textWrap": "pretty" }}>
@@ -651,7 +651,7 @@ export default function Markup() {
                         </span>
                       </a>
                       <div style={{ "flex": "1 1 100%", "minWidth": "0", "maxWidth": "760px", "padding": "clamp(8px,1vw,14px)", "border": "1px solid var(--ln2)", "background": "var(--bg2)", "boxShadow": "inset 0 1px 0 color-mix(in oklab, var(--bg0) 85%, transparent), 0 1px 2px oklch(0.3 0.07 25 / 0.06), 0 28px 56px -32px var(--shadow), 0 70px 120px -70px oklch(0.3 0.07 25 / 0.2)" }}>
-                        <img src="/work/ai-platform.png" alt="The AI Platform GitOps dashboard: a Deploy an AI service form beside a Deploy assistant side panel." style={{ "display": "block", "width": "100%", "height": "auto", "objectFit": "contain" }} />
+                        <img src="/work/ai-platform.png" width={2456} height={1364} loading="lazy" decoding="async" alt="The AI Platform GitOps dashboard: a Deploy an AI service form beside a Deploy assistant side panel." style={{ "display": "block", "width": "100%", "height": "auto", "objectFit": "contain" }} />
                       </div>
                     </div>
                   </div>
@@ -738,7 +738,7 @@ export default function Markup() {
                         </span>
                       </a>
                       <div style={{ "flex": "1 1 100%", "minWidth": "0", "maxWidth": "760px", "padding": "clamp(8px,1vw,14px)", "border": "1px solid var(--ln2)", "background": "var(--bg2)", "boxShadow": "inset 0 1px 0 color-mix(in oklab, var(--bg0) 85%, transparent), 0 1px 2px oklch(0.3 0.07 25 / 0.06), 0 28px 56px -32px var(--shadow), 0 70px 120px -70px oklch(0.3 0.07 25 / 0.2)" }}>
-                        <img src="/work/vellum.png" alt="Vellum's macOS menu-bar panel with texture toggle, intensity slider and quick paper textures." style={{ "display": "block", "width": "100%", "height": "auto", "objectFit": "contain" }} />
+                        <img src="/work/vellum.png" width={1002} height={930} loading="lazy" decoding="async" alt="Vellum's macOS menu-bar panel with texture toggle, intensity slider and quick paper textures." style={{ "display": "block", "width": "100%", "height": "auto", "objectFit": "contain" }} />
                       </div>
                     </div>
                   </div>
@@ -831,7 +831,7 @@ export default function Markup() {
                         </span>
                       </a>
                       <div style={{ "flex": "1 1 100%", "minWidth": "0", "maxWidth": "760px", "padding": "clamp(8px,1vw,14px)", "border": "1px solid var(--ln2)", "background": "var(--bg2)", "boxShadow": "inset 0 1px 0 color-mix(in oklab, var(--bg0) 85%, transparent), 0 1px 2px oklch(0.3 0.07 25 / 0.06), 0 28px 56px -32px var(--shadow), 0 70px 120px -70px oklch(0.3 0.07 25 / 0.2)" }}>
-                        <img src="/work/scoreday.png" alt="ScoreDay's monthly progress view with score history chart and activity calendar." style={{ "display": "block", "width": "100%", "height": "auto", "objectFit": "contain" }} />
+                        <img src="/work/scoreday.png" width={2880} height={1800} loading="lazy" decoding="async" alt="ScoreDay's monthly progress view with score history chart and activity calendar." style={{ "display": "block", "width": "100%", "height": "auto", "objectFit": "contain" }} />
                       </div>
                     </div>
                   </div>
@@ -924,7 +924,7 @@ export default function Markup() {
                         </span>
                       </a>
                       <div style={{ "flex": "1 1 100%", "minWidth": "0", "maxWidth": "760px", "padding": "clamp(8px,1vw,14px)", "border": "1px solid var(--ln2)", "background": "var(--bg2)", "boxShadow": "inset 0 1px 0 color-mix(in oklab, var(--bg0) 85%, transparent), 0 1px 2px oklch(0.3 0.07 25 / 0.06), 0 28px 56px -32px var(--shadow), 0 70px 120px -70px oklch(0.3 0.07 25 / 0.2)" }}>
-                        <img src="/work/orient.svg" alt="Orient's project map: STATE.md, an append-only decision log and request tracing beside the code." style={{ "display": "block", "width": "100%", "height": "auto", "objectFit": "contain" }} />
+                        <img src="/work/orient.svg" width={1440} height={900} loading="lazy" decoding="async" alt="Orient's project map: STATE.md, an append-only decision log and request tracing beside the code." style={{ "display": "block", "width": "100%", "height": "auto", "objectFit": "contain" }} />
                       </div>
                     </div>
                   </div>

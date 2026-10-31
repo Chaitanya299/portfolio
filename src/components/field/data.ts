@@ -9,11 +9,11 @@ export const LINKS = {
 };
 
 export const HERO = {
-  eyebrow: ["Full-stack and AI engineer", "Hyderabad, India"],
+  eyebrow: ["Freelance full-stack and AI engineer", "Hyderabad, India"],
   name: ["Chaitanya", "Parasana"],
   proposition: "AI products that keep working after the demo is over.",
   propositionSub:
-    "Assistants you can talk to, search that understands a plain question, and the quiet machinery that keeps both running in production.",
+    "Voice agents and chat assistants you can talk to, search that understands a plain question, and the quiet machinery that keeps both running in production.",
   availability: "Available this quarter",
   metrics: [
     { num: "500ms", cap: "Live answer, voice or chat" },
@@ -39,7 +39,7 @@ export const NOW = {
 export const ABOUT = {
   paragraphs: [
     "A demo only has to work once, in front of a friendly audience. Real software has to work at two in the morning, for someone in a hurry, on a bad connection. That second thing is the job I take.",
-    "Over the last year I've shipped 4 projects end to end, from the first call to the thing running in production.",
+    "Over the last year I've shipped 4 projects end to end, from the first call to the thing running in production. You can hire me for a single build or a longer contract, remote or from Hyderabad.",
   ],
   tags: ["Voice agents", "AI agents and SLM", "Web development", "Freelance work", "Mac and mobile apps"],
   services: [
@@ -67,7 +67,7 @@ export const BUILD = {
   services: [
     {
       n: "01",
-      title: "Agents you can talk to",
+      title: "Voice and chat agents you can talk to",
       desc: "Voice and chat assistants that answer in real time, hold context, and hand off to a person when they should.",
       tl: "3–6 weeks",
     },

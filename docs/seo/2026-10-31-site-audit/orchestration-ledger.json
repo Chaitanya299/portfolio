@@ -1,0 +1,341 @@
+{
+  "ledger_version": "1.0.0",
+  "suite_version": "3.3.0",
+  "created_at": "2026-10-31T08:49:54Z",
+  "request": {
+    "summary": "Assess and improve organic and AI-search visibility of chaitanyaparasana.com",
+    "mode": "broad",
+    "authorized_boundary": "read-only audit and local work documents; no site code, release or provider changes"
+  },
+  "overall_state": "blocked",
+  "skills": [
+    {
+      "skill": "ai-search-research",
+      "state": "blocked",
+      "reason": "Formal Research Pack needs repeated multi-engine captures; only a single US-only web index was available",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [],
+      "blocker": "Formal Research Pack needs repeated multi-engine captures; only a single US-only web index was available",
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-aeo",
+      "state": "blocked",
+      "reason": "Requires a validated Research Pack (ai-search-research blocked)",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [],
+      "blocker": "Requires a validated Research Pack (ai-search-research blocked)",
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-geo",
+      "state": "blocked",
+      "reason": "Requires a validated Research Pack (ai-search-research blocked)",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [],
+      "blocker": "Requires a validated Research Pack (ai-search-research blocked)",
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "ai-visibility-monitor",
+      "state": "blocked",
+      "reason": "Requires a frozen Query Corpus and Research Pack",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [],
+      "blocker": "Requires a frozen Query Corpus and Research Pack",
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo",
+      "state": "completed",
+      "reason": "Router intake, coverage, synthesis; delivery-summary.md",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [
+        "delivery-summary.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-action-plan",
+      "state": "blocked",
+      "reason": "Owner has not chosen the near-term or leadership track",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [],
+      "blocker": "Owner has not chosen the near-term or leadership track",
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-agentic",
+      "state": "completed",
+      "reason": "Booking and contact forms have labelled fields and named submit buttons (booking test 2026-10-31)",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [
+        "findings.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-architecture",
+      "state": "completed",
+      "reason": "Single URL with hash anchors; no internal URL graph; per-intent pages proposed (F2)",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [
+        "findings.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-authority",
+      "state": "completed",
+      "reason": "Profile backlinks reviewed (GitHub, LinkedIn, Reddit, Stafflo); no backlink tool data",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [
+        "findings.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-audit",
+      "state": "completed",
+      "reason": "Multi-lane read-only assessment of the single canonical URL",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [
+        "findings.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-commerce",
+      "state": "not-applicable",
+      "reason": "No products, prices or merchant feeds",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-competitor-pages",
+      "state": "not-applicable",
+      "reason": "No comparison or alternative pages requested or present",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-content",
+      "state": "completed",
+      "reason": "Body copy vs promised service terms (F2)",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [
+        "findings.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-hreflang",
+      "state": "not-applicable",
+      "reason": "One English locale, one URL",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-images",
+      "state": "completed",
+      "reason": "Alt text present; intrinsic sizes missing (F3)",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [
+        "findings.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-local",
+      "state": "not-applicable",
+      "reason": "Remote engineer; no storefront, service area or business profile",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-news-discover",
+      "state": "not-applicable",
+      "reason": "Not a publisher; no articles",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-page",
+      "state": "completed",
+      "reason": "Title, description, h1/h2, snippet-to-body fit (F2)",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [
+        "findings.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-plan",
+      "state": "blocked",
+      "reason": "Owner has not chosen the near-term or leadership track",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [],
+      "blocker": "Owner has not chosen the near-term or leadership track",
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-programmatic",
+      "state": "not-applicable",
+      "reason": "No template or data-driven page system",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-research",
+      "state": "completed",
+      "reason": "Query families from page claims plus dated web-search samples; no volume data source",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [
+        "findings.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-performance",
+      "state": "blocked",
+      "reason": "No Search Console or Bing Webmaster access granted; PageSpeed Insights API returned 429 quota",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [],
+      "blocker": "No Search Console or Bing Webmaster access granted; PageSpeed Insights API returned 429 quota",
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-schema",
+      "state": "completed",
+      "reason": "Person JSON-LD reviewed; ProfilePage/worksFor proposed (F5)",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [
+        "findings.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-sitemap",
+      "state": "completed",
+      "reason": "Valid one-URL sitemap; lastmod is build time (F6)",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [
+        "findings.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-technical",
+      "state": "completed",
+      "reason": "Status, redirects, robots, canonical, directives, favicon (F4), HTML weight (F7), llms.txt (F8)",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [
+        "findings.md"
+      ],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "seo-video",
+      "state": "not-applicable",
+      "reason": "No video on the site",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [],
+      "blocker": null,
+      "owner_decision_ref": null
+    },
+    {
+      "skill": "optimise-seo",
+      "state": "blocked",
+      "reason": "Implementation not authorized; boundary is read-only",
+      "evidence_refs": [
+        "findings.md"
+      ],
+      "output_refs": [],
+      "blocker": "Implementation not authorized; boundary is read-only",
+      "owner_decision_ref": null
+    }
+  ],
+  "coverage_summary": "12 completed, 8 blocked (data access, Research Pack, owner decision, authorization), 7 not applicable",
+  "limitations": [
+    "No GSC/Bing/analytics data",
+    "No CWV today (PSI quota)",
+    "No keyword volume source",
+    "Single non-Google search sample for brand query"
+  ]
+}

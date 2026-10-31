@@ -167,7 +167,7 @@ export default function Booking() {
                   <button type="button" className="bk-nav" onClick={() => shift(1)} disabled={!canNext} aria-label="Next month" data-cursor="explore" data-cursor-label="Next">›</button>
                 </div>
               </div>
-              <div className="bk-cal" role="grid" aria-label="Days with open times">
+              <div className="bk-cal" role="group" aria-label="Days with open times">
                 {WEEK.map((w, i) => <span key={"w" + i} className="bk-dow" aria-hidden="true">{w}</span>)}
                 {grid.map((k, i) =>
                   !k ? <span key={"b" + i} /> : byDay.has(k) ? (

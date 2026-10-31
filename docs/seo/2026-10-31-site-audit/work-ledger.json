@@ -1,0 +1,33 @@
+{
+  "ledger_version": "1.0.0",
+  "title": "SEO pass on chaitanyaparasana.com (2026-10-31)",
+  "steps": [
+    {
+      "id": "audit",
+      "path": "findings.md",
+      "title": "Site audit findings",
+      "status": "completed",
+      "owner": "Chaitanya Parasana",
+      "outcome": "8 findings: 2 important (name entity, one URL for every query), 6 minor",
+      "sha256": "55532510721733fe4dc5bc6a792f7e2fc916732e7110de2a470702b915ebc60c"
+    },
+    {
+      "id": "summary",
+      "path": "delivery-summary.md",
+      "title": "Delivery summary and coverage",
+      "status": "completed",
+      "owner": "Chaitanya Parasana",
+      "outcome": "Read-only boundary reached; owner to pick near-term or leadership track",
+      "sha256": "dbb9a9a3878c6d0633f463cc3717b012ba3cf72c105b1a8107b45dc8e2cba3cc"
+    },
+    {
+      "id": "implementation",
+      "path": "implementation.md",
+      "title": "Near-term fixes implemented",
+      "status": "completed",
+      "owner": "Chaitanya Parasana",
+      "outcome": "F1-F8 fixed locally; mobile LCP 14.0s to 3.2s, page weight 4.8MB to 605KB (local); not pushed",
+      "sha256": "c42062ea6f6cdfe4cc8cbd53c21d7e1a16a4e3c9e54a10a62dd3f9c1f1b1e531"
+    }
+  ]
+}
