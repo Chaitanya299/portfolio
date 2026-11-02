@@ -72,7 +72,7 @@ const profileLd = {
   "@type": "ProfilePage",
   url: SITE_URL,
   name: SITE_TITLE,
-  dateModified: CONTENT_UPDATED,
+  dateModified: `${CONTENT_UPDATED}T00:00:00+05:30`, // schema.org wants a full datetime here
   mainEntity: {
     "@type": "Person",
     name: SITE_NAME,
