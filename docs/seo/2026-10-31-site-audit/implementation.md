@@ -47,7 +47,27 @@ Lighthouse 12.8.2, mobile, default throttling.
   - 6/6 images sized and lazy, with rendered aspect ratios matching the attributes;
   - hero, About and service card render the new copy, and the particle field runs.
 
+## Live (2026-11-02, after pushing `924390e`)
+- **Live routes:**
+  - `/favicon.ico` 200; `/llms.txt` and `/index.md` 200, with the canonical Link header;
+  - sitemap `lastmod` 2026-10-31; ProfilePage JSON-LD present;
+  - 6/6 images sized and lazy; new copy present.
+- **Lighthouse mobile, live:** perf 92, a11y 100, best practices 100, SEO 100. LCP 3.3 s,
+  Speed Index 2.1 s, CLS 0, TBT 20 ms, 587 KiB (was 65/95/100/100, LCP 14.0 s, 4,827 KiB).
+- **Rich Results Test:**
+  - Profile page: 1 valid item, eligible.
+  - One non-critical issue: `dateModified` must be a full datetime. Fixed in `0b93c69`
+    (`2026-10-31T00:00:00+05:30`), committed but not pushed.
+- **GitHub:**
+  - the profile website field already pointed to the site;
+  - the profile README's Portfolio badge pointed to the old `saichaitanyadev.vercel.app`.
+    It now points to `www.chaitanyaparasana.com`, plus a text link (commit `b8fdac8` in
+    Chaitanya299/Chaitanya299).
+- **Old domain:** `saichaitanyadev.vercel.app` still serves the same site (canonical to the
+  custom domain). A 308 redirect in Vercel Domains would be cleaner.
+
 ## Pending
-- Push (owner approval), then re-check on the live site and run the Rich Results Test.
-- Re-run Lighthouse on the live site.
-- Off-site links and the Search Console steps (owner).
+- Search Console URL Inspection and Request indexing: blocked on Google sign-in (Claude in
+  Chrome not connected; the browser pane is signed out).
+- Push `0b93c69`.
+- LinkedIn, Reddit and Stafflo links (owner).
